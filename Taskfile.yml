@@ -1,0 +1,19 @@
+version: '3'
+
+tasks:
+  clean:
+    desc: Cleans the whole repository from dependencies / build files and so on
+    cmds:
+      - node scripts/clean.js
+
+  install-deps:
+    desc: Installs all dependencies of all workspaces (be carefull in large projects)
+    cmds:
+      - cd frontend;yarn install
+      - cd backend;yarn install
+
+  update-deps:
+    desc: Updates all yarn workspace dependencies and cleans the project
+    cmds:
+      - node scripts/clean.js
+      - node scripts/update-deps.js

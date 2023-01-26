@@ -1,0 +1,77 @@
+{
+  // Editor
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "editor.formatOnSaveMode": "file",
+  "files.autoSave": "onFocusChange",
+
+  // Explorer
+  "workbench.iconTheme": "material-icon-theme",
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "package.json": ".dockerignore,.gitignore,gulpfile.mjs",
+    "svelte.config.js": "vite.config.js,tailwind.config.cjs,tsconfig.json",
+    "Taskfile.yml": ".gitignore,.editorconfig",
+    "README.md": "LICENSE"
+  },
+  "material-icon-theme.folders.associations": {
+    "infrastructure": "cluster"
+  },
+  "files.exclude": {
+    "**/.svelte-kit": true,
+    "**/yarn.lock": true,
+    "**/node_modules": true,
+    "**/.turbo": true
+  },
+
+  // Typescript
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+
+  // CSS
+  "scss.lint.unknownAtRules": "ignore",
+
+  // ESLint
+  "eslint.validate": ["svelte", "javascript", "typescript", "css"],
+  "eslint.probe": ["svelte", "javascript", "typescript", "css"],
+  "eslint.codeAction.showDocumentation": {
+    "enable": true
+  },
+  "eslint.workingDirectories": ["frontend/app", "frontend/modules/ui-system"],
+
+  //! Svelte
+  "svelte.plugin.svelte.format.enable": true,
+  "svelte.plugin.svelte.format.config.svelteSortOrder": "options-markup-styles-scripts",
+  "svelte.plugin.css.completions.enable": true,
+  "svelte.plugin.css.diagnostics.enable": true,
+  "svelte.plugin.svelte.diagnostics.enable": true,
+  "svelte.plugin.typescript.diagnostics.enable": true,
+
+  //! Formatters
+  "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+  "[json][json][html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript][javascript]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+
+  //! Spelling
+  "cSpell.words": [
+    "hoersel",
+    "Hörsel",
+    "Kärst",
+    "kita",
+    "Mechterstädt",
+    "poppins",
+    "tailwindcss",
+    "Teutleben"
+  ]
+}

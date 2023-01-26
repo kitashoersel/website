@@ -1,0 +1,16 @@
+{
+  "name": "kita-frontend",
+  "private": true,
+  "license": "MIT",
+  "workspaces": [
+    "modules/*",
+    "app"
+  ],
+  "scripts": {
+    "app": "yarn workspace @modules/app",
+    "ui-system": "yarn workspace @modules/ui-system",
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint"
+  }
+}

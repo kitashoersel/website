@@ -1,0 +1,9 @@
+# System specific
+.DS_Store
+
+# Dependencies
+node_modules
+
+# Generated output
+dist
+.turbo
