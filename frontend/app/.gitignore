@@ -11,6 +11,12 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
+i18n-svelte.ts
+i18n-types.ts
+i18n-util.async.ts
+i18n-util.sync.ts
+i18n-util.ts
+
 # Environments
 .env
 

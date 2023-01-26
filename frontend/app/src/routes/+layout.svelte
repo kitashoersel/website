@@ -1,18 +1,20 @@
 <script lang="typescript">
-  import '~/app.scss';
-  import '~/routes/+page.scss';
-  import { locale, loadTranslations } from '$lib/translations';
+  import { setLocale } from '$i18n/i18n-svelte';
+  import { page } from '$app/stores';
+  import type { LayoutData } from './$types';
 
-  export const load: LayoutLoad = async ({ url }) => {
-    const { pathname } = url;
-    const defaultLocale = 'en'; // get from cookie, user session, ...
-    const initLocale = locale.get() || defaultLocale; // set default if no locale already set
-    await loadTranslations(initLocale, pathname); // keep this just before the `return`
-
-    return {};
-  };
+  export let data: LayoutData;
+  setLocale(data.locale);
 </script>
 
-<div class="bg-slate-800 w-full min-h-screen h-screen">
+<main class="bg-slate-800 w-full min-h-screen h-screen">
   <slot />
-</div>
+</main>
+
+<svelte:head>
+  <title>{$page.data.title || 'Kitas der Gemeinde Hörsel'}</title>
+</svelte:head>
+
+<style lang="scss" global>
+  @import '../app.scss';
+</style>

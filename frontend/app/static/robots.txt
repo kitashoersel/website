@@ -1,2 +1,3 @@
 User-agent: *
 Disallow:
+Sitemap: https://tobias-kaerst.de/sitemap.xml
