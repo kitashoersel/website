@@ -16,7 +16,6 @@
     "typesafe-i18n": "typesafe-i18n"
   },
   "devDependencies": {
-    "@jsdevtools/rehype-toc": "^3.0.2",
     "@modules/eslint-config": "^1.0.0",
     "@modules/prettier-config": "^1.0.0",
     "@modules/ui-system": "^1.0.0",
