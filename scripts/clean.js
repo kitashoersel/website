@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const initialFolders = ['backend'];
+const initialFolders = ['frontend'];
 const deletePattern = [
   'node_modules',
   'build',
