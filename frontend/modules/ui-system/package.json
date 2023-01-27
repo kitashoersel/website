@@ -23,9 +23,7 @@
     "postcss-cli": "^10.1.0",
     "postcss-js": "^4.0.0",
     "sass": "^1.57.1",
-    "through2": "^4.0.2"
-  },
-  "peerDependencies": {
+    "through2": "^4.0.2",
     "tailwindcss": "^3.2.4"
   },
   "prettier": "@modules/prettier-config",
