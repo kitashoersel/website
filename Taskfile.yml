@@ -9,8 +9,7 @@ tasks:
   install-deps:
     desc: Installs all dependencies of all workspaces (be carefull in large projects)
     cmds:
-      - cd frontend;yarn install
-      - cd backend;yarn install
+      - cd frontend;yarn install --force
 
   update-deps:
     desc: Updates all yarn workspace dependencies and cleans the project
