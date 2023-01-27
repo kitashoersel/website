@@ -19,7 +19,7 @@ module.exports = {
           200: '#fbcdc5',
           500: '#f9b9ae',
           600: '#f79b8b',
-          700: '#de8c7d',
+          700: '#9b6258',
         },
         success: {
           100: '#f0faf2',

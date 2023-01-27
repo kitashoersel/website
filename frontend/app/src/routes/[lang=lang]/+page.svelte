@@ -1,10 +1,10 @@
-<script lang="typescript">
+<script lang="ts">
   import { LL } from '$i18n/i18n-svelte';
 </script>
 
-<div class="container m-auto grid place-items-center h-full w-full">
+<div class="container m-auto grid h-full w-full place-items-center">
   <div>
-    <h1 class="text-5xl md:text-8xl text-center font-bold gradient-text cursor-default select-none">
+    <h1 class="gradient-text cursor-default select-none text-center text-5xl font-bold md:text-8xl">
       {$LL.title()}
     </h1>
   </div>

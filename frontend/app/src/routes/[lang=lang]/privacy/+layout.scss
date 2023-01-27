@@ -1,0 +1,16 @@
+.prose-sm {
+  ul {
+    a {
+      @apply text-primary-600;
+    }
+    @apply mb-1 p-0 lg:mb-3;
+  }
+
+  li {
+    @apply m-0 pb-2 lg:p-0;
+
+    ul {
+      @apply pl-5 text-[85%] text-primary-600 lg:pl-10;
+    }
+  }
+}

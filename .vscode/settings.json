@@ -14,13 +14,13 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "package.json": ".dockerignore,.gitignore,gulpfile.mjs",
+    "package.json": ".dockerignore,.gitignore,gulpfile.mjs,.env",
     "svelte.config.js": "vite.config.js,tsconfig.json",
     "tailwind.config.cjs": ".typesafe-i18n.json",
     "Taskfile.yml": ".gitignore,.editorconfig",
     "README.md": "LICENSE",
     "app.html": "app.d.ts,app.scss",
-    "+layout.svelte": "+layout.ts",
+    "+layout.svelte": "+layout.ts,+layout.server.ts,+layout.scss",
     "+page.svelte": "+page.ts,+page.scss"
   },
   "material-icon-theme.folders.associations": {
@@ -46,6 +46,9 @@
 
   // CSS
   "scss.lint.unknownAtRules": "ignore",
+  "tailwindCSS.includeLanguages": {
+    "svelte": "html"
+  },
 
   // ESLint
   "eslint.validate": ["svelte", "javascript", "typescript", "css"],
@@ -54,6 +57,7 @@
     "enable": true
   },
   "eslint.workingDirectories": ["frontend/app", "frontend/modules/ui-system"],
+  "prettier.documentSelectors": ["**/*.svelte"],
 
   //! Svelte
   "svelte.plugin.svelte.format.enable": true,
@@ -77,19 +81,26 @@
 
   //! Spelling
   "cSpell.words": [
+    "dayjs",
     "fontsource",
+    "googlebot",
     "hoersel",
     "Hörsel",
+    "jsdevtools",
     "Kärst",
     "kita",
     "mdsvex",
     "Mechterstädt",
+    "mechterstaedt",
+    "nositelinkssearchbox",
     "nosniff",
     "poppins",
     "precompress",
     "publickey",
+    "rehype",
     "SAMEORIGIN",
     "tailwindcss",
+    "teutleben",
     "Teutleben",
     "typesafe",
     "urlset"

@@ -48,6 +48,7 @@ module.exports = {
     "no-param-reassign": "off",
     "import/no-mutable-exports": "off",
     "import/extensions": "off",
+    "svelte/no-at-html-tags": "off",
     // v4 changes
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],

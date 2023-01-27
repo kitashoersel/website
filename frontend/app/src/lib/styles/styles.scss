@@ -1,0 +1,29 @@
+@import url('./tailwind.scss');
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  font-display: optional !important;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+}
+
+a,
+button {
+  touch-action: manipulation;
+}
+
+em {
+  font-weight: 600;
+  font-style: normal;
+}

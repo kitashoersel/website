@@ -2,8 +2,7 @@ import type { Handle, RequestEvent } from '@sveltejs/kit';
 import { initAcceptLanguageHeaderDetector } from 'typesafe-i18n/detectors';
 import { detectLocale, i18n, isLocale } from '$i18n/i18n-util';
 import { loadAllLocales } from '$i18n/i18n-util.sync';
-
-const rootDomain = 'localhost:3000';
+import { website } from '$lib/config';
 
 loadAllLocales();
 const L = i18n();
@@ -27,7 +26,7 @@ const setSecurityHeaders = (response: Response) => {
     'media-src': ["'self'", 'data:'],
     'object-src': ["'none'"],
     'style-src': ["'self'", "'unsafe-inline'", 'https://hcaptcha.com', 'https://*.hcaptcha.com'],
-    'default-src': ["'self'", rootDomain, `ws://${rootDomain}`],
+    'default-src': ["'self'", website.siteHost, `ws://${website.siteHost}`],
     'script-src': ["'self'", "'unsafe-inline'", 'https://hcaptcha.com', 'https://*.hcaptcha.com'],
     'worker-src': ["'self'"],
   };

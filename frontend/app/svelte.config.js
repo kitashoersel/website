@@ -2,10 +2,10 @@ import adapter from '@sveltejs/adapter-node';
 import preprocess from 'svelte-preprocess';
 
 const locales = ['de', 'en'];
-const ssgPaths = ['privacy'];
+const localizedSSGPaths = ['privacy'];
 
 const localizedPath = (path) => locales.map((locale) => `/${locale}/${path}`);
-const prerenderEntries = ssgPaths.map((path) => localizedPath(path)).flat();
+const prerenderEntries = localizedSSGPaths.map((path) => localizedPath(path)).flat();
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
