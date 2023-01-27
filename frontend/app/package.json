@@ -16,6 +16,7 @@
     "typesafe-i18n": "typesafe-i18n"
   },
   "devDependencies": {
+    "@fontsource/poppins": "^4.5.10",
     "@modules/eslint-config": "^1.0.0",
     "@modules/prettier-config": "^1.0.0",
     "@modules/ui-system": "^1.0.0",
@@ -40,5 +41,9 @@
     "extends": [
       "@modules/eslint-config"
     ]
+  },
+  "dependencies": {
+    "mdsvex": "^0.10.6",
+    "svelte-seo": "^1.4.1"
   }
 }

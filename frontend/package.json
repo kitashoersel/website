@@ -6,6 +6,10 @@
     "modules/*",
     "app"
   ],
+  "nohoist": [
+    "**/typesafe-i18n",
+    "**/typesafe-i18n/**"
+  ],
   "scripts": {
     "app": "yarn workspace @modules/app",
     "ui-system": "yarn workspace @modules/ui-system",

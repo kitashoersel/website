@@ -14,6 +14,7 @@ export function GET() {
     </urlset>`.trim(),
     {
       headers: {
+        'Cache-Control': `max-age=0, s-max-age=${3600}`,
         'Content-Type': 'application/xml',
       },
     }

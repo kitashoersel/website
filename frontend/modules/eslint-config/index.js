@@ -41,23 +41,18 @@ module.exports = {
     // Svelte
     "new-cap": "off",
     "import/no-extraneous-dependencies": "off",
+    "eslint-comments/no-unlimited-disable": "off",
+    "eslint-comments/disable-enable-pair": "off",
+    "import/extensions": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    "no-param-reassign": "off",
+    "import/no-mutable-exports": "off",
+    "import/extensions": "off",
     // v4 changes
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": ["error"],
-    // import
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        js: "never",
-        mjs: "never",
-        jsx: "never",
-        ts: "never",
-        tsx: "never",
-      },
-    ],
   },
   ignorePatterns: [
     "*.mjs",

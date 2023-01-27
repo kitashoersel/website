@@ -15,18 +15,30 @@
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
     "package.json": ".dockerignore,.gitignore,gulpfile.mjs",
-    "svelte.config.js": "vite.config.js,tailwind.config.cjs,tsconfig.json",
+    "svelte.config.js": "vite.config.js,tsconfig.json",
+    "tailwind.config.cjs": ".typesafe-i18n.json",
     "Taskfile.yml": ".gitignore,.editorconfig",
-    "README.md": "LICENSE"
+    "README.md": "LICENSE",
+    "app.html": "app.d.ts,app.scss",
+    "+layout.svelte": "+layout.ts",
+    "+page.svelte": "+page.ts,+page.scss"
   },
   "material-icon-theme.folders.associations": {
-    "infrastructure": "cluster"
+    "infrastructure": "cluster",
+    "params": "project"
   },
   "files.exclude": {
-    "**/.svelte-kit": true,
     "**/yarn.lock": true,
     "**/node_modules": true,
-    "**/.turbo": true
+    "**/.turbo": true,
+
+    // Svelte
+    "**/.svelte-kit": true,
+    "**/i18n-svelte.ts": true,
+    "**/i18n-types.ts": true,
+    "**/i18n-util.async.ts": true,
+    "**/i18n-util.sync.ts": true,
+    "**/i18n-util.ts": true
   },
 
   // Typescript
@@ -65,13 +77,18 @@
 
   //! Spelling
   "cSpell.words": [
+    "fontsource",
     "hoersel",
     "Hörsel",
     "Kärst",
     "kita",
+    "mdsvex",
     "Mechterstädt",
     "poppins",
+    "precompress",
     "tailwindcss",
-    "Teutleben"
+    "Teutleben",
+    "typesafe",
+    "urlset"
   ]
 }
