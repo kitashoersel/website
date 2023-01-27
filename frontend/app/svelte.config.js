@@ -15,9 +15,8 @@ const config = {
       precompress: true,
     }),
     alias: {
-      $lib: 'src/lib',
-      '$lib/*': 'src/lib/*',
       $i18n: 'src/lib/i18n',
+      $lib: 'src/lib',
       '~': 'src',
     },
     prerender: {
