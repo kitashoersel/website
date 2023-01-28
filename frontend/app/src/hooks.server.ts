@@ -1,5 +1,5 @@
 import type { Handle, RequestEvent } from '@sveltejs/kit';
-import { minify } from 'html-minifier';
+import { minify } from 'html-minifier-terser';
 import { initAcceptLanguageHeaderDetector } from 'typesafe-i18n/detectors';
 import { detectLocale, i18n, isLocale } from '$i18n/i18n-util';
 import { loadAllLocales } from '$i18n/i18n-util.sync';

@@ -36,13 +36,14 @@ FROM node:16-alpine AS runner
 WORKDIR /app
 
 RUN npm install pm2 -g
-RUN echo '{"type": "module"}' >> package.json
 
 # Create non root user to run in production
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 svelte
 USER svelte
 
-COPY --from=installer --chown=svelte:nodejs /build/app/build .
+COPY --from=installer --chown=svelte:nodejs /build/app/build/client ./client
+COPY --from=installer --chown=svelte:nodejs /build/app/build/prerendered ./prerendered
+COPY --from=installer --chown=svelte:nodejs /build/app/build/server.mjs .
 
-CMD [ "pm2-runtime", "-n", "app", "-i", "2", "index.js"]
+CMD [ "pm2-runtime", "-n", "app", "-i", "2", "server.mjs"]

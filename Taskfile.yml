@@ -1,6 +1,16 @@
 version: '3'
 
 tasks:
+  start-docker-dev:
+    desc: Setups and starts the docker dev environment
+    cmds:
+      - docker compose -f frontend/docker/docker-compose.yml -p kita up -d
+
+  stop-docker-dev:
+    desc: Removes and stops the docker dev environment
+    cmds:
+      - docker compose -f frontend/docker/docker-compose.yml -p kita down
+
   clean:
     desc: Cleans the whole repository from dependencies / build files and so on
     cmds:
