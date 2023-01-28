@@ -3,9 +3,10 @@ import type { Translation } from '../i18n-types.js';
 const en: Translation = {
   title: 'Hello World',
 
+  mechterstaedt: 'Mechterstädt',
+  teutleben: 'Teutleben',
+
   header: {
-    mechterstaedt: 'Mechterstädt',
-    teutleben: 'Teutleben',
     home: 'Home',
   },
 

@@ -7,10 +7,10 @@
   }
 
   li {
-    @apply m-0 pb-2 lg:p-0;
+    @apply m-0 pb-2 lg:p-[3px];
 
     ul {
-      @apply pl-5 text-[85%] text-primary-600 lg:pl-10;
+      @apply pl-5 text-xs text-primary-600 lg:pl-10 lg:text-base;
     }
   }
 }

@@ -16,8 +16,8 @@
   <div class="article-container flex flex-col-reverse px-8 lg:w-3/4 lg:flex-col">
     <ul class="mb-10 flex gap-5 text-body-md lg:justify-end lg:text-body-lg">
       <li><Link i11n href="/">{$LL.header.home()}</Link></li>
-      <li><Link i11n href="/mechterstaedt">{$LL.header.mechterstaedt()}</Link></li>
-      <li><Link i11n href="/teutleben">{$LL.header.teutleben()}</Link></li>
+      <li><Link i11n href="/mechterstaedt">{$LL.mechterstaedt()}</Link></li>
+      <li><Link i11n href="/teutleben">{$LL.teutleben()}</Link></li>
     </ul>
     <div class="mb-10 text-primary-100 lg:mb-0">
       {#if publishDate && readingTime}

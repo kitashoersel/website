@@ -3,9 +3,10 @@ import type { BaseTranslation } from '../i18n-types.js';
 const de: BaseTranslation = {
   title: 'Hallo Welt',
 
+  mechterstaedt: 'Mechterstädt',
+  teutleben: 'Teutleben',
+
   header: {
-    mechterstaedt: 'Mechterstädt',
-    teutleben: 'Teutleben',
     home: 'Home',
   },
 
