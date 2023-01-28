@@ -1,5 +1,6 @@
 <script lang="ts">
   import SimpleHeader from '$lib/components/SimpleHeader.svelte';
+  import Footer from '$lib/components/footer/Footer.svelte';
   import type { LayoutData } from './$types';
 
   import './+layout.scss';
@@ -13,3 +14,4 @@
     <slot />
   </article>
 </main>
+<Footer />

@@ -1,8 +1,10 @@
 import type { Handle, RequestEvent } from '@sveltejs/kit';
+import { minify } from 'html-minifier';
 import { initAcceptLanguageHeaderDetector } from 'typesafe-i18n/detectors';
 import { detectLocale, i18n, isLocale } from '$i18n/i18n-util';
 import { loadAllLocales } from '$i18n/i18n-util.sync';
 import { website } from '$lib/config';
+import { building } from '$app/environment';
 
 loadAllLocales();
 const L = i18n();
@@ -17,14 +19,14 @@ const setSecurityHeaders = (response: Response) => {
     'base-uri': ["'self'"],
     'child-src': ["'self'"],
     'connect-src': ["'self'", 'ws://localhost:*', 'https://hcaptcha.com', 'https://*.hcaptcha.com'],
-    'img-src': ["'self'", 'data:'],
+    'img-src': ["'self'", 'https://admin.tobias-kaerst.de', 'data:'],
     'font-src': ["'self'", 'data:'],
     'form-action': ["'self'"],
     'frame-ancestors': ["'self'"],
     'frame-src': ["'self'", 'https://hcaptcha.com', 'https://*.hcaptcha.com'],
     'manifest-src': ["'self'"],
     'media-src': ["'self'", 'data:'],
-    'object-src': ["'none'"],
+    'object-src': ["'self'"],
     'style-src': ["'self'", "'unsafe-inline'", 'https://hcaptcha.com', 'https://*.hcaptcha.com'],
     'default-src': ["'self'", website.siteHost, `ws://${website.siteHost}`],
     'script-src': ["'self'", "'unsafe-inline'", 'https://hcaptcha.com', 'https://*.hcaptcha.com'],
@@ -48,6 +50,25 @@ const setSecurityHeaders = (response: Response) => {
   return response;
 };
 
+const minificationOptions = {
+  collapseBooleanAttributes: true,
+  collapseWhitespace: true,
+  conservativeCollapse: true,
+  decodeEntities: true,
+  html5: true,
+  ignoreCustomComments: [/^#/],
+  minifyCSS: true,
+  minifyJS: false,
+  removeAttributeQuotes: true,
+  removeComments: false,
+  removeOptionalTags: true,
+  removeRedundantAttributes: true,
+  removeScriptTypeAttributes: true,
+  removeStyleLinkTypeAttributes: true,
+  sortAttributes: true,
+  sortClassName: true,
+};
+
 export const handle: Handle = async ({ event, resolve }) => {
   const [, lang] = event.url.pathname.split('/');
 
@@ -66,8 +87,15 @@ export const handle: Handle = async ({ event, resolve }) => {
   event.locals.locale = locale;
   event.locals.LL = LL;
 
+  let page = '';
   const response = await resolve(event, {
-    transformPageChunk: ({ html }) => html.replace('%lang%', locale),
+    transformPageChunk: ({ html, done }) => {
+      page += html.replace('%lang%', locale);
+      if (done) {
+        return building ? minify(page, minificationOptions) : page;
+      }
+      return undefined;
+    },
   });
 
   return setSecurityHeaders(response);

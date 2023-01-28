@@ -2,6 +2,7 @@
 import { website } from '$lib/config';
 import { isLocale } from '$lib/i18n/i18n-util';
 import { localeToCode } from '$lib/i18n/localeToCode';
+import type { Locales } from '$lib/i18n/i18n-types';
 
 export const gql = String.raw;
 

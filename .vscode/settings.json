@@ -21,7 +21,8 @@
     "README.md": "LICENSE",
     "app.html": "app.d.ts,app.scss",
     "+layout.svelte": "+layout.ts,+layout.server.ts,+layout.scss",
-    "+page.svelte": "+page.ts,+page.scss"
+    "+page.svelte": "+page.ts,+page.scss",
+    "*.svelte": "$(capture).d.ts"
   },
   "material-icon-theme.folders.associations": {
     "infrastructure": "cluster",
@@ -56,7 +57,11 @@
   "eslint.codeAction.showDocumentation": {
     "enable": true
   },
-  "eslint.workingDirectories": ["frontend/app", "frontend/modules/ui-system"],
+  "eslint.workingDirectories": [
+    "frontend/app",
+    "frontend/modules/ui-system",
+    "frontend/modules/image-optimizer"
+  ],
   "prettier.documentSelectors": ["**/*.svelte"],
 
   //! Svelte
@@ -86,23 +91,32 @@
     "googlebot",
     "hoersel",
     "Hörsel",
+    "imonizer",
     "jsdevtools",
     "Kärst",
     "kita",
+    "lazyload",
     "mdsvex",
     "Mechterstädt",
     "mechterstaedt",
+    "noopener",
+    "noreferrer",
     "nositelinkssearchbox",
     "nosniff",
+    "optimise",
     "poppins",
     "precompress",
     "publickey",
+    "quantisation",
+    "Quantisation",
     "rehype",
     "SAMEORIGIN",
+    "Subsampling",
     "tailwindcss",
     "teutleben",
     "Teutleben",
     "typesafe",
-    "urlset"
+    "urlset",
+    "zerodevx"
   ]
 }

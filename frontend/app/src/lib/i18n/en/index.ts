@@ -4,13 +4,18 @@ const en: Translation = {
   title: 'Hello World',
 
   header: {
-    welcome_to: 'Welcome to the',
-    read_more: 'Learn more...',
     mechterstaedt: 'Mechterstädt',
     teutleben: 'Teutleben',
     home: 'Home',
-    support_association: 'Support association',
-    parent_section: 'Parent area',
+  },
+
+  footer: {
+    header: 'Day-care centers in the municipality of Hörsel',
+    privacy: 'Privacy',
+    imprint: 'Imprint',
+    contact: 'Contact',
+    copyright:
+      "© {year} <a href='https://www.linkedin.com/in/tobias-kärst' target='_blank' rel='noopener noreferrer'>Tobias Kärst</a>. All rights reserved.",
   },
 };
 

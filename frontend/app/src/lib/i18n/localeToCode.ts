@@ -1,3 +1,5 @@
+import type { Locales } from './i18n-types';
+
 export const localeToCode = (locale: Locales) => {
   const converter = {
     de: 'de-DE',
