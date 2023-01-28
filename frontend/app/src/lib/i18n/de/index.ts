@@ -18,6 +18,13 @@ const de: BaseTranslation = {
     copyright:
       "© {year:number} <a href='https://www.linkedin.com/in/tobias-kärst' target='_blank' rel='noopener noreferrer'>Tobias Kärst</a>. All rights reserved.",
   },
+
+  error_404: {
+    error: '404 ERROR',
+    not_found: 'Seite nicht gefunden',
+    not_found_desc: 'Tut uns Leid, die angeforderte Seite konnte nicht gefunden werden. 😿',
+    back_home: 'Wieder nach Hause',
+  },
 };
 
 export default de;

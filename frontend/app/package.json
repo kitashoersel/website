@@ -6,7 +6,7 @@
   "engineStrict": true,
   "scripts": {
     "dev": "npm-run-all --parallel dev:svelte typesafe-i18n",
-    "dev:svelte": "vite dev",
+    "dev:svelte": "vite dev --host",
     "build": "svelte-kit sync && vite build && yarn esbuild-tweaks",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -20,8 +20,8 @@
     "html-minifier-terser": "^7.1.0"
   },
   "devDependencies": {
-    "@modules/eslint-config": "^1.0.0",
     "@modules/esbuild-tweaks": "^1.0.0",
+    "@modules/eslint-config": "^1.0.0",
     "@modules/prettier-config": "^1.0.0",
     "@modules/ui-system": "^1.0.0",
     "@sveltejs/adapter-node": "^1.1.4",
@@ -45,10 +45,6 @@
     "vanilla-lazyload": "^17.8.3",
     "vite": "^4.0.4"
   },
-  "nohoist": [
-    "**/typesafe-i18n",
-    "**/typesafe-i18n/**"
-  ],
   "prettier": "@modules/prettier-config",
   "eslintConfig": {
     "extends": [

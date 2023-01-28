@@ -18,6 +18,13 @@ const en: Translation = {
     copyright:
       "© {year} <a href='https://www.linkedin.com/in/tobias-kärst' target='_blank' rel='noopener noreferrer'>Tobias Kärst</a>. All rights reserved.",
   },
+
+  error_404: {
+    error: '404 ERROR',
+    not_found: 'Page not found',
+    not_found_desc: 'Sorry, the requested page could not be found. 😿',
+    back_home: 'Back home',
+  },
 };
 
 export default en;

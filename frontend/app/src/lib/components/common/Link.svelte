@@ -1,16 +1,22 @@
 <script lang="ts">
   import { page } from '$app/stores';
 
+  let className = 'text-secondary-100 before:bg-secondary-100';
+  export { className as class };
   export let href: string;
   export let animate = true;
   export let i11n = false;
 
-  const url = `/${i11n ? $page.params.lang : ''}${href}`;
+  const url = `/${i11n ? $page.params.lang : ''}${href === '/' ? '' : href}`;
 </script>
 
-<a href={url} class:on={animate} class="relative text-secondary-100"><slot /></a>
+<a href={url} class:on={animate} class={className}><slot /></a>
 
 <style>
+  a {
+    position: relative;
+  }
+
   .on::before {
     content: '';
     position: absolute;
@@ -19,7 +25,6 @@
     height: 1px;
     bottom: 0;
     left: 0;
-    background-color: #fdebe8;
     transform: scaleX(0);
     transition: transform 0.3s ease-in-out;
   }
