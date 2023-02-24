@@ -5,7 +5,7 @@
     "mounts": [
       "source=frontend-node_modules,target=${containerWorkspaceFolder}/frontend/node_modules,type=volume"
     ],
-    "postCreateCommand": "sudo chown node frontend/node_modules&&npm install -g @go-task/cli",
+    "postCreateCommand": "sudo chmod -R 777 frontend && npm install -g @go-task/cli",
     "customizations": {
       "vscode": {
         "settings": {
