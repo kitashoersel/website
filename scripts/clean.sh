@@ -12,5 +12,3 @@ do
   find . -name "${folder}" -type d -prune -not -path "./.bin/*" -exec echo '{}' \; -exec mkdir -p ./.bin/'{}' \; -exec rmdir ./.bin/'{}' \; -exec mv -i '{}' ./.bin/'{}' \;
   echo
 done
-
-
