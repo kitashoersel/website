@@ -20,7 +20,11 @@ const generateLocalizedUrls = (root: string, routes: Route[]) => {
 export function GET() {
   const root = website.siteUrl;
 
-  const localizedRoutes = [{ path: 'privacy', priority: 0.5 }];
+  const localizedRoutes = [
+    { path: '', priority: 0.8 },
+    { path: 'privacy', priority: 0.5 },
+    { path: 'imprint', priority: 0.5 },
+  ];
 
   return new Response(
     `

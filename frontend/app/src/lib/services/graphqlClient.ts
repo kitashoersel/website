@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { website } from '$lib/config';
 import { isLocale } from '$lib/i18n/i18n-util';
-import { localeToCode } from '$lib/i18n/localeToCode';
 import type { Locales } from '$lib/i18n/i18n-types';
 
 export const gql = String.raw;
@@ -18,7 +17,7 @@ export const localizedQuery = (query: string, locale: string | Locales) => {
   if (!isLocale(locale)) {
     throw new Error('locale does not exist');
   }
-  return query.replace('{{LOCALE}}', localeToCode(locale));
+  return query.replace('{{LOCALE}}', locale);
 };
 
 export const fetchGQL = async <T>(query: string, name: string, params?: OptionalParams) => {

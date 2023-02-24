@@ -3,7 +3,7 @@ import { fetchGQL, gql, localizedQuery, type Fetcher } from '$lib/services/graph
 const privacyQuery = gql`
   query {
     privacy {
-      translations(filter: { languages_code: { code: { _eq: "{{LOCALE}}" } } }) {
+      translations(filter: { languages_code: { languages_code: { _eq: "de-DE" } } }) {
         id
         title
         description

@@ -11,7 +11,7 @@
     "@modules/eslint-config": "^1.0.0",
     "@modules/prettier-config": "^1.0.0",
     "autoprefixer": "^10.4.13",
-    "cssnano": "^5.1.14",
+    "cssnano": "^5.1.15",
     "del": "^7.0.0",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
@@ -21,10 +21,10 @@
     "gulp-terser": "^2.1.0",
     "postcss": "^8.4.21",
     "postcss-cli": "^10.1.0",
-    "postcss-js": "^4.0.0",
-    "sass": "^1.57.1",
+    "postcss-js": "^4.0.1",
+    "sass": "^1.58.3",
     "through2": "^4.0.2",
-    "tailwindcss": "^3.2.4"
+    "tailwindcss": "^3.2.7"
   },
   "prettier": "@modules/prettier-config",
   "eslintConfig": {

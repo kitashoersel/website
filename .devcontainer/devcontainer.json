@@ -1,0 +1,111 @@
+{
+    "name": "kita-hoersel",
+    "image": "mcr.microsoft.com/vscode/devcontainers/typescript-node:18-bullseye",
+    "remoteUser": "node",
+    "mounts": [
+      "source=frontend-node_modules,target=${containerWorkspaceFolder}/frontend/node_modules,type=volume"
+    ],
+    "postCreateCommand": "sudo chown node frontend/node_modules&&npm install -g @go-task/cli",
+    "customizations": {
+      "vscode": {
+        "settings": {
+          // Editor settings
+          "editor.formatOnSave": true,
+          "editor.formatOnPaste": false,
+          "editor.formatOnType": false,
+          "editor.codeActionsOnSave": {
+            "source.fixAll": true
+          },
+          "editor.formatOnSaveMode": "file",
+          "files.autoSave": "onFocusChange",
+          "cSpell.language": "en,de-de",
+
+          // Explorer
+          "explorer.fileNesting.enabled": true,
+          "explorer.fileNesting.expand": false,
+          "explorer.fileNesting.patterns": {
+            "package.json": ".dockerignore,.gitignore,gulpfile.mjs,.env,turbo.json",
+            "svelte.config.js": "vite.config.js,tsconfig.json",
+            "tailwind.config.cjs": ".typesafe-i18n.json",
+            "Taskfile.yml": ".gitignore,.editorconfig",
+            "README.md": "LICENSE",
+            "app.html": "app.d.ts,app.scss",
+            "+layout.svelte": "+layout.ts,+layout.server.ts,+layout.scss",
+            "+page.svelte": "+page.ts,+page.scss",
+            "*.svelte": "$(capture).d.ts"
+          },
+          "material-icon-theme.folders.associations": {
+            "infrastructure": "cluster",
+            "params": "project",
+            "development": "container"
+          },
+          "files.exclude": {
+            "**/yarn.lock": true,
+            "**/node_modules": true,
+            "**/.turbo": true,
+
+            // Svelte
+            "**/.svelte-kit": true,
+            "**/i18n-svelte.ts": true,
+            "**/i18n-types.ts": true,
+            "**/i18n-util.async.ts": true,
+            "**/i18n-util.sync.ts": true,
+            "**/i18n-util.ts": true
+          },
+
+          // Typescript
+          "typescript.enablePromptUseWorkspaceTsdk": true,
+          "typescript.preferences.importModuleSpecifier": "non-relative",
+
+          // CSS
+          "scss.lint.unknownAtRules": "ignore",
+          "tailwindCSS.includeLanguages": {
+              "svelte": "html"
+          },
+
+          // ESLint
+          "eslint.validate": ["svelte", "javascript", "typescript", "css"],
+          "eslint.probe": ["svelte", "javascript", "typescript", "css"],
+          "eslint.codeAction.showDocumentation": {
+              "enable": true
+          },
+          "eslint.workingDirectories": [
+              "frontend/app",
+              "frontend/modules/ui-system"
+          ],
+          "prettier.documentSelectors": ["**/*.svelte"],
+
+          //! Svelte
+          "svelte.plugin.svelte.format.enable": true,
+          "svelte.plugin.svelte.format.config.svelteSortOrder": "options-markup-styles-scripts",
+          "svelte.plugin.css.completions.enable": true,
+          "svelte.plugin.css.diagnostics.enable": true,
+          "svelte.plugin.svelte.diagnostics.enable": true,
+          "svelte.plugin.typescript.diagnostics.enable": true,
+
+          //! Formatters
+          "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+          "[svelte]": {
+            "editor.defaultFormatter": "svelte.svelte-vscode"
+          },
+          "[json][json][html]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
+          },
+          "[typescript][javascript]": {
+            "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+          }
+        },
+        "extensions": [
+          "streetsidesoftware.code-spell-checker-german",
+          "streetsidesoftware.code-spell-checker",
+          "ms-azuretools.vscode-docker",
+          "EditorConfig.EditorConfig",
+          "IronGeek.vscode-env",
+          "dbaeumer.vscode-eslint",
+          "esbenp.prettier-vscode",
+          "rvest.vs-code-prettier-eslint",
+          "svelte.svelte-vscode"
+        ]
+      }
+    }
+  }

@@ -1,28 +1,17 @@
 version: '3'
 
 tasks:
-  start-docker-dev:
-    desc: Setups and starts the docker dev environment
+  default:
     cmds:
-      - docker compose -f frontend/docker/docker-compose.yml -p kita up -d
+      - task --list
 
-  stop-docker-dev:
-    desc: Removes and stops the docker dev environment
+  docker-dev:
+    desc: Runs the docker compose command for the dev environment (up, down)
     cmds:
-      - docker compose -f frontend/docker/docker-compose.yml -p kita down
+      - if [ {{.CLI_ARGS}} = up ]; then docker compose -f frontend/docker/development/docker-compose.dev.yml -p kita-hoersel-dev {{.CLI_ARGS}} -d; fi
+      - if [ {{.CLI_ARGS}} = down ]; then docker compose -f frontend/docker/development/docker-compose.dev.yml -p kita-hoersel-dev {{.CLI_ARGS}}; fi
 
-  clean:
-    desc: Cleans the whole repository from dependencies / build files and so on
+  run:
+    desc: Runs the script with the provided name (clean, update, install)
     cmds:
-      - node scripts/clean.js
-
-  install-deps:
-    desc: Installs all dependencies of all workspaces (be carefull in large projects)
-    cmds:
-      - cd frontend;yarn install --force
-
-  update-deps:
-    desc: Updates all yarn workspace dependencies and cleans the project
-    cmds:
-      - node scripts/clean.js
-      - node scripts/update-deps.js
+      - sudo bash scripts/{{.CLI_ARGS}}.sh
