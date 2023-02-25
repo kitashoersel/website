@@ -2,14 +2,16 @@
   "name": "kita-frontend",
   "private": true,
   "license": "MIT",
-  "workspaces": [
-    "modules/*",
-    "app"
-  ],
-  "nohoist": [
-    "**/typesafe-i18n",
-    "**/typesafe-i18n/**"
-  ],
+  "workspaces": {
+    "packages": [
+      "modules/*",
+      "app"
+    ],
+    "nohoist": [
+      "**/typesafe-i18n",
+      "**/typesafe-i18n/**"
+    ]
+  },
   "scripts": {
     "app": "yarn workspace @modules/app",
     "ui-system": "yarn workspace @modules/ui-system",

@@ -1,0 +1,32 @@
+{
+  "info": {
+    "_postman_id": "aebff163-b8e5-4250-8e3e-fd160f2da470",
+    "name": "Directus",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "26047566"
+  },
+  "item": [
+    {
+      "name": "Fetch legal pages",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query {\r\n\tlegal(filter: { type: { _eq: \"imprint\" }}) {\r\n\t\ttranslations(filter: { languages_code: { locale: { _eq: \"de\" } } }) {\r\n\t\t\ttitle\r\n\t\t\tkeywords\r\n\t\t\tdescription\r\n\t\t\tcontent\r\n\t\t}\r\n\t}\r\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8055/graphql",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8055",
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
