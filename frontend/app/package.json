@@ -5,15 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "concurrently \"vite dev --host\" \"typesafe-i18n\"",
-    "build": "svelte-kit sync && typesafe-i18n --no-watch && vite build && yarn esbuild-tweaks",
     "preview": "vite preview",
     "format": "prettier --ignore-path .gitignore --plugin-search-dir . --write . && eslint . --fix",
+    "build": "svelte-kit sync && typesafe-i18n --no-watch && vite build && yarn build:minify",
+    "build:minify": "esbuild build/*.js `find build/server  -name '*.js'` --minify --outdir=build --allow-overwrite",
     "lint": "concurrently \"yarn lint:svelte\" \"yarn lint:prettier_eslint\"",
     "lint:svelte": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "lint:prettier_eslint": "prettier --ignore-path .gitignore --plugin-search-dir . --check . && eslint ."
   },
   "devDependencies": {
-    "@modules/esbuild-tweaks": "^1.0.0",
     "@modules/eslint-config": "^1.0.0",
     "@modules/prettier-config": "^1.0.0",
     "@modules/ui-system": "^1.0.0",

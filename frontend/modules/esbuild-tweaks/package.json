@@ -1,8 +1,0 @@
-{
-  "name": "@modules/esbuild-tweaks",
-  "version": "1.0.0",
-  "type": "module",
-  "dependencies": {
-    "esbuild": "^0.17.10"
-  }
-}
