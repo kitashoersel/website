@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { fetchGQL, gql, localizedQuery, type Fetcher } from '$lib/services/graphqlClient';
+import { fetchGQL, gql, type Fetcher } from '$lib/utils/graphql-client';
 
 export const legalPages = ['imprint', 'privacy'] as const;
 export type PageType = (typeof legalPages)[number];
@@ -39,6 +39,6 @@ const legalResponseSchema = z.object({
 });
 
 export const fetchLegalData = async (fetch: Fetcher, type: PageType, locale: string) => {
-  const result = await fetchGQL(localizedQuery(legalQuery, locale), { fetcher: fetch, variables: { type, locale } });
+  const result = await fetchGQL(legalQuery, { fetcher: fetch, variables: { type, locale } });
   return legalResponseSchema.parse(result).data.legal[0].translations[0];
 };
