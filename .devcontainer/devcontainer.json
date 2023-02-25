@@ -5,7 +5,9 @@
     "mounts": [
       "source=frontend-node_modules,target=${containerWorkspaceFolder}/frontend/node_modules,type=volume"
     ],
-    "postCreateCommand": "sudo chmod -R 777 frontend && npm install -g npm@latest && npm install -g @go-task/cli",
+    "initializeCommand": "docker network create kita-hoersel-dev-network || true",
+    "postCreateCommand": "sudo chmod -R 777 frontend && npm install -g npm@9.5.1 && npm install -g @go-task/cli",
+    "runArgs": [ "--network=kita-hoersel-dev-network" ],
     "customizations": {
       "vscode": {
         "settings": {

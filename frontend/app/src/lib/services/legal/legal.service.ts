@@ -39,8 +39,6 @@ const legalResponseSchema = z.object({
 });
 
 export const fetchLegalData = async (fetch: Fetcher, type: PageType, locale: string) => {
-  console.log({ type, locale });
-
   const result = await fetchGQL(localizedQuery(legalQuery, locale), { fetcher: fetch, variables: { type, locale } });
   return legalResponseSchema.parse(result).data.legal[0].translations[0];
 };

@@ -11,5 +11,5 @@ export const website = {
   siteHost: 'localhost:3000',
   siteUrl: 'http://localhost:3000',
 
-  cmsEndpoint: 'http://localhost:8055',
+  cmsEndpoint: 'http://kita-hoersel-dev-directus:8055',
 };
