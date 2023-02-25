@@ -1,6 +1,6 @@
 import { compile } from 'mdsvex';
 import rehypeSlug from 'rehype-slug';
-import { fetchLegalData, type PageType } from '$lib/services/legal/legal.service';
+import { fetchLegalData, type PageType } from '$lib/services/legal.service';
 import type { LayoutServerLoad } from './$types';
 
 export const load: LayoutServerLoad = async ({ fetch, params, url }) => {
