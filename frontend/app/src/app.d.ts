@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 /// <reference types="@sveltejs/kit" />
 
 type Locales = import('$i18n/i18n-types').Locales;
@@ -8,4 +10,8 @@ declare namespace App {
     locale: Locales;
     LL: TranslationFunctions;
   }
+}
+
+interface ReadonlyArray<T> {
+  includes(searchElement: any, fromIndex?: number): searchElement is T;
 }

@@ -50,6 +50,7 @@ module.exports = {
     "import/extensions": "off",
     "svelte/no-at-html-tags": "off",
     "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/no-explicit-any": "off",
     // v4 changes
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],

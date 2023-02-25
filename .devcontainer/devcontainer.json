@@ -5,7 +5,7 @@
     "mounts": [
       "source=frontend-node_modules,target=${containerWorkspaceFolder}/frontend/node_modules,type=volume"
     ],
-    "postCreateCommand": "sudo chmod -R 777 frontend && npm install -g @go-task/cli",
+    "postCreateCommand": "sudo chmod -R 777 frontend && npm install -g npm@latest && npm install -g @go-task/cli",
     "customizations": {
       "vscode": {
         "settings": {
@@ -56,6 +56,7 @@
           // Typescript
           "typescript.enablePromptUseWorkspaceTsdk": true,
           "typescript.preferences.importModuleSpecifier": "non-relative",
+          "svelte.enable-ts-plugin": true,
 
           // CSS
           "scss.lint.unknownAtRules": "ignore",
@@ -104,7 +105,8 @@
           "dbaeumer.vscode-eslint",
           "esbenp.prettier-vscode",
           "rvest.vs-code-prettier-eslint",
-          "svelte.svelte-vscode"
+          "svelte.svelte-vscode",
+          "orsenkucher.vscode-graphql"
         ]
       }
     }
