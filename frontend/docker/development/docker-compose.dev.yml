@@ -1,7 +1,7 @@
 version: '3'
 services:
   directus:
-    container_name: kita-hoersel-dev-directus
+    container_name: kite-dev-directus
     build: .
     ports:
       - 8055:8055
@@ -16,11 +16,11 @@ services:
       DB_CLIENT: 'sqlite3'
       DB_FILENAME: 'database/database.sql'
 
-      ADMIN_EMAIL: 'vscode@kita.dev'
+      ADMIN_EMAIL: 'vscode@kite.dev'
       ADMIN_PASSWORD: 'directus'
     networks:
-      - kita-hoersel-dev-network
+      - kite-dev-network
 
 networks:
-  kita-hoersel-dev-network:
+  kite-dev-network:
     external: true

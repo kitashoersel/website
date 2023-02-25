@@ -1,6 +1,6 @@
 export const website = {
-  siteTitle: 'Kindertagesstädten der Gemeinde Hörsel',
-  siteShortTitle: 'Kitas Hörsel',
+  siteTitle: 'Kindergärten der Gemeinde Hörsel',
+  siteShortTitle: 'Kindergärten Hörsel',
   siteDescription:
     'Die Kindergärten Dreikäsehoch Mechterstädt und Kleine Strolche Teutleben sind die zwei kommunalen Kindergarteneinrichtung der Gemeinde Hörsel.',
   siteKeywords: 'kindergarten,mechterstaedt,teutleben,hoersel',
@@ -11,5 +11,5 @@ export const website = {
   siteHost: 'localhost:3000',
   siteUrl: 'http://localhost:3000',
 
-  cmsEndpoint: 'http://kita-hoersel-dev-directus:8055',
+  cmsEndpoint: 'http://kite-dev-directus:8055',
 };

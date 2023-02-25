@@ -11,7 +11,7 @@ const en: Translation = {
   },
 
   footer: {
-    header: 'Day-care centers in the municipality of Hörsel',
+    header: 'Kindergartens in the municipality of Hörsel',
     privacy: 'Privacy',
     imprint: 'Imprint',
     contact: 'Contact',

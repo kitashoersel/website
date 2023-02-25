@@ -11,7 +11,7 @@ const de: BaseTranslation = {
   },
 
   footer: {
-    header: 'Kindertagesstätten der Gemeinde Hörsel',
+    header: 'Kindergärten der Gemeinde Hörsel',
     privacy: 'Datenschutz',
     imprint: 'Impressum',
     contact: 'Kontakt',
