@@ -1,13 +1,13 @@
 import type { Translation } from '../i18n-types.js';
 
 const en: Translation = {
-  title: 'Hello World',
-
   mechterstaedt: 'Mechterstädt',
   teutleben: 'Teutleben',
 
   header: {
     home: 'Home',
+    pretitle: 'Welcome to the',
+    title: 'Kindergartens in the municipality of Hörsel',
   },
 
   footer: {

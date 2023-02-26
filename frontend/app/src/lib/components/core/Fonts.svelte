@@ -1,18 +1,4 @@
-<script lang="ts">
-  const staticFonts = ['poppins-latin-400-normal', 'poppins-latin-600-normal', 'poppins-latin-700-normal'] as const;
-</script>
-
 <svelte:head>
-  {#each staticFonts as staticFont}
-    <link
-      rel="preload"
-      as="font"
-      type="font/woff2"
-      crossorigin="anonymous"
-      href={`/fonts/poppins/${staticFont}.woff2`}
-    />
-  {/each}
-
   <style lang="scss">
     $sizes: (
       'poppins-latin-400-normal': 400,

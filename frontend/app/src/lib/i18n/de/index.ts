@@ -1,13 +1,13 @@
 import type { BaseTranslation } from '../i18n-types.js';
 
 const de: BaseTranslation = {
-  title: 'Hallo Welt',
-
   mechterstaedt: 'Mechterstädt',
   teutleben: 'Teutleben',
 
   header: {
     home: 'Home',
+    pretitle: 'Herzlich Willkommen bei den',
+    title: 'Kindergärten der Gemeinde Hörsel',
   },
 
   footer: {

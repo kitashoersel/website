@@ -11,6 +11,9 @@
     @apply flex items-center justify-center;
   }
 
+  .v-center {
+    @apply flex flex-col justify-center;
+  }
   .page {
     @apply mx-auto w-full max-w-[80rem] px-6 lg:w-[85%];
   }
