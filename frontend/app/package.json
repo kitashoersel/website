@@ -11,7 +11,8 @@
     "build:minify": "esbuild build/*.js `find build/server  -name '*.js'` --minify --outdir=build --allow-overwrite",
     "lint": "concurrently \"yarn lint:svelte\" \"yarn lint:prettier_eslint\"",
     "lint:svelte": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-    "lint:prettier_eslint": "prettier --ignore-path .gitignore --plugin-search-dir . --check . && eslint ."
+    "lint:prettier_eslint": "prettier --ignore-path .gitignore --plugin-search-dir . --check . && eslint .",
+    "postinstall": "svelte-kit sync && typesafe-i18n --no-watch"
   },
   "devDependencies": {
     "@modules/eslint-config": "^1.0.0",

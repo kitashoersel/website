@@ -37,7 +37,8 @@
           "material-icon-theme.folders.associations": {
             "infrastructure": "cluster",
             "params": "project",
-            "development": "container"
+            "development": "container",
+            "service-worker": "functions"
           },
           "files.exclude": {
             "**/yarn.lock": true,
