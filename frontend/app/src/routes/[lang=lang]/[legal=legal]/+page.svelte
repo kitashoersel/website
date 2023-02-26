@@ -5,6 +5,6 @@
   export let data: PageData;
 </script>
 
-<Seo title={data.title} description={data.description} keywords="privacy,contact,data protection,security" />
+<Seo title={data.title} description={data.description} />
 
 <div>{@html data.content}</div>

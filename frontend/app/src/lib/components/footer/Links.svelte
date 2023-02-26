@@ -13,9 +13,9 @@
 
 <div class="rounded-t-2xl bg-primary-600 p-10 text-white lg:py-10 lg:px-20">
   <div class="lg:mb-10 lg:flex lg:items-center lg:justify-between">
-    <h3 class="mb-5 text-body-lg lg:mb-0 lg:text-body-xl">{$LL.footer.header()}</h3>
-    <ul class="mb-7 space-y-3 text-body-no lg:mb-0 lg:text-body-md">
-      <div class="flex gap-5 lg:justify-end">
+    <h2 class="mb-5 text-body-lg lg:mb-0 lg:text-body-xl">{$LL.footer.header()}</h2>
+    <div class="mb-7 space-y-3 text-body-no lg:mb-0 lg:text-body-md">
+      <ul class="flex gap-5 lg:justify-end">
         <li>{$LL.footer.contact()}</li>
         <li>
           <span>[</span>
@@ -24,16 +24,16 @@
           <Link i11n href="/teutleben#contact">{$LL.teutleben()}</Link>
           <span>]</span>
         </li>
-      </div>
-      <div class="flex gap-5 lg:justify-end">
+      </ul>
+      <ul class="flex gap-5 lg:justify-end">
         {#if !pathname.endsWith('/privacy')}
           <li><Link i11n href="/privacy">{$LL.footer.privacy()}</Link></li>
         {/if}
         {#if !pathname.endsWith('/imprint')}
           <li><Link i11n href="/imprint">{$LL.footer.imprint()}</Link></li>
         {/if}
-      </div>
-    </ul>
+      </ul>
+    </div>
   </div>
 
   <hr class="mb-7 h-[2px] rounded-md border-none  bg-primary-500 opacity-80" />

@@ -5,7 +5,7 @@
 
   export let title = website.siteTitle;
   export let description = website.siteDescription;
-  export let keywords: string | undefined;
+  export let keywords: string | null = null;
   export let applicationName = website.siteShortTitle;
   export let themeColor = website.siteThemeColor;
   export let base = website.siteUrl;

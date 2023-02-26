@@ -1,5 +1,5 @@
 <script lang="ts">
-  import SimpleHeader from '$lib/components/SimpleHeader.svelte';
+  import SimpleHeader from '$lib/components/header/SimpleHeader.svelte';
   import Footer from '$lib/components/footer/Footer.svelte';
   import type { LayoutData } from './$types';
 

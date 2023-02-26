@@ -106,7 +106,10 @@
           "esbenp.prettier-vscode",
           "rvest.vs-code-prettier-eslint",
           "svelte.svelte-vscode",
-          "orsenkucher.vscode-graphql"
+          "orsenkucher.vscode-graphql",
+          "bradlc.vscode-tailwindcss",
+          "ardenivanov.svelte-intellisense",
+          "fivethree.vscode-svelte-snippets"
         ]
       }
     }

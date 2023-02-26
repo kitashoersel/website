@@ -2233,6 +2233,11 @@ flush-write-stream@^1.0.2:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
 
+focus-options-polyfill@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/focus-options-polyfill/-/focus-options-polyfill-1.6.0.tgz#12ef3081dae9801d32dfcffd7b69259ca8f57198"
+  integrity sha512-uyrAmLZrPnUItQY5wTdg31TO9GGZRGsh/jmohUg9oLmLi/sw5y7LlTV/mwyd6rvbxIOGwmRiv6LcTS8w7Bk9NQ==
+
 for-in@^1.0.1, for-in@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/for-in/-/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"
@@ -5157,6 +5162,13 @@ svelte-hmr@^0.15.1:
   version "0.15.1"
   resolved "https://registry.yarnpkg.com/svelte-hmr/-/svelte-hmr-0.15.1.tgz#d11d878a0bbb12ec1cba030f580cd2049f4ec86b"
   integrity sha512-BiKB4RZ8YSwRKCNVdNxK/GfY+r4Kjgp9jCLEy0DuqAKfmQtpL38cQK3afdpjw4sqSs4PLi3jIPJIFp259NkZtA==
+
+svelte-parallax@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/svelte-parallax/-/svelte-parallax-0.6.0.tgz#564b52152842c37652813115ac8054d3e75b4705"
+  integrity sha512-W2dGPNmK274AmL8Ibzr96luh24jr3u2MfAmAJTpnhAZwxkRws5MKgCxfxBBPvpRUc2GpGGIGanhTYXoHV6DcBw==
+  dependencies:
+    focus-options-polyfill "^1.6.0"
 
 svelte-preprocess@^5.0.0:
   version "5.0.0"

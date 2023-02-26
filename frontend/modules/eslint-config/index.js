@@ -51,6 +51,7 @@ module.exports = {
     "svelte/no-at-html-tags": "off",
     "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/no-explicit-any": "off",
+    "no-restricted-globals": "off",
     // v4 changes
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
