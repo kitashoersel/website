@@ -2,10 +2,12 @@ import adapter from '@modules/sveltekit-adapter-docker';
 import preprocess from 'svelte-preprocess';
 
 const locales = ['de', 'en'];
-const localizedSSGPaths = ['privacy'];
+const localizedSSGPaths = ['privacy', 'imprint'];
 
 const localizedPath = (path) => locales.map((locale) => `/${locale}/${path}`);
 const prerenderEntries = localizedSSGPaths.map((path) => localizedPath(path)).flat();
+
+console.log(prerenderEntries);
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {

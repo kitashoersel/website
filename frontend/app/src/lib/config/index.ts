@@ -1,3 +1,5 @@
+const isDev = process.env.NODE_ENV === 'development';
+
 export const website = {
   siteTitle: 'Kindergärten der Gemeinde Hörsel',
   siteShortTitle: 'Kindergärten Hörsel',
@@ -8,8 +10,6 @@ export const website = {
   siteBackgroundColor: '#f6f6f9',
 
   contactEmail: 'PUBLIC_CONTACT_EMAIL',
-  siteHost: 'localhost',
-  siteUrl: 'http://localhost',
-
+  siteUrl: isDev ? 'http://localhost:3000' : 'http://localhost',
   cmsEndpoint: 'http://kite-dev-directus:8055',
 };
