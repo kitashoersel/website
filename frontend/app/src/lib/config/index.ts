@@ -8,8 +8,8 @@ export const website = {
   siteBackgroundColor: '#f6f6f9',
 
   contactEmail: 'PUBLIC_CONTACT_EMAIL',
-  siteHost: 'localhost:3000',
-  siteUrl: 'http://localhost:3000',
+  siteHost: 'localhost',
+  siteUrl: 'http://localhost',
 
   cmsEndpoint: 'http://kite-dev-directus:8055',
 };

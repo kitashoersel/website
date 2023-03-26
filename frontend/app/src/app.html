@@ -9,27 +9,57 @@
     <link rel="icon" type="image/x-icon" href="%sveltekit.assets%/favicon.ico" />
     <link rel="apple-touch-icon" href="%sveltekit.assets%/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <link
       rel="preload"
-      href="/fonts/poppins/poppins-latin-400-normal.woff2"
+      href="%sveltekit.assets%/fonts/poppins/poppins-latin-400-normal.woff2"
       as="font"
       type="font/woff2"
       crossorigin="anonymous"
     />
     <link
       rel="preload"
-      href="/fonts/poppins/poppins-latin-600-normal.woff2"
+      href="%sveltekit.assets%/fonts/poppins/poppins-latin-600-normal.woff2"
       as="font"
       type="font/woff2"
       crossorigin="anonymous"
     />
     <link
       rel="preload"
-      href="/fonts/poppins/poppins-latin-700-normal.woff2"
+      href="%sveltekit.assets%/fonts/poppins/poppins-latin-700-normal.woff2"
       as="font"
       type="font/woff2"
       crossorigin="anonymous"
     />
+
+    <style>
+      @font-face {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-display: swap;
+        font-weight: 400;
+        src: url('%sveltekit.assets%/fonts/poppins/poppins-latin-400-normal.woff2') format('woff2'),
+          url('%sveltekit.assets%/fonts/poppins/poppins-latin-400-normal.woff') format('woff');
+      }
+
+      @font-face {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-display: swap;
+        font-weight: 600;
+        src: url('%sveltekit.assets%/fonts/poppins/poppins-latin-600-normal.woff2') format('woff2'),
+          url('%sveltekit.assets%/fonts/poppins/poppins-latin-600-normal.woff') format('woff');
+      }
+
+      @font-face {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-display: swap;
+        font-weight: 700;
+        src: url('%sveltekit.assets%/fonts/poppins/poppins-latin-700-normal.woff2') format('woff2'),
+          url('%sveltekit.assets%/fonts/poppins/poppins-latin-700-normal.woff') format('woff');
+      }
+    </style>
     %sveltekit.head%
   </head>
   <body data-sveltekit-preload-data="hover">

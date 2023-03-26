@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-node';
+import adapter from '@modules/sveltekit-adapter-docker';
 import preprocess from 'svelte-preprocess';
 
 const locales = ['de', 'en'];
@@ -13,6 +13,11 @@ const config = {
   kit: {
     adapter: adapter({
       precompress: true,
+      hostName: 'kite-prod-sveltekit',
+      hostPort: 3000,
+      nginxPort: 3001,
+      languages: ['de', 'en'],
+      immutables: { immutableFolders: ['fonts'] },
     }),
     alias: {
       $i18n: 'src/lib/i18n',

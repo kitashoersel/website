@@ -1,0 +1,54 @@
+{
+  "name": "@modules/sveltekit-adapter-docker",
+  "version": "1.0.0",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "dist/files",
+    "dist/index.js",
+    "dist/index.d.ts"
+  ],
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "start:dev": "rimraf dist && rollup -cw",
+    "build": "rimraf dist && tsc && rollup -c && rimraf dist/types"
+  },
+  "dependencies": {
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "esbuild": "^0.17.10",
+    "rollup": "^3.17.3",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-dts": "^5.2.0",
+    "rollup-plugin-esbuild": "^5.0.0"
+  },
+  "devDependencies": {
+    "@fastify/cors": "^8.2.1",
+    "@fastify/helmet": "^10.1.0",
+    "@modules/eslint-config": "^1.0.0",
+    "@modules/prettier-config": "^1.0.0",
+    "fastify": "^4.13.0",
+    "globby": "^13.1.3",
+    "rimraf": "^4.1.2"
+  },
+  "peerDependencies": {
+    "@sveltejs/kit": "^1.8.4"
+  },
+  "prettier": "@modules/prettier-config/typescript",
+  "eslintConfig": {
+    "extends": [
+      "@modules/eslint-config"
+    ],
+    "rules": {
+      "no-console": "off"
+    }
+  }
+}

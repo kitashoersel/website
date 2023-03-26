@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "declaration": true,
+    "declarationDir": "dist/types",
+    "emitDeclarationOnly": true,
+    "noImplicitAny": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "module": "es2022",
+    "target": "ESNext",
+    "baseUrl": "."
+  },
+  "include": ["index.ts", "src/**/*.ts", "ambient.d.ts"]
+}

@@ -19,7 +19,7 @@ export const GET = (() => {
     {
       headers: {
         'Cache-Control': `max-age=0, s-max-age=${18000}`,
-        'Content-Type': 'application/xml',
+        'Content-Type': 'application/json',
       },
     }
   );

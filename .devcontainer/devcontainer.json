@@ -5,7 +5,7 @@
     "mounts": ["source=frontend-node_modules,target=${containerWorkspaceFolder}/frontend/node_modules,type=volume"],
     "initializeCommand": "docker network create kite-dev-network || true",
     "postCreateCommand": "sudo chmod -R 777 frontend",
-    "runArgs": [ "--network=kite-dev-network" ],
+    "runArgs": [ "--network=kite-dev-network", "--name=kite_devcontainer" ],
     "customizations": {
       "vscode": {
         "settings": {
@@ -24,7 +24,7 @@
           "explorer.fileNesting.enabled": true,
           "explorer.fileNesting.expand": false,
           "explorer.fileNesting.patterns": {
-            "package.json": ".dockerignore,.gitignore,gulpfile.mjs,.env,turbo.json",
+            "package.json": ".dockerignore,.gitignore,gulpfile.mjs,.env,turbo.json,tsconfig.json,http.json,rollup.config.js",
             "svelte.config.js": "vite.config.js,tsconfig.json",
             "tailwind.config.cjs": ".typesafe-i18n.json",
             "Taskfile.yml": ".gitignore,.editorconfig",
@@ -32,7 +32,8 @@
             "app.html": "app.d.ts,app.scss",
             "+layout.svelte": "+layout.ts,+layout.server.ts,+layout.scss",
             "+page.svelte": "+page.ts,+page.scss",
-            "*.svelte": "$(capture).d.ts"
+            "*.svelte": "$(capture).d.ts",
+            "index.ts": "ambient.d.ts"
           },
           "material-icon-theme.folders.associations": {
             "infrastructure": "cluster",
@@ -73,7 +74,8 @@
           },
           "eslint.workingDirectories": [
               "frontend/app",
-              "frontend/modules/ui-system"
+              "frontend/modules/ui-system",
+              "frontend/modules/sveltekit-adapter-docker"
           ],
           "prettier.documentSelectors": ["**/*.svelte"],
 
@@ -110,7 +112,8 @@
           "orsenkucher.vscode-graphql",
           "bradlc.vscode-tailwindcss",
           "ardenivanov.svelte-intellisense",
-          "fivethree.vscode-svelte-snippets"
+          "fivethree.vscode-svelte-snippets",
+          "ahmadalli.vscode-nginx-conf"
         ]
       }
     }
