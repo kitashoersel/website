@@ -1,1 +1,1 @@
-cd frontend;yarn install --force
+cd frontend;yarn install --force;yarn turbo init
