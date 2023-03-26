@@ -7,8 +7,6 @@ const localizedSSGPaths = ['privacy', 'imprint'];
 const localizedPath = (path) => locales.map((locale) => `/${locale}/${path}`);
 const prerenderEntries = localizedSSGPaths.map((path) => localizedPath(path)).flat();
 
-console.log(prerenderEntries);
-
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   preprocess: preprocess(),

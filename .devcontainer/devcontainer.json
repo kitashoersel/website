@@ -39,7 +39,8 @@
             "infrastructure": "cluster",
             "params": "project",
             "development": "container",
-            "service-worker": "functions"
+            "service-worker": "functions",
+            "workflows": "azure-pipelines"
           },
           "files.exclude": {
             "**/yarn.lock": true,
