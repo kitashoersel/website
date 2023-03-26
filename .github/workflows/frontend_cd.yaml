@@ -33,6 +33,9 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - name: Install dependencies
+        run: yarn turbo init
+
       - name: Lint the turbo repo
         run: yarn turbo lint
 
