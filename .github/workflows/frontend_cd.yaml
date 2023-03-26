@@ -14,6 +14,9 @@ jobs:
     name: deploy docker images
     timeout-minutes: 15
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
     steps:
       - name: Check out code
         uses: actions/checkout@v3
