@@ -43,8 +43,6 @@
           image: directus/directus:latest
           restart: unless-stopped
           volumes:
-            # - /home/kite/directus/uploads:/directus/uploads
-            # - /home/kite/directus/database:/directus/database
             - cms-uploads:/directus/uploads
             - cms-database:/directus/database
           networks:
@@ -68,6 +66,30 @@
             traefik.http.routers.directus.rule: Host(`admin.{{ root_host }}`)
             traefik.http.routers.directus.tls: true
             traefik.http.routers.directus.tls.certresolver: zerossl
+
+        kite-dynamic-server:
+          container_name: kite-prod-sveltekit
+          image: kitashoersel/kite-dynamic-server
+          restart: unless-stopped
+          networks:
+            - server_network
+
+        nginx:
+          container_name: kite-prod-nginx
+          image: kitashoersel/kite-static-server
+          restart: unless-stopped
+          networks:
+            - server_network
+          depends_on:
+            - traefik
+          labels:
+            traefik.enable: true
+            traefik.http.routers.nginx.entrypoints: web, websecure
+            traefik.http.routers.nginx.rule: Host(`{{ root_host }}`)
+            traefik.http.routers.nginx.tls: true
+            traefik.http.routers.nginx.tls.certresolver: zerossl
+            traefik.http.routers.nginx-router.service: nginx-service
+            traefik.http.services.nginx-service.loadbalancer.server.port: 3001
 
       volumes:
         traefik-ssl-certs:
