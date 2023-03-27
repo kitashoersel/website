@@ -11,5 +11,5 @@ export const website = {
 
   contactEmail: 'PUBLIC_CONTACT_EMAIL',
   siteUrl: isDev ? 'http://localhost:3000' : 'http://localhost',
-  cmsEndpoint: 'http://kite-dev-directus:8055',
+  cmsEndpoint: 'https://admin.kitashoersel.de',
 };
