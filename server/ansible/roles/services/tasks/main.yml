@@ -1,0 +1,82 @@
+- name: Create the traefik directory
+  file:
+    path: "/etc/traefik"
+    state: directory
+    owner: "{{ username }}"
+    group: "{{ username }}"
+
+- name: Copy traefik.yaml file
+  template:
+    src: "traefik.yml.j2"
+    dest: "/etc/traefik/traefik.yml"
+
+- name: Deploy docker compopse stack
+  docker_compose:
+    project_name: kite
+    definition:
+      version: "3"
+      services:
+        traefik:
+          container_name: "kite-traefik"
+          image: "traefik:latest"
+          restart: unless-stopped
+          ports:
+            - "80:80"
+            - "443:443"
+          networks:
+            - server_network
+          volumes:
+            - /etc/traefik:/etc/traefik
+            - traefik-ssl-certs:/ssl-certs
+            - /var/run/docker.sock:/var/run/docker.sock:ro
+
+        watchtower:
+          container_name: "kite-watchtower"
+          image: "containrrr/watchtower"
+          restart: unless-stopped
+          command: --schedule "* */15 * * * *"
+          volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+
+        directus:
+          container_name: kite-directus
+          image: directus/directus:latest
+          restart: unless-stopped
+          volumes:
+            # - /home/kite/directus/uploads:/directus/uploads
+            # - /home/kite/directus/database:/directus/database
+            - cms-uploads:/directus/uploads
+            - cms-database:/directus/database
+          networks:
+            - server_network
+          depends_on:
+            - traefik
+          environment:
+            "KEY": "{{ cms_key }}"
+            "SECRET": "{{ cms_secret }}"
+            "DB_CLIENT": "sqlite3"
+            "DB_FILENAME": "database/database.sql"
+            "CORS_ENABLED": "true"
+            "RATE_LIMITER_ENABLED": "true"
+            "CACHE_ENABLED": "true"
+            "ADMIN_EMAIL": "{{ cms_admin_email }}"
+            "ADMIN_PASSWORD": "{{ cms_admin_password }}"
+            "PUBLIC_URL": "https://admin.{{ root_host }}"
+          labels:
+            traefik.enable: true
+            traefik.http.routers.directus.entrypoints: web, websecure
+            traefik.http.routers.directus.rule: Host(`admin.{{ root_host }}`)
+            traefik.http.routers.directus.tls: true
+            traefik.http.routers.directus.tls.certresolver: zerossl
+
+      volumes:
+        traefik-ssl-certs:
+          driver: local
+        cms-uploads:
+          driver: local
+        cms-database:
+          driver: local
+
+      networks:
+        server_network:
+          driver: bridge

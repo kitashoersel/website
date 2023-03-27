@@ -1,0 +1,27 @@
+- name: Install UFW
+  package:
+    name: ufw
+    state: present
+
+- name: Enable UFW logging
+  ufw:
+    logging: on
+
+- name: Allow the defined ports
+  ufw:
+    rule: allow
+    proto: "{{ item.proto }}"
+    port: "{{ item.port }}"
+  with_items:
+    - "{{ ufw_ports }}"
+
+- name: Deny everything else and enable UFW
+  ufw:
+    state: enabled
+    policy: deny
+
+- name: Disable the ping command for the server
+  lineinfile:
+    path: /etc/ufw/before.rules
+    regexp: "-A ufw-before-input -p icmp --icmp-type echo-request -j ACCEPT"
+    line: "-A ufw-before-input -p icmp --icmp-type echo-request -j DROP"

@@ -1,0 +1,9 @@
+#!/usr/bin/env ansible-playbook
+
+- hosts: all
+  become: true
+
+  roles:
+    - role: services
+      tags:
+        - services

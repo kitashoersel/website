@@ -36,7 +36,7 @@
     </div>
   </div>
 
-  <hr class="mb-7 h-[2px] rounded-md border-none  bg-primary-500 opacity-80" />
+  <hr class="mb-7 h-[2px] rounded-md border-none bg-primary-500 opacity-80" />
 
   <div class="lg:flex lg:items-center lg:justify-between">
     {#if links}

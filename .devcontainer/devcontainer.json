@@ -33,14 +33,23 @@
             "+layout.svelte": "+layout.ts,+layout.server.ts,+layout.scss",
             "+page.svelte": "+page.ts,+page.scss",
             "*.svelte": "$(capture).d.ts",
-            "index.ts": "ambient.d.ts"
+            "index.ts": "ambient.d.ts",
+            "ansible.cfg": "requirements.yml,inventory.yml"
           },
           "material-icon-theme.folders.associations": {
             "infrastructure": "cluster",
             "params": "project",
             "development": "container",
             "service-worker": "functions",
-            "workflows": "azure-pipelines"
+            "workflows": "azure-pipelines",
+            "setup": "project",
+            "playbooks": "interface",
+            "roles": "admin",
+            "fail2ban": "mjml",
+            "ufw": "mjml",
+            "system": "config",
+            "ssh": "connection",
+            "vars": "verdaccio"
           },
           "files.exclude": {
             "**/yarn.lock": true,

@@ -1,0 +1,69 @@
+all:
+  hosts: "__________"
+
+  vars:
+    #! Service environments
+
+    # CMS environments
+    cms_key: "__________"
+    cms_secret: "__________"
+    cms_admin_email: "__________"
+    cms_admin_password: "__________"
+
+    # ZeroSSL environments
+    email: "__________"
+    zerossl_kid: "__________"
+    zerossl_hmac: "__________"
+
+    #! Server environments
+
+    # Ansible auth credentials
+    ansible_ssh_user: "__________"
+    ansible_ssh_pass: "__________"
+
+    # The name of the user which gets created on the server
+    username: "__________"
+    user_password: "__________"
+
+    # The domain name of the server
+    root_host: "__________"
+
+    # Change it in order to avoid automated scanner bots
+    ssh_port: "__________"
+
+    # Whether users should be created on the server
+    enable_username_creation: yes
+
+    # Define the shell to use on the server
+    user_shell: /bin/bash
+
+    # Whether commands can be executed with sudo without password
+    enable_passwordless_sudo: yes
+
+    # Uncomment this line if you already have a public SSH key and put your public key in it
+    ssh_public_key: "{{ SSH_PUBLIC_KEY }}"
+
+    # Language and time settings (https://docs.oracle.com/cd/E23824_01/html/E26033/glset.html)
+    locale: en_US.UTF-8
+
+    # Defines the timezone of the server
+    timezone: Europe/Berlin
+
+    # Set the time at which the system should reboot after installing updates (24H format)
+    autoupdate_reboot_time: 03:00
+
+    # Sets the standard docker directory
+    docker_dir: "/opt/docker"
+
+    # Enable firewall and set accepted ports for http, https and ssh
+    enable_ufw: true
+    ufw_ports:
+      - port: "80"
+        proto: "tcp"
+      - port: "443"
+        proto: "tcp"
+      - port: "{{ ssh_port }}"
+        proto: "tcp"
+
+    # Fail2Ban only comes with the SSH jail by default
+    enable_fail2ban: true

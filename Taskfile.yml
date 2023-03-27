@@ -16,7 +16,7 @@ tasks:
     desc: Runs the docker compose command for the dev environment (up, down)
     cmds:
       - if [ {{.CLI_ARGS}} = build ]; then docker compose -f frontend/docker/docker-compose.dev.yml -p kite-dev {{.CLI_ARGS}} --no-cache; fi
-      - if [ {{.CLI_ARGS}} = up ]; then docker compose -f frontend/docker/docker-compose.dev.yml -p kite-dev {{.CLI_ARGS}} --build -d; fi
+      - if [ {{.CLI_ARGS}} = up ]; then docker compose -f frontend/docker/docker-compose.dev.yml -p kite-dev {{.CLI_ARGS}} -d; fi
       - if [ {{.CLI_ARGS}} = down ]; then docker compose -f frontend/docker/docker-compose.dev.yml -p kite-dev {{.CLI_ARGS}}; fi
 
   run:
