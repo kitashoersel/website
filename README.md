@@ -2,7 +2,7 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/DevTobias/kite">
+  <a href="https://github.com/kitashoersel/website">
     <img src=".github/assets/hero.svg" alt="kindergarden hoersel logo" />
   </a>
 
@@ -12,14 +12,14 @@
   <p align="center">
     Die Kindergärten <strong>Dreikäsehoch</strong> Mechterstädt und <strong>Kleine Strolche</strong> Teutleben sind die zwei kommunalen Kindergarteneinrichtung der Gemeinde Hörsel.
     <br />
-    <a href="https://github.com/DevTobias/kite/issues/newtemplate=bug_report.md">Melde einen Fehler</a>
+    <a href="https://github.com/kitashoersel/website/issues/newtemplate=bug_report.md">Melde einen Fehler</a>
     ·
-    <a href="https://github.com/DevTobias/kite/issues/newtemplate=feature_request.md">Feature anfragen</a>
+    <a href="https://github.com/kitashoersel/website/issues/newtemplate=feature_request.md">Feature anfragen</a>
   </p>
 
   <p align="center">
-  	<a href="https://github.com/DevTobias/kite/blob/main/LICENSE" title="license">
-			<img src="https://img.shields.io/github/license/DevTobias/kite?style=for-the-badge" alt="license" />
+  	<a href="https://github.com/kitashoersel/website/blob/main/LICENSE" title="license">
+			<img src="https://img.shields.io/github/license/kitashoersel/website?style=for-the-badge" alt="license" />
 		</a>
   </p>
 </div>
