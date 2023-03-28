@@ -1,4 +1,4 @@
-name: Deployment
+name: Frontend Deployment
 
 on:
   push:
@@ -60,7 +60,7 @@ jobs:
           context: frontend/app/build
           file: frontend/app/build/docker/nginx/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/kite-static-server:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/proxy:latest
 
       - name: Build and push image
         uses: docker/build-push-action@v3
@@ -68,4 +68,4 @@ jobs:
           context: frontend/app/build
           file: frontend/app/build/docker/sveltekit/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/kite-dynamic-server:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/webserver:latest

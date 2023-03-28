@@ -16,39 +16,39 @@
     definition:
       version: "3"
       services:
-        traefik:
-          container_name: "kite-traefik"
-          image: "traefik:latest"
-          restart: unless-stopped
-          ports:
-            - "80:80"
-            - "443:443"
-          networks:
-            - server_network
-          volumes:
-            - /etc/traefik:/etc/traefik
-            - traefik-ssl-certs:/ssl-certs
-            - /var/run/docker.sock:/var/run/docker.sock:ro
-
         watchtower:
           container_name: "kite-watchtower"
-          image: "containrrr/watchtower"
+          image: "containrrr/watchtower:1.5.3"
           restart: unless-stopped
           command: --schedule "* */15 * * * *"
           volumes:
             - /var/run/docker.sock:/var/run/docker.sock
 
-        directus:
+        traefik-router:
+          container_name: "kite-traefik"
+          image: "traefik:v2.10"
+          restart: unless-stopped
+          ports:
+            - "80:80"
+            - "443:443"
+          volumes:
+            - /etc/traefik:/etc/traefik
+            - traefik-ssl-certs:/ssl-certs
+            - /var/run/docker.sock:/var/run/docker.sock:ro
+          networks:
+            - internal-network
+
+        directus-cms:
           container_name: kite-directus
-          image: directus/directus:latest
+          image: directus/directus:9.23
           restart: unless-stopped
           volumes:
             - cms-uploads:/directus/uploads
             - cms-database:/directus/database
           networks:
-            - server_network
+            - internal-network
           depends_on:
-            - traefik
+            - traefik-router
           environment:
             "KEY": "{{ cms_key }}"
             "SECRET": "{{ cms_secret }}"
@@ -67,19 +67,19 @@
             traefik.http.routers.directus.tls: true
             traefik.http.routers.directus.tls.certresolver: zerossl
 
-        kite-dynamic-server:
-          container_name: kite-prod-sveltekit
-          image: kitashoersel/kite-dynamic-server
+        svelte-webserver:
+          container_name: kite-sveltekit
+          image: kitashoersel/webserver:latest
           restart: unless-stopped
           networks:
-            - server_network
+            - internal-network
 
-        nginx:
-          container_name: kite-prod-nginx
-          image: kitashoersel/kite-static-server
+        nginx-proxy:
+          container_name: kite-nginx
+          image: kitashoersel/proxy:latest
           restart: unless-stopped
           networks:
-            - server_network
+            - internal-network
           depends_on:
             - traefik
           labels:
@@ -100,5 +100,5 @@
           driver: local
 
       networks:
-        server_network:
+        internal-network:
           driver: bridge

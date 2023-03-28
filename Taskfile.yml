@@ -20,6 +20,6 @@ tasks:
       - if [ {{.CLI_ARGS}} = down ]; then docker compose -f frontend/docker/docker-compose.dev.yml -p kite-dev {{.CLI_ARGS}}; fi
 
   run:
-    desc: Runs the script with the provided name (clean, update, install)
+    desc: Runs the script with the provided name (clean, upgrade, install)
     cmds:
       - sudo bash scripts/{{.CLI_ARGS}}.sh
