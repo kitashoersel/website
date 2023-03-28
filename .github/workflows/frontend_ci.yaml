@@ -6,11 +6,16 @@ on:
     paths:
       - "frontend/**"
 
+  push:
+    branches: [ "main" ]
+    paths:
+      - "frontend/**"
+
   workflow_dispatch:
 
 jobs:
-  docker-deploy:
-    name: deploy docker images
+  frontend-ci:
+    name: lint and test the frontend
     timeout-minutes: 15
     runs-on: ubuntu-latest
     defaults:
