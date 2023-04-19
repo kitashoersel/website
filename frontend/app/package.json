@@ -17,7 +17,6 @@
   "devDependencies": {
     "@modules/eslint-config": "^1.0.0",
     "@modules/prettier-config": "^1.0.0",
-    "@modules/ui-system": "^1.0.0",
     "@modules/sveltekit-adapter-docker": "^1.0.0",
     "@sveltejs/adapter-node": "^1.2.3",
     "@sveltejs/kit": "^1.15.7",

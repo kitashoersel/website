@@ -84,7 +84,6 @@
           },
           "eslint.workingDirectories": [
               "frontend/app",
-              "frontend/modules/ui-system",
               "frontend/modules/sveltekit-adapter-docker"
           ],
           "prettier.documentSelectors": ["**/*.svelte"],

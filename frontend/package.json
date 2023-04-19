@@ -13,8 +13,6 @@
     ]
   },
   "scripts": {
-    "app": "yarn workspace @modules/app",
-    "ui-system": "yarn workspace @modules/ui-system",
     "turbo": "turbo run"
   },
   "devDependencies": {
