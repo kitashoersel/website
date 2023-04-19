@@ -4,6 +4,8 @@
   import Countdown from '$lib/views/coming-soon/components/Countdown.svelte';
   import ScreenParallax from '$lib/components/common/ScreenParallax.svelte';
   import AnimatedTitle from '$lib/views/coming-soon/components/AnimatedTitle.svelte';
+  import Seo from '$lib/components/core/SEO.svelte';
+  import { website } from '$lib/config';
 
   export let release: Date;
   export let onFinish: VoidFunction;
@@ -12,6 +14,8 @@
 </script>
 
 <svelte:window bind:innerWidth />
+
+<Seo title={website.siteShortTitle} description={website.siteDescription} />
 
 <ScreenParallax rate={0.05} class="fixed h-[100svh] w-full">
   <Confetti amount={innerWidth > 800 ? 20 : 15} />
