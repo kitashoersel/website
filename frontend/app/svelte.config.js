@@ -13,7 +13,7 @@ const config = {
   kit: {
     adapter: adapter({
       precompress: true,
-      hostName: 'kite-sveltekit',
+      hostName: 'kite-webserver',
       hostPort: 3000,
       nginxPort: 3001,
       languages: ['de', 'en'],

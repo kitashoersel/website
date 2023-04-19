@@ -13,6 +13,7 @@
 - name: Deploy docker compopse stack
   docker_compose:
     project_name: kite
+    remove_orphans: true
     definition:
       version: "3"
       services:
@@ -67,21 +68,21 @@
             traefik.http.routers.directus.tls: true
             traefik.http.routers.directus.tls.certresolver: zerossl
 
-        svelte-webserver:
-          container_name: kite-sveltekit
+        kite-webserver:
+          container_name: kite-webserver
           image: kitashoersel/webserver:latest
           restart: unless-stopped
           networks:
             - internal-network
 
-        nginx-proxy:
-          container_name: kite-nginx
+        kite-proxy:
+          container_name: kite-proxy
           image: kitashoersel/proxy:latest
           restart: unless-stopped
           networks:
             - internal-network
           depends_on:
-            - traefik
+            - traefik-router
           labels:
             traefik.enable: true
             traefik.http.routers.nginx.entrypoints: web, websecure
