@@ -2058,10 +2058,10 @@ eslint-plugin-prettier@^4.2.1:
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
-eslint-plugin-svelte@^2.23.1:
-  version "2.23.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-svelte/-/eslint-plugin-svelte-2.23.1.tgz#d81ace300298ada7ca7e48a3c1985922bf79eacc"
-  integrity sha512-hBlptt4auhlae+/cSsOdaB7MV+LcXpyOV0bMAQxXi72oAlCGBCWBSdQbiRmn1OkikfhQKkAe7gjk+XseBYAbyA==
+eslint-plugin-svelte@^2.26.0:
+  version "2.26.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-svelte/-/eslint-plugin-svelte-2.26.0.tgz#64ebaf533a3441165369226e8d94b914c59cbe77"
+  integrity sha512-EMcHDOMfMvjxoB5aCGASwDhVHOb/yy0Syer5aPm4GDQpjbPMceacs7LdSDL4xsCIHuOGPdOnc0YIjGpmmuKOlQ==
   dependencies:
     "@eslint-community/eslint-utils" "^4.2.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
@@ -2071,7 +2071,7 @@ eslint-plugin-svelte@^2.23.1:
     postcss "^8.4.5"
     postcss-load-config "^3.1.4"
     postcss-safe-parser "^6.0.0"
-    svelte-eslint-parser "^0.24.0"
+    svelte-eslint-parser "^0.26.0"
 
 eslint-plugin-tsdoc@^0.2.17:
   version "0.2.17"
@@ -4688,19 +4688,10 @@ postcss-value-parser@^4.0.0, postcss-value-parser@^4.2.0:
   resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz#723c09920836ba6d3e5af019f92bc0971c02e514"
   integrity sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==
 
-postcss@^8.0.9, postcss@^8.4.21:
+postcss@^8.0.9, postcss@^8.4.21, postcss@^8.4.5:
   version "8.4.21"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.21.tgz#c639b719a57efc3187b13a1d765675485f4134f4"
   integrity sha512-tP7u/Sn/dVxK2NnruI4H9BG+x+Wxz6oeZ1cJ8P6G/PZY0IKk4k/63TDsQf2kQq3+qoJeLm2kIBUNlZe3zgb4Zg==
-  dependencies:
-    nanoid "^3.3.4"
-    picocolors "^1.0.0"
-    source-map-js "^1.0.2"
-
-postcss@^8.4.5:
-  version "8.4.19"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.19.tgz#61178e2add236b17351897c8bcc0b4c8ecab56fc"
-  integrity sha512-h+pbPsyhlYj6N2ozBmHhHrs9DzGmbaarbLvWipMRO7RLS+v4onj26MPFXA5OBYFxyqYhUJK456SwDcY9H2/zsA==
   dependencies:
     nanoid "^3.3.4"
     picocolors "^1.0.0"
@@ -5682,10 +5673,19 @@ svelte-check@^3.1.4:
     svelte-preprocess "^5.0.0"
     typescript "^4.9.4"
 
-svelte-eslint-parser@^0.24.0, svelte-eslint-parser@^0.24.2:
+svelte-eslint-parser@^0.24.2:
   version "0.24.2"
   resolved "https://registry.yarnpkg.com/svelte-eslint-parser/-/svelte-eslint-parser-0.24.2.tgz#91ceee772a6d58b47a375f20445a4310951f1f83"
   integrity sha512-MYZYe8Z7C3eoZxF1VPOeVGe98BrgiX07+roCesACzCxCKpUkFJhi4w5JZwjdw60LGF71rfMJNypwb7AIG1/DYA==
+  dependencies:
+    eslint-scope "^7.0.0"
+    eslint-visitor-keys "^3.0.0"
+    espree "^9.0.0"
+
+svelte-eslint-parser@^0.26.0:
+  version "0.26.0"
+  resolved "https://registry.yarnpkg.com/svelte-eslint-parser/-/svelte-eslint-parser-0.26.0.tgz#9913f1fff9d6fa5f8390f760916dbedfa56cf394"
+  integrity sha512-R7FtiB4ZzXXQDy7ZnE90voYvsfeD2if/My7+Mq/p8MHW/VUtCaY2EbNyKEG+PAH4cygkvUnNbmkVqB+PSjZlsA==
   dependencies:
     eslint-scope "^7.0.0"
     eslint-visitor-keys "^3.0.0"
