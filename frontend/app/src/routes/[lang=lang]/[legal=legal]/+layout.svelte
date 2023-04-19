@@ -9,7 +9,7 @@
 </script>
 
 <SimpleHeader title={data.title} description={data.description} />
-<main class="article-container mx-auto py-10 px-8 lg:w-3/4 lg:py-20">
+<main class="article-container mx-auto px-8 py-10 lg:w-3/4 lg:py-20">
   <article class="prose-sm lg:prose-xl prose-a:text-secondary-700">
     <slot />
   </article>

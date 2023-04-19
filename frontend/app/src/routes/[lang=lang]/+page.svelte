@@ -20,7 +20,7 @@
 <Mounted>
   <HeroHeader links={headerLinks} preheader={$LL.header.pretitle()} header={$LL.header.title()} />
 
-  <main class="article-container relative z-20 mx-auto py-10 px-8 lg:w-3/4 lg:py-20">
+  <main class="article-container relative z-20 mx-auto px-8 py-10 lg:w-3/4 lg:py-20">
     <div class="container m-auto grid h-full w-full place-items-center">
       <div>
         <p>

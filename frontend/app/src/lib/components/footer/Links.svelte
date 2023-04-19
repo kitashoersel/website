@@ -11,7 +11,7 @@
   const { pathname } = $page.url;
 </script>
 
-<div class="rounded-t-2xl bg-primary-600 p-10 text-white lg:py-10 lg:px-20">
+<div class="rounded-t-2xl bg-primary-600 p-10 text-white lg:px-20 lg:py-10">
   <div class="lg:mb-10 lg:flex lg:items-center lg:justify-between">
     <h2 class="mb-5 text-body-lg lg:mb-0 lg:text-body-xl">{$LL.footer.header()}</h2>
     <div class="mb-7 space-y-3 text-body-no lg:mb-0 lg:text-body-md">
