@@ -16,8 +16,8 @@
   };
 
   const deviceorientation = async (event: DeviceOrientationEvent) => {
-    const x = Math.round(((event.beta! - 45) * -1) / 3);
-    const y = Math.round(event.gamma! / 5);
+    const x = Math.round((event.beta! - 45) * -1);
+    const y = Math.round(event.gamma! / 2);
     await Promise.all([mobileCoord.set({ x, y }), coord.set({ x, y })]);
   };
 </script>
