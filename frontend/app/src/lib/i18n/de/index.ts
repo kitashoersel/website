@@ -4,6 +4,11 @@ const de: BaseTranslation = {
   mechterstaedt: 'Mechterstädt',
   teutleben: 'Teutleben',
 
+  coming_soon: {
+    title: 'In Kürze <br /> verfügbar',
+    subtitle: 'Zum 30 und 50 Jubiläum der Kindergärten wollen wir unsere neue Website schon bald gebührend feiern!',
+  },
+
   header: {
     home: 'Home',
     pretitle: 'Herzlich Willkommen bei den',

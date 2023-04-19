@@ -5,7 +5,7 @@
     "mounts": ["source=frontend-node_modules,target=${containerWorkspaceFolder}/frontend/node_modules,type=volume"],
     "initializeCommand": "docker network create kite-dev-network || true",
     "postCreateCommand": "sudo chmod -R 777 frontend",
-    "runArgs": [ "--network=kite-dev-network", "--name=kite_devcontainer" ],
+    "runArgs": [ "-p=3000:3000", "--network=kite-dev-network", "--name=kite_devcontainer" ],
     "customizations": {
       "vscode": {
         "settings": {

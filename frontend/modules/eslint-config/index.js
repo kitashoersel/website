@@ -52,11 +52,13 @@ module.exports = {
     "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "no-restricted-globals": "off",
+    "@typescript-eslint/no-unused-vars": "off",
     // v4 changes
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": ["error"],
+    "@typescript-eslint/no-non-null-assertion": "off",
   },
   ignorePatterns: [
     "*.mjs",

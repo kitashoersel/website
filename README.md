@@ -54,6 +54,7 @@ Noch zu schreiben:
 - Editor Setup
 - Style guide
 - Figma Datei verlinken
+- `netsh interface portproxy add v4tov4 listenport=3000 listenaddress=0.0.0.0 connectport=3000 connectaddress=172.23.132.118`
 
 <p align="right">(<a href="#top">Zurück nach Oben</a>)</p>
 
