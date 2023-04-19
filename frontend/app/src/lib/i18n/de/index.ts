@@ -6,7 +6,7 @@ const de: BaseTranslation = {
 
   coming_soon: {
     title: 'In Kürze <br /> verfügbar',
-    subtitle: 'Zum 30 und 50 Jubiläum der Kindergärten wollen wir unsere neue Website schon bald gebührend feiern!',
+    subtitle: 'Zum 40 und 50 Jubiläum der Kindergärten wollen wir unsere neue Website schon bald gebührend feiern!',
   },
 
   header: {
