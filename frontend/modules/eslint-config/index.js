@@ -58,7 +58,7 @@ module.exports = {
     "@typescript-eslint/no-use-before-define": ["error"],
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": ["error"],
-    "@typescript-eslint/no-non-null-assertion": "off",
+    "no-return-assign": "off",
   },
   ignorePatterns: [
     "*.mjs",

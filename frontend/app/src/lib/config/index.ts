@@ -12,6 +12,8 @@ export const website = {
   contactEmail: 'PUBLIC_CONTACT_EMAIL',
   siteUrl: isDev ? 'http://localhost:3000' : 'http://localhost',
   cmsEndpoint: 'https://admin.kitashoersel.de',
+  assetEndpoint: 'https://admin.kitashoersel.de/assets',
 
-  release: new Date(2023, 4, 1, 1, 0),
+  // release: new Date(2023, 4, 1, 1, 0),
+  release: new Date(2023, 2, 1, 1, 0),
 };

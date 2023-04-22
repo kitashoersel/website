@@ -1,9 +1,9 @@
 <script lang="ts">
   import { LL } from '$i18n/i18n-svelte';
-  import Confetti from '$lib/views/coming-soon/components/Confetti.svelte';
-  import Countdown from '$lib/views/coming-soon/components/Countdown.svelte';
+  import Confetti from '$lib/pages/coming-soon/components/Confetti.svelte';
+  import Countdown from '$lib/pages/coming-soon/components/Countdown.svelte';
   import ScreenParallax from '$lib/components/common/ScreenParallax.svelte';
-  import AnimatedTitle from '$lib/views/coming-soon/components/AnimatedTitle.svelte';
+  import AnimatedTitle from '$lib/pages/coming-soon/components/AnimatedTitle.svelte';
   import Seo from '$lib/components/core/SEO.svelte';
   import { website } from '$lib/config';
 
