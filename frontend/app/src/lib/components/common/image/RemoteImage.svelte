@@ -1,13 +1,15 @@
 <script lang="ts">
-  import Image from '@zerodevx/svelte-img';
   import { website } from '$lib/config';
+  import Image from '$lib/components/common/image/Image.svelte';
+
+  type Formats = 'heic' | 'heif' | 'avif' | 'webp' | 'jpeg' | 'jpg' | 'png' | 'gif' | 'tiff';
 
   let className = '';
   export { className as class };
 
   export let quality = 80;
   export let imageWidths = [600, 1200];
-  export let formats = ['webp', 'avif', 'jpg'];
+  export let formats: Formats[] = ['webp', 'avif', 'jpg'];
   export let baseUrl = website.assetEndpoint;
 
   export let placeholder: string | null = null;
@@ -28,8 +30,7 @@
         }))
       )
       .flat(1),
-    { base64: placeholder },
   ];
 </script>
 
-<Image {src} {alt} {sizes} class={className} />
+<Image {src} {alt} {sizes} base64={placeholder} class={className} />

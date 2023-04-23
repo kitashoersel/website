@@ -3,7 +3,7 @@
   import Footer from '$lib/components/footer/Footer.svelte';
   import Seo from '$lib/components/core/SEO.svelte';
   import Mounted from '$lib/components/common/Mounted.svelte';
-  import RemoteImage from '$lib/components/common/RemoteImage.svelte';
+  import RemoteImage from '$lib/components/common/image/RemoteImage.svelte';
   import { LL } from '$i18n/i18n-svelte';
   import type { PageData } from './$types';
 

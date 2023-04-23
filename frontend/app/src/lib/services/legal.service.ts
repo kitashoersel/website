@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { assert, object, string, array, type Infer } from 'superstruct';
 import { fetchGQL, gql, type Fetcher } from '$lib/utils/graphql-client';
 
 export const legalPages = ['imprint', 'privacy'] as const;
@@ -17,28 +17,24 @@ const legalQuery = gql`
   }
 `;
 
-const legalResponseSchema = z.object({
-  data: z.object({
-    legal: z
-      .array(
-        z.object({
-          translations: z
-            .array(
-              z.object({
-                title: z.string(),
-                keywords: z.array(z.string()),
-                description: z.string(),
-                content: z.string(),
-              })
-            )
-            .length(1),
-        })
-      )
-      .length(1),
+const LegalResponseSchema = object({
+  data: object({
+    legal: array(
+      object({
+        translations: array(
+          object({
+            title: string(),
+            description: string(),
+            content: string(),
+          })
+        ),
+      })
+    ),
   }),
 });
 
 export const fetchLegalData = async (fetch: Fetcher, type: PageType, locale: string) => {
   const result = await fetchGQL(legalQuery, { fetcher: fetch, variables: { type, locale } });
-  return legalResponseSchema.parse(result).data.legal[0].translations[0];
+  assert(result, LegalResponseSchema);
+  return result.data.legal[0].translations[0];
 };
