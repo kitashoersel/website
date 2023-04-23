@@ -14,16 +14,17 @@
   export let alt: string | null = null;
   export let key: string;
   export let height: number;
+  export let width: number;
   export let sizes: string;
 
   const src = [
     ...imageWidths
-      .map((width) =>
+      .map((transformedWidth) =>
         formats.map((format) => ({
-          src: `${baseUrl}/${key}?fit=contain&width=${width}&quality=${quality}&format=${format}&upscaling=false`,
-          height,
+          src: `${baseUrl}/${key}?fit=contain&width=${transformedWidth}&quality=${quality}&format=${format}&upscaling=false`,
+          width: transformedWidth,
+          height: (height / width) * transformedWidth,
           format,
-          width,
         }))
       )
       .flat(1),
