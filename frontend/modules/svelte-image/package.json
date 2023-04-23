@@ -1,0 +1,13 @@
+{
+  "name": "@modules/svelte-image",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "imagetools-core": "^3.3.1",
+    "vite-imagetools": "^4.0.19"
+  }
+}
