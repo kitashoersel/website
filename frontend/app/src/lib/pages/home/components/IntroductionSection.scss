@@ -1,0 +1,13 @@
+.introduction h1,
+.introduction h2,
+.introduction h3 {
+  @apply mb-4 text-header-no font-bold lg:text-header-md;
+}
+
+.introduction p {
+  @apply text-body-no text-primary-200 lg:text-body-md;
+}
+
+.intro-section {
+  grid-template-columns: 1fr 3rem 1fr;
+}

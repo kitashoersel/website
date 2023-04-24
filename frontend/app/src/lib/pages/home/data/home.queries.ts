@@ -18,6 +18,19 @@ export const query = {
           }
         }
       }
+      articles(filter: { published: { _eq: true } }, sort: ["-date_created"], limit: 2) {
+        date_created
+        translations(filter: { languages_code: { locale: { _eq: $locale } } }) {
+          title
+          description
+          read_time
+          thumbnail {
+            id
+            width
+            height
+          }
+        }
+      }
     }
   `,
   schema: object({
@@ -40,6 +53,23 @@ export const query = {
           })
         ),
       }),
+      articles: array(
+        object({
+          date_created: string(),
+          translations: array(
+            object({
+              title: string(),
+              description: string(),
+              read_time: number(),
+              thumbnail: object({
+                width: number(),
+                height: number(),
+                id: string(),
+              }),
+            })
+          ),
+        })
+      ),
     }),
   }),
 };

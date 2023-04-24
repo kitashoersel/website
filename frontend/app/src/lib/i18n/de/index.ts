@@ -4,6 +4,8 @@ const de: BaseTranslation = {
   mechterstaedt: 'Mechterstädt',
   teutleben: 'Teutleben',
 
+  show_more: 'Mehr anzeigen',
+
   coming_soon: {
     title: 'In Kürze <br /> verfügbar',
     subtitle: 'Zum 40 und 50 Jubiläum der Kindergärten wollen wir unsere neue Website schon bald gebührend feiern!',
@@ -29,6 +31,10 @@ const de: BaseTranslation = {
     not_found: 'Seite nicht gefunden',
     not_found_desc: 'Tut uns Leid, die angeforderte Seite konnte nicht gefunden werden. 😿',
     back_home: 'Wieder nach Hause',
+  },
+
+  home_page: {
+    news: 'Aktuelles von uns',
   },
 };
 

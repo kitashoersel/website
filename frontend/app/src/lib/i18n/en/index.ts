@@ -4,6 +4,8 @@ const en: Translation = {
   mechterstaedt: 'Mechterstädt',
   teutleben: 'Teutleben',
 
+  show_more: 'Show more',
+
   coming_soon: {
     title: 'Coming <br /> soon',
     subtitle: 'For the 40th and 50th anniversary of the kindergartens we want to celebrate our new website soon!',
@@ -29,6 +31,10 @@ const en: Translation = {
     not_found: 'Page not found',
     not_found_desc: 'Sorry, the requested page could not be found. 😿',
     back_home: 'Back home',
+  },
+
+  home_page: {
+    news: 'Our news',
   },
 };
 

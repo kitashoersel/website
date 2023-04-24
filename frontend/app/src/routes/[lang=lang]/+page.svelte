@@ -5,6 +5,8 @@
   import Mounted from '$lib/components/core/Mounted.svelte';
   import RemoteImage from '$lib/components/common/RemoteImage.svelte';
   import { LL } from '$i18n/i18n-svelte';
+  import IntroductionSection from '$lib/pages/home/components/IntroductionSection.svelte';
+
   import type { PageData } from './$types';
 
   export let data: PageData;
@@ -24,11 +26,12 @@
 <Mounted>
   <HeroHeader links={headerLinks} preheader={$LL.header.pretitle()} header={$LL.header.title()} />
 
-  <main class="article-container relative z-20 mx-auto px-8 py-10 lg:w-3/4 lg:py-20">
-    <div class="container m-auto grid h-full w-full place-items-center">
-      <div>
-        <RemoteImage {...data.image} sizes="(max-width: 1000px) 600px, 1200px" />
-      </div>
+  <main class="page relative z-20 px-8 py-10 lg:w-3/4 lg:py-20">
+    <IntroductionSection {...data.introduction} />
+    <div class="pt-20">
+      {#each data.management.images as image}
+        <RemoteImage {...image} sizes="(max-width: 1000px) 600px, 1200px" />
+      {/each}
     </div>
   </main>
 

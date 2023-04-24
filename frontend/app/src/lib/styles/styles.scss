@@ -31,3 +31,20 @@ em {
   font-weight: 600;
   font-style: normal;
 }
+
+.clamp-1,
+.clamp-2 {
+  display: block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.clamp-1 {
+  -webkit-line-clamp: 1;
+}
+
+.clamp-2 {
+  -webkit-line-clamp: 2;
+}
