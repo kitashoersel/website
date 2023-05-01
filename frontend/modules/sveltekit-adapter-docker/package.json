@@ -35,7 +35,7 @@
     "@fastify/helmet": "^10.1.0",
     "@modules/eslint-config": "^1.0.0",
     "@modules/prettier-config": "^1.0.0",
-    "fastify": "^4.15.0",
+    "fastify": "^4.17.0",
     "globby": "^13.1.4",
     "rimraf": "^5.0.0"
   },
