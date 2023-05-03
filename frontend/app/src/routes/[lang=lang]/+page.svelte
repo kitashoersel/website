@@ -6,6 +6,7 @@
   import RemoteImage from '$lib/components/common/RemoteImage.svelte';
   import { LL } from '$i18n/i18n-svelte';
   import IntroductionSection from '$lib/pages/home/components/IntroductionSection.svelte';
+  import Carousel from '$lib/components/core/carousel/Carousel.svelte';
 
   import type { PageData } from './$types';
 
@@ -24,15 +25,15 @@
 />
 
 <Mounted>
-  <HeroHeader links={headerLinks} preheader={$LL.header.pretitle()} header={$LL.header.title()} />
+  <!-- <HeroHeader links={headerLinks} preheader={$LL.header.pretitle()} header={$LL.header.title()} /> -->
 
   <main class="page relative z-20 px-8 py-10 lg:w-3/4 lg:py-20">
-    <IntroductionSection {...data.introduction} />
-    <div class="pt-20">
-      {#each data.management.images as image}
-        <RemoteImage {...image} sizes="(max-width: 1000px) 600px, 1200px" />
+    <!-- <IntroductionSection {...data.introduction} /> -->
+    <Carousel classNames="w-64 lg:w-96" imageClassNames="rounded-lg">
+      {#each [...data.management.images] as image}
+        <RemoteImage {...image} sizes="(max-width: 1000px) 600px, 1200px" class="h-full w-64 lg:w-96" />
       {/each}
-    </div>
+    </Carousel>
   </main>
 
   <Footer />

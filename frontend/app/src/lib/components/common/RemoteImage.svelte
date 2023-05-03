@@ -33,4 +33,4 @@
   ];
 </script>
 
-<Image {src} {alt} {sizes} base64={placeholder} class={className} />
+<Image {src} {alt} {sizes} base64={placeholder} class={className} draggable="false" />
