@@ -1,0 +1,9 @@
+.remote-html h1,
+.remote-html h2,
+.remote-html h3 {
+  @apply mb-4 text-header-no font-bold lg:text-header-md;
+}
+
+.remote-html p {
+  @apply text-body-no text-primary-200 lg:text-body-md;
+}

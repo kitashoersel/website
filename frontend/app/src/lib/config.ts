@@ -10,7 +10,7 @@ export const website = {
   siteBackgroundColor: '#f6f6f9',
 
   contactEmail: 'PUBLIC_CONTACT_EMAIL',
-  siteUrl: isDev ? 'http://192.168.178.25:3000' : 'http://192.168.178.25',
+  siteUrl: isDev ? 'http://localhost:3000' : 'http://localhost',
   cmsEndpoint: 'https://admin.kitashoersel.de',
   assetEndpoint: 'https://admin.kitashoersel.de/assets',
 

@@ -22,6 +22,7 @@
   let scrollIndex = 1;
   let rawScrollIndex = 1;
   let shouldAnimate = true;
+  let autoTimer: string;
 
   const baseScrollConfig = { hard: false, animation: true };
   const setScrollPosition = (position: number, i: number, { hard = false, animation = true } = baseScrollConfig) => {
@@ -100,6 +101,20 @@
     container.prepend(last);
     container.append(first);
   });
+
+  $: {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(() => scrollTo(scrollIndex + 1), 3000) as unknown as string;
+  }
+
+  $: {
+    container?.childNodes.forEach((child: unknown) => {
+      const element = child as HTMLElement;
+      if (element.style) {
+        element.style.width = `${elementWidth}px`;
+      }
+    });
+  }
 </script>
 
 <div {...$$restProps} class={`${classNames} space-y-3`}>

@@ -5,6 +5,6 @@
   export let links: LinkProp[] | null = null;
 </script>
 
-<footer>
+<footer class="relative z-10">
   <Links {links} />
 </footer>

@@ -31,7 +31,7 @@
   <div class="flex w-full flex-col justify-between space-y-2 text-body-no lg:text-body-md">
     <div>
       <span class="clamp-1 font-medium">{title}</span>
-      <span class="clamp-2 text-body-sm text-primary-500 lg:text-body-no">{description}</span>
+      <span class="clamp-2 text-body-sm text-primary-500">{description}</span>
     </div>
     <span class="flex justify-between text-primary-200">
       <time datetime={published}>{shortDate(published, lang)}</time>

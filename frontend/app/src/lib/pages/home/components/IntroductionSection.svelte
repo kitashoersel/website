@@ -4,14 +4,14 @@
   import type { Article } from '$lib/pages/home/data/home.model';
   import SmallArticleCard from '$lib/pages/home/components/SmallArticleCard.svelte';
 
-  import './IntroductionSection.scss';
-
+  let className = '';
+  export { className as class };
   export let introduction: string;
   export let articles: Article[];
 </script>
 
-<section class="intro-section space-y-4 lg:grid lg:space-y-0">
-  <div class="introduction space-y-6 pb-3 lg:text-right">{@html introduction}</div>
+<section class={`${className} intro-section space-y-4 lg:grid lg:space-y-0`}>
+  <div class="remote-html space-y-6 pb-3 lg:text-right">{@html introduction}</div>
 
   <div class="mx-auto hidden h-full w-[2px] bg-primary-100 bg-opacity-50 lg:block" />
 
@@ -25,10 +25,16 @@
       </Link>
     </div>
 
-    <div class="space-y-3">
+    <div class="flex flex-col gap-4">
       {#each articles as article}
         <SmallArticleCard {...article} />
       {/each}
     </div>
   </div>
 </section>
+
+<style>
+  .intro-section {
+    grid-template-columns: 1fr 4rem 1fr;
+  }
+</style>
