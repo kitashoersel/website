@@ -10,10 +10,6 @@ import { generateLocations } from './src/lib/generateNginxLocations';
 const files = fileURLToPath(new URL('./files', import.meta.url).href);
 const staticFiles = fileURLToPath(new URL('./docker', import.meta.url).href);
 
-type Package = {
-  dependencies: Record<string, string>;
-};
-
 type AdapterOptions = {
   out?: string;
   precompress?: boolean;
@@ -58,14 +54,11 @@ const plugin: Plugin = (opts) => {
           `export const prerendered = new Set(${JSON.stringify(builder.prerendered.paths)});\n`
       );
 
-      const pkg: Package = JSON.parse(readFileSync('package.json', 'utf8'));
-
       const bundle = await rollup({
         input: {
           index: `${tmp}/index.js`,
           manifest: `${tmp}/manifest.js`,
         },
-        external: [...Object.keys(pkg.dependencies || {}).map((d) => new RegExp(`^${d}(\\/.*)?$`))],
         plugins: [nodeResolve({ preferBuiltins: true }), commonjs({ strictRequires: true }), json()],
       });
 
