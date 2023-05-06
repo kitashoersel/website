@@ -6,6 +6,11 @@ const en: Translation = {
 
   show_more: 'Show more',
 
+  components: {
+    next_image: 'Show next image',
+    prev_image: 'show previous image',
+  },
+
   coming_soon: {
     title: 'Coming <br /> soon',
     subtitle: 'For the 40th and 50th anniversary of the kindergartens we want to celebrate our new website soon!',

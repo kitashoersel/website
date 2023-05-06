@@ -5,6 +5,7 @@ type RemoteImage = {
   id: string;
   width: number;
   height: number;
+  title: string;
 };
 
 export const remoteImageParser = async (img: RemoteImage) => {

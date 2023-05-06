@@ -1,4 +1,4 @@
-import { object, string, array, number } from 'superstruct';
+import { object, string, array, number, nullable } from 'superstruct';
 import { gql } from '$lib/utils/graphql-client';
 
 export const query = {
@@ -14,6 +14,7 @@ export const query = {
               width
               height
               id
+              title
             }
           }
         }
@@ -28,6 +29,7 @@ export const query = {
             id
             width
             height
+            title
           }
         }
       }
@@ -47,6 +49,7 @@ export const query = {
                   width: number(),
                   height: number(),
                   id: string(),
+                  title: nullable(string()),
                 }),
               })
             ),
@@ -65,6 +68,7 @@ export const query = {
                 width: number(),
                 height: number(),
                 id: string(),
+                title: nullable(string()),
               }),
             })
           ),

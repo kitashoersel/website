@@ -6,6 +6,11 @@ const de: BaseTranslation = {
 
   show_more: 'Mehr anzeigen',
 
+  components: {
+    next_image: 'Nächstes Bild anzeigen',
+    prev_image: 'Vorheriges Bild anzeigen',
+  },
+
   coming_soon: {
     title: 'In Kürze <br /> verfügbar',
     subtitle: 'Zum 40 und 50 Jubiläum der Kindergärten wollen wir unsere neue Website schon bald gebührend feiern!',

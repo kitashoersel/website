@@ -24,6 +24,7 @@
   export let width: number | null = null;
   export let height: number | null = null;
   export let base64: string | null = null;
+  export let title: string | null = null;
   export let src: ImageSource[] = [];
   export let ref: HTMLImageElement | null = null;
   export let loading: 'lazy' | 'eager' = 'lazy';
@@ -65,10 +66,10 @@
     {#each sources as { format, srcset }}
       <source type="image/{format}" {srcset} {sizes} />
     {/each}
-    <!-- svelte-ignore a11y-missing-attribute -->
     <img
       src={image.src}
       srcset={image.srcset}
+      alt={title}
       {sizes}
       width={width || image.width || undefined}
       height={height || image.height || undefined}

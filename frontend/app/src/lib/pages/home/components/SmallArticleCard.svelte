@@ -30,7 +30,7 @@
 
   <div class="flex w-full flex-col justify-between space-y-2 text-body-no lg:text-body-md">
     <div>
-      <span class="clamp-1 font-medium">{title}</span>
+      <h3 class="clamp-1 font-medium">{title}</h3>
       <span class="clamp-2 text-body-sm text-primary-500">{description}</span>
     </div>
     <span class="flex justify-between text-primary-200">

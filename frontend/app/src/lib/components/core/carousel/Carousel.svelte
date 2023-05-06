@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import { spring } from 'svelte/motion';
 
+  import { LL } from '$i18n/i18n-svelte';
   import { debounce } from '$lib/utils/misc';
   import Draggable from '$lib/components/core/carousel/Draggable.svelte';
   import ArrowLeft from '$lib/components/common/Icons/ArrowLeft.svelte';
@@ -134,8 +135,12 @@
       <Dots onclick={scrollTo} count={elementCount} active={rawScrollIndex} />
     </div>
     <div class="flex flex-row justify-end gap-2">
-      <RoundedButton onClick={() => scrollTo(scrollIndex - 1)}><ArrowLeft /></RoundedButton>
-      <RoundedButton onClick={() => scrollTo(scrollIndex + 1)}><ArrowRight /></RoundedButton>
+      <RoundedButton onClick={() => scrollTo(scrollIndex - 1)} label={$LL.components.prev_image()}>
+        <ArrowLeft />
+      </RoundedButton>
+      <RoundedButton onClick={() => scrollTo(scrollIndex + 1)} label={$LL.components.next_image()}>
+        <ArrowRight />
+      </RoundedButton>
     </div>
   </div>
 </div>

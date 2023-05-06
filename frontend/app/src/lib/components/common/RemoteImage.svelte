@@ -13,7 +13,7 @@
   export let baseUrl = website.assetEndpoint;
 
   export let placeholder: string | null = null;
-  export let alt: string | null = null;
+  export let title: string | null = null;
   export let id: string;
   export let height: number;
   export let width: number;
@@ -33,4 +33,4 @@
   ];
 </script>
 
-<Image {src} {alt} {sizes} base64={placeholder} class={className} draggable="false" />
+<Image {src} {title} {sizes} base64={placeholder} class={className} draggable="false" />
