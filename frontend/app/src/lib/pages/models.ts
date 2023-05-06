@@ -3,5 +3,5 @@ export interface Image {
   id: string;
   width: number;
   height: number;
-  title: string;
+  title: string | null;
 }
