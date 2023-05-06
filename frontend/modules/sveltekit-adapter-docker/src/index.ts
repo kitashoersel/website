@@ -19,7 +19,7 @@ const bootstrap = async () => {
     contentSecurityPolicy: {
       directives: {
         'script-src': ["'self'", "'unsafe-inline'"],
-        'img-src': ["'self'", 'admin.kitashoersel.de'],
+        'img-src': ["'self'", "'admin.kitashoersel.de'", 'data:'],
       },
     },
   });
