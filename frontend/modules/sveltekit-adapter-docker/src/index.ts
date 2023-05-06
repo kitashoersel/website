@@ -17,7 +17,10 @@ const bootstrap = async () => {
   await server.register(fastifyCors);
   await server.register(fastifyHelmet, {
     contentSecurityPolicy: {
-      directives: { 'img-src': ["'self'", 'admin.kitashoersel.de', 'data:'] },
+      directives: {
+        'script-src': ['self', 'unsafe-inline'],
+        'img-src': ["'self'", 'admin.kitashoersel.de', 'data:'],
+      },
     },
   });
 

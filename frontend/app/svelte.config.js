@@ -19,6 +19,21 @@ const config = {
       languages: ['de', 'en'],
       immutables: { immutableFolders: ['fonts'] },
     }),
+    csp: {
+      mode: 'auto',
+      directives: {
+        'default-src': ['self'],
+        'base-uri': ['self'],
+        'style-src': ['self', 'https: unsafe-inline'],
+        'script-src': ['self', 'unsafe-inline'],
+        'script-src-attr': ['none'],
+        'style-src': ['self'],
+        'form-action': ['self'],
+        'frame-ancestors': ['self'],
+        'img-src': ['self', 'admin.kitashoersel.de', 'data:'],
+        'object-src': ['none'],
+      },
+    },
     alias: {
       $i18n: 'src/lib/i18n',
       $lib: 'src/lib',
