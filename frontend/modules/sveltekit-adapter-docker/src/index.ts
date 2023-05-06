@@ -18,6 +18,7 @@ const bootstrap = async () => {
   await server.register(fastifyHelmet, {
     contentSecurityPolicy: {
       directives: {
+        'style-src': ['self', 'unsafe-inline'],
         'script-src': ['self', 'unsafe-inline'],
         'img-src': ["'self'", 'admin.kitashoersel.de', 'data:'],
       },

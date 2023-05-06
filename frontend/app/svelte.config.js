@@ -24,7 +24,7 @@ const config = {
       directives: {
         'default-src': ['self'],
         'base-uri': ['self'],
-        'style-src': ['self', 'https: unsafe-inline'],
+        'style-src': ['self', 'unsafe-inline'],
         'script-src': ['self', 'unsafe-inline'],
         'script-src-attr': ['none'],
         'style-src': ['self'],
