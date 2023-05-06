@@ -9,6 +9,7 @@ const de: BaseTranslation = {
   components: {
     next_image: 'Nächstes Bild anzeigen',
     prev_image: 'Vorheriges Bild anzeigen',
+    show_x_image: '{index:number} Bild anzeigen',
   },
 
   coming_soon: {

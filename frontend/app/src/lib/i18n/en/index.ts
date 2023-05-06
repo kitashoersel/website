@@ -9,6 +9,7 @@ const en: Translation = {
   components: {
     next_image: 'Show next image',
     prev_image: 'show previous image',
+    show_x_image: '{index} Bild anzeigen',
   },
 
   coming_soon: {
