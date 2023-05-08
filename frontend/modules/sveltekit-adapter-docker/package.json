@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@fastify/cors": "^8.2.1",
-    "@fastify/helmet": "^10.1.0",
+    "@fastify/helmet": "^10.1.1",
     "@modules/eslint-config": "^1.0.0",
     "@modules/prettier-config": "^1.0.0",
     "fastify": "^4.17.0",
