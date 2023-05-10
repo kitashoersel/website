@@ -1,6 +1,14 @@
 import type { BaseTranslation } from '../i18n-types.js';
 
 const de: BaseTranslation = {
+  routes: {
+    privacy: '/datenschutz',
+    imprint: '/impressum',
+    mechterstaedt: '/mechterstaedt',
+    teutleben: '/teutleben',
+    contact: 'kontakt',
+  },
+
   mechterstaedt: 'Mechterstädt',
   teutleben: 'Teutleben',
 
@@ -28,8 +36,7 @@ const de: BaseTranslation = {
     privacy: 'Datenschutz',
     imprint: 'Impressum',
     contact: 'Kontakt',
-    copyright:
-      "© {year:number} <a href='https://www.linkedin.com/in/tobias-kärst' target='_blank' rel='noopener noreferrer'>Tobias Kärst</a>. All rights reserved.",
+    watermark: 'Mit ❤️ erstellt von',
   },
 
   error_404: {

@@ -1,5 +1,6 @@
 import { object, string, array, number, nullable } from 'superstruct';
 import { gql } from '$lib/utils/graphql-client';
+import { remoteImageSchema } from '$lib/pages/schemas';
 
 export const query = {
   gql: gql`
@@ -11,11 +12,14 @@ export const query = {
           management
           management_pictures {
             directus_files_id {
-              width
-              height
-              id
-              title
+              ...FileMetadata
             }
+          }
+          mechterstaedt_thumbnail {
+            ...FileMetadata
+          }
+          teutleben_thumbnail {
+            ...FileMetadata
           }
         }
       }
@@ -26,13 +30,17 @@ export const query = {
           description
           read_time
           thumbnail {
-            id
-            width
-            height
-            title
+            ...FileMetadata
           }
         }
       }
+    }
+
+    fragment FileMetadata on directus_files {
+      id
+      width
+      height
+      title
     }
   `,
   schema: object({
@@ -45,14 +53,11 @@ export const query = {
             management: string(),
             management_pictures: array(
               object({
-                directus_files_id: object({
-                  width: number(),
-                  height: number(),
-                  id: string(),
-                  title: nullable(string()),
-                }),
+                directus_files_id: remoteImageSchema(),
               })
             ),
+            mechterstaedt_thumbnail: remoteImageSchema(),
+            teutleben_thumbnail: remoteImageSchema(),
           })
         ),
       }),
@@ -64,12 +69,7 @@ export const query = {
               title: string(),
               description: string(),
               read_time: number(),
-              thumbnail: object({
-                width: number(),
-                height: number(),
-                id: string(),
-                title: nullable(string()),
-              }),
+              thumbnail: remoteImageSchema(),
             })
           ),
         })

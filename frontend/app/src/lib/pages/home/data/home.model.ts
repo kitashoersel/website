@@ -12,5 +12,9 @@ export interface Article {
 export interface HomePageData {
   introduction: { introduction: string; articles: Article[] };
   management: { content: string; images: Image[] };
-  institution: string;
+  facilities: {
+    institution: string;
+    mechterstaedtThumbnail: Image;
+    teutlebenThumbnail: Image;
+  };
 }

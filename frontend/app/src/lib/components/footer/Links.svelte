@@ -7,7 +7,6 @@
 
   export let links: LinkProp[] | null = null;
 
-  const year = new Date().getFullYear();
   const { pathname } = $page.url;
 </script>
 
@@ -15,22 +14,22 @@
   <div class="lg:mb-10 lg:flex lg:items-center lg:justify-between">
     <h2 class="mb-5 text-body-lg lg:mb-0 lg:text-body-xl">{$LL.footer.header()}</h2>
     <div class="mb-7 space-y-3 text-body-no lg:mb-0 lg:text-body-md">
-      <ul class="flex gap-5 lg:justify-end">
+      <ul class="sm:flex sm:gap-5 lg:justify-end">
         <li>{$LL.footer.contact()}</li>
         <li>
           <span>[</span>
-          <Link i11n href="/mechterstaedt#contact">{$LL.mechterstaedt()}</Link>
+          <Link i11n href={`${$LL.routes.mechterstaedt()}#${$LL.routes.contact()}`}>{$LL.mechterstaedt()}</Link>
           <span> / </span>
-          <Link i11n href="/teutleben#contact">{$LL.teutleben()}</Link>
+          <Link i11n href={`${$LL.routes.teutleben()}#${$LL.routes.contact()}`}>{$LL.teutleben()}</Link>
           <span>]</span>
         </li>
       </ul>
       <ul class="flex gap-5 lg:justify-end">
-        {#if !pathname.endsWith('/privacy')}
-          <li><Link i11n href="/privacy">{$LL.footer.privacy()}</Link></li>
+        {#if !pathname.endsWith($LL.routes.privacy())}
+          <li><Link i11n href={$LL.routes.privacy()}>{$LL.footer.privacy()}</Link></li>
         {/if}
-        {#if !pathname.endsWith('/imprint')}
-          <li><Link i11n href="/imprint">{$LL.footer.imprint()}</Link></li>
+        {#if !pathname.endsWith($LL.routes.imprint())}
+          <li><Link i11n href={$LL.routes.imprint()}>{$LL.footer.imprint()}</Link></li>
         {/if}
       </ul>
     </div>
@@ -46,7 +45,9 @@
         {/each}
       </ul>
     {/if}
-
-    <p class="text-body-sm lg:text-right lg:text-body-md">{@html $LL.footer.copyright({ year })}</p>
+    <p class="text-body-sm lg:text-right lg:text-body-md">
+      <span>{@html $LL.footer.watermark()}</span>
+      <Link newTab href="https://www.linkedin.com/in/tobias-kärst">Tobias Kärst</Link>
+    </p>
   </div>
 </div>

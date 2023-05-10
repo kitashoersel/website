@@ -12,7 +12,7 @@ export const fetchHomePageData = async (fetch: Fetcher, locale: string): Promise
   const homePageData = result.data.home_page.translations[0];
   const articleData = result.data.articles;
 
-  const [managementImages, articles] = await Promise.all([
+  const [managementImages, articles, mechterstaedtThumbnail, teutlebenThumbnail] = await Promise.all([
     Promise.all(homePageData.management_pictures.map(({ directus_files_id }) => remoteImageParser(directus_files_id))),
     Promise.all(
       articleData.map(async ({ date_created, translations }) => ({
@@ -24,11 +24,13 @@ export const fetchHomePageData = async (fetch: Fetcher, locale: string): Promise
         thumbnail: await remoteImageParser(translations[0].thumbnail),
       }))
     ),
+    remoteImageParser(homePageData.mechterstaedt_thumbnail),
+    remoteImageParser(homePageData.teutleben_thumbnail),
   ]);
 
   return {
     introduction: { introduction: homePageData.introduction, articles },
     management: { content: homePageData.management, images: managementImages },
-    institution: homePageData.institution,
+    facilities: { institution: homePageData.institution, mechterstaedtThumbnail, teutlebenThumbnail },
   };
 };

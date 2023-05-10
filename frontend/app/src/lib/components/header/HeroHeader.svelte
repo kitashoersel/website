@@ -13,7 +13,7 @@
   export let links: { label: string; href: string }[];
 </script>
 
-<header class="max-h-[40rem]">
+<header class="max-h-[40rem] w-full">
   <div class="relative max-h-[40rem]">
     <Parallax rate={1} class="absolute bottom-0 left-20 w-28 lg:left-52 lg:w-44 2xl:left-60 2xl:w-56">
       <BoySilhouette />
@@ -39,5 +39,5 @@
     <HeaderLinks {links} />
   </Parallax>
 
-  <Parallax class="absolute h-1/3 w-full bg-white" rate={3} />
+  <Parallax class="absolute h-2/3 w-full bg-white" rate={3} />
 </header>

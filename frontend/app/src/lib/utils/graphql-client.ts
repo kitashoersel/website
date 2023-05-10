@@ -11,13 +11,11 @@ export type Fetcher = (input: RequestInfo | URL, init?: RequestInit | undefined)
 
 export const fetchGQL = async (query: string, params?: OptionalParams) => {
   const fetcher = params?.fetcher ?? fetch;
+
   const res = await fetcher(`${website.cmsEndpoint}/graphql`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      query,
-      variables: params?.variables || {},
-    }),
+    body: JSON.stringify({ query, variables: params?.variables || {} }),
   });
 
   if (!res.ok) {
