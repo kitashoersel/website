@@ -1,9 +1,8 @@
 <script lang="ts">
   import { LL } from '$i18n/i18n-svelte';
   import Link from '$lib/components/common/Link.svelte';
+  import type { LinkProp } from '$lib/components/footer/Footer.svelte';
   import { page } from '$app/stores';
-
-  import type { LinkProp } from './Footer';
 
   export let links: LinkProp[] | null = null;
 
