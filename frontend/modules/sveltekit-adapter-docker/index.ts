@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from 'node:fs';
+import { writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { rollup } from 'rollup';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
@@ -14,8 +14,8 @@ type AdapterOptions = {
   out?: string;
   precompress?: boolean;
   hostName: string;
-  hostPort: number;
-  nginxPort: number;
+  hostPort?: number;
+  nginxPort?: number;
   languages: string[];
   immutables: { immutableFolders: string[] };
 };
@@ -23,7 +23,15 @@ type AdapterOptions = {
 type Plugin = (options?: AdapterOptions) => Adapter;
 
 const plugin: Plugin = (opts) => {
-  const { out = 'build', precompress, hostName, hostPort, nginxPort, languages, immutables } = opts;
+  const {
+    out = 'build',
+    precompress = true,
+    hostName,
+    hostPort = 3000,
+    nginxPort = 3001,
+    languages,
+    immutables,
+  } = opts;
 
   return {
     name: '@module/sveltekit-adapter-docker',

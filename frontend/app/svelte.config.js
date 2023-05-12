@@ -12,26 +12,13 @@ const config = {
   preprocess: preprocess(),
   kit: {
     adapter: adapter({
-      precompress: true,
+      immutables: { immutableFolders: ['fonts', 'icons'] },
       hostName: 'kite-webserver',
-      hostPort: 3000,
-      nginxPort: 3001,
-      languages: ['de', 'en'],
-      immutables: { immutableFolders: ['fonts'] },
+      languages: locales,
     }),
     csp: {
       mode: 'auto',
-      directives: {
-        'default-src': ['self'],
-        'base-uri': ['self'],
-        'style-src': ['self', 'unsafe-inline'],
-        'script-src': ['self', 'unsafe-inline'],
-        'script-src-attr': ['none'],
-        'form-action': ['self'],
-        'frame-ancestors': ['self'],
-        'img-src': ['self', 'admin.kitashoersel.de', 'data:'],
-        'object-src': ['none'],
-      },
+      directives: { 'style-src': ['self', 'unsafe-inline'], 'script-src': ['self', 'unsafe-inline'] },
     },
     alias: {
       $i18n: 'src/lib/i18n',

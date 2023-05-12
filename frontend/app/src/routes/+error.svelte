@@ -3,7 +3,7 @@
   import errorIllustration from '$lib/assets/error_illustration.svg';
   import Link from '$lib/components/common/Link.svelte';
   import Seo from '$lib/components/core/SEO.svelte';
-  import FaAngleDoubleRight from '$lib/components/common/Icons/FaAngleDoubleRight.svelte';
+  import Icon from '$lib/components/common/Icon.svelte';
 </script>
 
 <Seo title={$LL.error_404.error()} description={$LL.error_404.not_found()} keywords="error,not found,unavailable" />
@@ -21,7 +21,7 @@
       <Link href="/" class="text-body-no  before:bg-secondary-700 lg:text-body-lg">
         <span>{$LL.error_404.back_home()}</span>
       </Link>
-      <span class="h-6 w-6 animate-bounce-right"><FaAngleDoubleRight /></span>
+      <Icon icon="arrow-double-right" class="animate-bounce-right" />
     </div>
   </div>
 

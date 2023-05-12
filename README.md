@@ -55,6 +55,9 @@ Noch zu schreiben:
 - Style guide
 - Figma Datei verlinken
 - `netsh interface portproxy add v4tov4 listenport=3000 listenaddress=0.0.0.0 connectport=3000 connectaddress=172.22.75.182`
+- https://icomoon.io/app/#/select/image
+- https://svgomg.net/
+- https://icon-sets.iconify.design/
 
 <p align="right">(<a href="#top">Zurück nach Oben</a>)</p>
 

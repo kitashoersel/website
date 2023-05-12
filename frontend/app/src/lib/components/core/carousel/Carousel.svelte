@@ -5,10 +5,9 @@
   import { LL } from '$i18n/i18n-svelte';
   import { debounce } from '$lib/utils/misc';
   import Draggable from '$lib/components/core/carousel/Draggable.svelte';
-  import ArrowLeft from '$lib/components/common/Icons/ArrowLeft.svelte';
-  import ArrowRight from '$lib/components/common/Icons/ArrowRight.svelte';
   import RoundedButton from '$lib/components/common/RoundedButton.svelte';
   import Dots from '$lib/components/core/carousel/Dots.svelte';
+  import Icon from '$lib/components/common/Icon.svelte';
 
   export let classNames = '';
   export let imageClassNames = '';
@@ -136,10 +135,10 @@
     </div>
     <div class="flex flex-row justify-end gap-2">
       <RoundedButton onClick={() => scrollTo(scrollIndex - 1)} label={$LL.components.prev_image()}>
-        <ArrowLeft />
+        <Icon icon="arrow-left" />
       </RoundedButton>
       <RoundedButton onClick={() => scrollTo(scrollIndex + 1)} label={$LL.components.next_image()}>
-        <ArrowRight />
+        <Icon icon="arrow-right" />
       </RoundedButton>
     </div>
   </div>

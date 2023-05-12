@@ -25,8 +25,7 @@
           "explorer.fileNesting.expand": false,
           "explorer.fileNesting.patterns": {
             "package.json": ".dockerignore,.gitignore,.env,turbo.json,tsconfig.json,http.json,rollup.config.js",
-            "svelte.config.js": "vite.config.js,tsconfig.json",
-            "tailwind.config.cjs": ".typesafe-i18n.json",
+            "svelte.config.js": "vite.config.js,.typesafe-i18n.json,tailwind.config.cjs",
             "Taskfile.yml": ".gitignore,.editorconfig",
             "README.md": "LICENSE",
             "app.html": "app.d.ts,app.scss",

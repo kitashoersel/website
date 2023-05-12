@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 /// <reference types="@sveltejs/kit" />
 
 type Locales = import('$i18n/i18n-types').Locales;
