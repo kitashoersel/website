@@ -61,6 +61,7 @@ module.exports = {
     "no-return-assign": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/no-floating-promises": "off",
+    "func-names": "off",
   },
   ignorePatterns: [
     "*.mjs",

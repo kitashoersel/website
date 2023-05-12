@@ -3,7 +3,7 @@ import { fetchGQL, type Fetcher } from '$lib/utils/graphql-client';
 import { query } from '$lib/pages/home/data/home.queries';
 import { remoteImageParser } from '$lib/pages/parser';
 import type { HomePageData } from '$lib/pages/home/data/home.model';
-import { slugify } from '$lib/utils/slugify';
+import { slugify } from '$lib/utils/common/slugify';
 
 export const fetchHomePageData = async (fetch: Fetcher, locale: string): Promise<HomePageData> => {
   const result = await fetchGQL(query.gql, { fetcher: fetch, variables: { locale } });

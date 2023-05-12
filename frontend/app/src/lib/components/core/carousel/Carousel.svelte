@@ -3,7 +3,7 @@
   import { spring } from 'svelte/motion';
 
   import { LL } from '$i18n/i18n-svelte';
-  import { debounce } from '$lib/utils/misc';
+  import { debounce } from '$lib/utils/common/debounce';
   import Draggable from '$lib/components/core/carousel/Draggable.svelte';
   import RoundedButton from '$lib/components/common/RoundedButton.svelte';
   import Dots from '$lib/components/core/carousel/Dots.svelte';

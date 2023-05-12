@@ -1,7 +1,7 @@
 <script lang="ts">
   import { LL } from '$i18n/i18n-svelte';
   import Link from '$lib/components/common/Link.svelte';
-  import { shortDate } from '$lib/utils/date-transformer';
+  import { shortDate } from '$lib/utils/common/date';
   import { page } from '$app/stores';
 
   export let title: string;

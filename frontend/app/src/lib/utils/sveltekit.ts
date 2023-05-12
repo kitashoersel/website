@@ -1,5 +1,4 @@
 /* eslint-disable no-extend-native */
-/* eslint-disable func-names */
 
 import { initAcceptLanguageHeaderDetector } from 'typesafe-i18n/detectors';
 import { detectLocale, i18n, isLocale } from '$i18n/i18n-util';

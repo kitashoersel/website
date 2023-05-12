@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Image } from '$lib/pages/models';
-  import { shortDate } from '$lib/utils/date-transformer';
+  import { shortDate } from '$lib/utils/common/date';
   import Link from '$lib/components/common/Link.svelte';
   import RemoteImage from '$lib/components/common/RemoteImage.svelte';
   import { page } from '$app/stores';
