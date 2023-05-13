@@ -1,0 +1,15 @@
+{
+  "payload": {
+    "metadata": {
+      "placeholder": "{{ $trigger.payload.placeholder }}"
+    }
+  },
+
+  "query": {
+    "filter": {
+      "id": {
+        "_eq": "{{ $trigger.key }}"
+      }
+    }
+  }
+}

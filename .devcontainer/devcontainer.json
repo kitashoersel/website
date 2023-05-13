@@ -10,14 +10,9 @@
       "vscode": {
         "settings": {
           // Editor settings
-          "editor.formatOnSave": true,
-          "editor.formatOnPaste": false,
-          "editor.formatOnType": false,
           "editor.codeActionsOnSave": {
-            "source.fixAll": true
+            "source.fixAll.eslint": true
           },
-          "editor.formatOnSaveMode": "file",
-          "files.autoSave": "onFocusChange",
           "cSpell.language": "en,de-de",
 
           // Explorer
@@ -82,6 +77,8 @@
           "eslint.codeAction.showDocumentation": {
               "enable": true
           },
+          "eslint.debug": true,
+          "eslint.codeActionsOnSave.mode": "problems",
           "eslint.workingDirectories": [
               "frontend/app",
               "frontend/modules/sveltekit-adapter-docker"
