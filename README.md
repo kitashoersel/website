@@ -61,6 +61,39 @@ Noch zu schreiben:
 
 <p align="right">(<a href="#top">Zurück nach Oben</a>)</p>
 
+## Todo
+
+**I18n**
+
+- clean configuration and seo from translated values
+- translate all urls and seo configs in pages
+
+**Refactoring**
+
+- Remove tailwindcss from project
+  - translate theme to scss lib
+  - create scss folder structure
+
+**Misc**
+
+- clean / sort `core` and `common` folders
+  - put image components in image module
+  - carousel in own module
+- split footer in smaller components
+
+**Performance**
+
+- add cache control header to graphql requests https://kit.svelte.dev/docs/load#cookies-and-headers
+- refactor graphql client to be a common module
+- redis as top level cache for html output
+
+**Directus**
+
+- create directus flow to add placeholder to image metadata, so it doesn't have to be calculated by svelte server
+- directus flow to generate slugs for articles
+- make readtime blocking in order to save one update call
+
+
 ## 🔓 Lizenz
 
 All meine Softwareprojekte werden unter der MIT Lizenz vertrieben. Für mehr Informationen kannst du in die [Lizenzdatei](./LICENSE) schauen.
