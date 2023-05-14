@@ -1,6 +1,7 @@
 import { object, string, array, number, nullable } from 'superstruct';
 import { gql } from '$lib/utils/graphql-client';
 import { remoteImageSchema } from '$lib/pages/schemas';
+import { ImageFragment } from '$lib/pages/fragments';
 
 export const query = {
   gql: gql`
@@ -12,36 +13,36 @@ export const query = {
           management
           management_pictures {
             directus_files_id {
-              ...FileMetadata
+              ...Image
             }
           }
           mechterstaedt_thumbnail {
-            ...FileMetadata
+            ...Image
           }
           teutleben_thumbnail {
-            ...FileMetadata
+            ...Image
           }
         }
       }
       articles(filter: { published: { _eq: true } }, sort: ["-date_created"], limit: 2) {
         date_created
         translations(filter: { languages_code: { locale: { _eq: $locale } } }) {
-          title
-          description
-          read_time
-          thumbnail {
-            ...FileMetadata
-          }
+          ...Article
         }
       }
     }
 
-    fragment FileMetadata on directus_files {
-      id
-      width
-      height
+    fragment Article on articles_translations {
       title
+      slug
+      description
+      read_time
+      thumbnail {
+        ...Image
+      }
     }
+
+    ${ImageFragment}
   `,
   schema: object({
     data: object({
@@ -51,11 +52,7 @@ export const query = {
             introduction: string(),
             institution: string(),
             management: string(),
-            management_pictures: array(
-              object({
-                directus_files_id: remoteImageSchema(),
-              })
-            ),
+            management_pictures: array(object({ directus_files_id: remoteImageSchema() })),
             mechterstaedt_thumbnail: remoteImageSchema(),
             teutleben_thumbnail: remoteImageSchema(),
           })
@@ -67,6 +64,7 @@ export const query = {
           translations: array(
             object({
               title: string(),
+              slug: string(),
               description: string(),
               read_time: number(),
               thumbnail: remoteImageSchema(),

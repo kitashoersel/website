@@ -1,9 +1,10 @@
-import { object, string, number, nullable } from 'superstruct';
+import { object, string, number, nullable, array } from 'superstruct';
 
 export const remoteImageSchema = () =>
   object({
+    id: string(),
     width: number(),
     height: number(),
-    id: string(),
-    title: nullable(string()),
+    placeholder: string(),
+    translations: array(object({ title: string() })),
   });

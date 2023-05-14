@@ -61,6 +61,7 @@
             "ADMIN_EMAIL": "{{ cms_admin_email }}"
             "ADMIN_PASSWORD": "{{ cms_admin_password }}"
             "PUBLIC_URL": "https://admin.{{ root_host }}"
+            "FLOWS_EXEC_ALLOWED_MODULES": "axios"
           labels:
             traefik.enable: true
             traefik.http.routers.directus.entrypoints: web, websecure

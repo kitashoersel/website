@@ -73,6 +73,7 @@ Noch zu schreiben:
 - Remove tailwindcss from project
   - translate theme to scss lib
   - create scss folder structure
+- eslint rules with documentation - clean relics
 
 **Misc**
 
@@ -86,12 +87,6 @@ Noch zu schreiben:
 - add cache control header to graphql requests https://kit.svelte.dev/docs/load#cookies-and-headers
 - refactor graphql client to be a common module
 - redis as top level cache for html output
-
-**Directus**
-
-- create directus flow to add placeholder to image metadata, so it doesn't have to be calculated by svelte server
-- directus flow to generate slugs for articles
-- make readtime blocking in order to save one update call
 
 
 ## 🔓 Lizenz

@@ -1,0 +1,14 @@
+{
+  "payload": {
+    "read_time": "{{ metadata_script.read_time.minutes }}",
+    "slug": "{{ metadata_script.slug }}"
+  },
+
+  "query": {
+    "filter": {
+      "id": {
+        "_eq": "{{ $trigger.payload.id }}"
+      }
+    }
+  }
+}

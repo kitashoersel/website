@@ -1,8 +1,8 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2023-04-23T16:40:02.758Z",
-  "__export_source": "insomnia.desktop.app:v2023.1.0",
+  "__export_date": "2023-05-14T17:03:11.255Z",
+  "__export_source": "insomnia.desktop.app:v2023.2.0",
   "resources": [
     {
       "_id": "req_5856b7a0b127453b8a0579ae23abe2a0",
@@ -93,6 +93,36 @@
       "_type": "workspace"
     },
     {
+      "_id": "req_dedfb7cd15d049c08f72788025f62a2e",
+      "parentId": "fld_bf55eb617eed49a9815ef08dba6be2fe",
+      "modified": 1684083761098,
+      "created": 1684066735220,
+      "url": "{{ _.base_url }}/files/94f4a975-777b-4dcf-8b19-bd109f0956af",
+      "name": "Update File",
+      "description": "",
+      "method": "PATCH",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"placeholder\": \"data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAACwBACdASoeABcAP3Ggw1i0q6cjsAgCkC4JQBnsgQiCyKZOl/7a47/8oM6hjuSAAMxl9Xe4s/FtHRl8NXEC1YWxJZW2fw3gVIT4CSM42/mkZC8mtnr+RpYZJdJitz79vV6l4XfF+5KsNCAA\"\n}"
+      },
+      "parameters": [],
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "authentication": {
+        "type": "bearer",
+        "prefix": "Bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1682005195675.75,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
       "_id": "req_34e496ef8ce0444798f20bef406a9265",
       "parentId": "fld_c200458f2e354ca083c073a02382565e",
       "modified": 1682252698302,
@@ -140,7 +170,7 @@
     {
       "_id": "req_9fe8ab6dca6748ed8230da1fd04072ba",
       "parentId": "fld_c200458f2e354ca083c073a02382565e",
-      "modified": 1682259183954,
+      "modified": 1684083404026,
       "created": 1682000925176,
       "url": "{{ _.base_url }}/graphql",
       "name": "Home Page",
@@ -148,7 +178,7 @@
       "method": "POST",
       "body": {
         "mimeType": "application/graphql",
-        "text": "{\"query\":\"query HomePage($locale: String) {\\n\\thome_page {\\n\\t\\ttranslations(filter: { languages_code: { locale: { _eq: $locale } } }) {\\n\\t\\t\\tintroduction\\n\\t\\t\\tinstitution\\n\\t\\t\\tmanagement\\n\\t\\t\\tmanagement_pictures {\\n\\t\\t\\t\\tdirectus_files_id {\\n\\t\\t\\t\\t\\twidth\\n\\t\\t\\t\\t\\theight\\n\\t\\t\\t\\t\\tid\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n}\\n\",\"operationName\":\"HomePage\",\"variables\":{\"locale\":\"{{ _.language }}\"}}"
+        "text": "{\"query\":\"query HomePage($locale: String) {\\n\\thome_page {\\n\\t\\ttranslations(filter: { languages_code: { locale: { _eq: $locale } } }) {\\n\\t\\t\\tintroduction\\n\\t\\t\\tinstitution\\n\\t\\t\\tmanagement\\n\\t\\t\\tmanagement_pictures {\\n\\t\\t\\t\\tdirectus_files_id {\\n\\t\\t\\t\\t\\t...Image\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t\\tmechterstaedt_thumbnail {\\n\\t\\t\\t\\t...Image\\n\\t\\t\\t}\\n\\t\\t\\tteutleben_thumbnail {\\n\\t\\t\\t\\t...Image\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n\\tarticles(\\n\\t\\tfilter: { published: { _eq: true } }\\n\\t\\tsort: [\\\"-date_created\\\"]\\n\\t\\tlimit: 2\\n\\t) {\\n\\t\\tdate_created\\n\\t\\ttranslations(filter: { languages_code: { locale: { _eq: $locale } } }) {\\n\\t\\t\\t...Article\\n\\t\\t}\\n\\t}\\n}\\n\\nfragment Article on articles_translations {\\n\\ttitle\\n\\tslug\\n\\tdescription\\n\\tcontent\\n\\tread_time\\n\\tthumbnail {\\n\\t\\t...Image\\n\\t}\\n}\\n\\nfragment Image on directus_files {\\n\\tid\\n\\twidth\\n\\theight\\n\\tplaceholder\\n\\ttranslations(filter: { languages_code: { locale: { _eq: $locale } } }) {\\n\\t\\ttitle\\n\\t}\\n}\\n\\n\",\"operationName\":\"HomePage\",\"variables\":{\"locale\":\"{{ _.language }}\"}}"
       },
       "parameters": [],
       "headers": [{ "name": "Content-Type", "value": "application/json" }],
@@ -166,7 +196,7 @@
     {
       "_id": "req_5becbb60527e44169ab1f652c1431bcd",
       "parentId": "fld_c200458f2e354ca083c073a02382565e",
-      "modified": 1682252680441,
+      "modified": 1684083391419,
       "created": 1682193403549,
       "url": "{{ _.base_url }}/graphql",
       "name": "Articles",
@@ -174,7 +204,7 @@
       "method": "POST",
       "body": {
         "mimeType": "application/graphql",
-        "text": "{\"query\":\"query Articles($locale: String, $pageSize: Int, $page: Int) {\\n\\tarticles(\\n\\t\\tfilter: { published: { _eq: true } }\\n\\t\\tlimit: $pageSize\\n\\t\\tpage: $page\\n\\t) {\\n\\t\\ttranslations(filter: { languages_code: { locale: { _eq: $locale } } }) {\\n\\t\\t\\ttitle\\n\\t\\t\\tdescription\\n\\t\\t\\tcontent\\n\\t\\t\\tthumbnail {\\n\\t\\t\\t\\tid\\n\\t\\t\\t\\twidth\\n\\t\\t\\t\\theight\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n}\\n\",\"operationName\":\"Articles\",\"variables\":{\"locale\":\"{{ _.language }}\",\"pageSize\":10,\"page\":1}}"
+        "text": "{\"query\":\"query Articles($locale: String, $pageSize: Int, $page: Int) {\\n\\tarticles(\\n\\t\\tfilter: { published: { _eq: true } }\\n\\t\\tsort: [\\\"-date_created\\\"]\\n\\t\\tlimit: $pageSize\\n\\t\\tpage: $page\\n\\t) {\\n\\t\\ttranslations(filter: { languages_code: { locale: { _eq: $locale } } }) {\\n\\t\\t\\t...Article\\n\\t\\t}\\n\\t}\\n}\\n\\nfragment Article on articles_translations {\\n\\ttitle\\n\\tslug\\n\\tdescription\\n\\tcontent\\n\\tread_time\\n\\tthumbnail {\\n\\t\\t...Image\\n\\t}\\n}\\n\\nfragment Image on directus_files {\\n\\tid\\n\\twidth\\n\\theight\\n\\tplaceholder\\n\\ttranslations(filter: { languages_code: { locale: { _eq: $locale } } }) {\\n\\t\\ttitle\\n\\t}\\n}\\n\",\"operationName\":\"Articles\",\"variables\":{\"locale\":\"{{ _.language }}\",\"pageSize\":10,\"page\":1}}"
       },
       "parameters": [],
       "headers": [{ "name": "Content-Type", "value": "application/json" }],
@@ -192,11 +222,11 @@
     {
       "_id": "env_1d67484c222dda7cd766a0d8c21cf0fc3cdc0e4b",
       "parentId": "wrk_07509e7487014b7e9c7b88ccbb5224ce",
-      "modified": 1682252651488,
+      "modified": 1684083749674,
       "created": 1681997044890,
       "name": "Base Environment",
-      "data": { "base_url": "https://admin.kitashoersel.de", "language": "de" },
-      "dataPropertyOrder": { "&": ["base_url", "language"] },
+      "data": { "language": "de" },
+      "dataPropertyOrder": { "&": ["language"] },
       "color": null,
       "isPrivate": false,
       "metaSortKey": 1681997044890,

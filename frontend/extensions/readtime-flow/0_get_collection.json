@@ -1,8 +1,4 @@
 {
-  "payload": {
-    "read_time": "{{ $trigger.payload.read_time }}"
-  },
-
   "query": {
     "filter": {
       "id": {

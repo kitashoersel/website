@@ -1,18 +1,12 @@
-import { remoteImageToImageData } from '$lib/utils/remote-image';
-import { website } from '$lib/config';
+import type { Infer } from 'superstruct';
+import type { remoteImageSchema } from '$lib/pages/schemas';
 
-type RemoteImage = {
-  id: string;
-  width: number;
-  height: number;
-  title: string | null;
-};
-
-export const remoteImageParser = async (img: RemoteImage) => {
+export const remoteImageParser = (img: Infer<ReturnType<typeof remoteImageSchema>>) => {
   return {
-    ...img,
-    placeholder: await remoteImageToImageData(
-      `${website.assetEndpoint}/${img.id}?fit=contain&width=30&quality=10&format=webp&upscaling=false`
-    ),
+    id: img.id,
+    width: img.width,
+    height: img.height,
+    placeholder: img.placeholder,
+    title: img.translations[0].title,
   };
 };

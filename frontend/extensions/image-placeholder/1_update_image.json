@@ -1,0 +1,8 @@
+{
+  "method": "PATCH",
+  "url": "https://admin.kitashoersel.de/files/{{$trigger.key}}",
+  "header": "Authorization <TOKEN>",
+  "body": {
+    "placeholder": "{{$trigger.payload.placeholder}}"
+  }
+}
