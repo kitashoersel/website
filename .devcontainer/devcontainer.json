@@ -63,7 +63,6 @@
           // Typescript
           "typescript.enablePromptUseWorkspaceTsdk": true,
           "typescript.preferences.importModuleSpecifier": "non-relative",
-          "svelte.enable-ts-plugin": true,
 
           // CSS
           "scss.lint.unknownAtRules": "ignore",
@@ -86,6 +85,7 @@
           "prettier.documentSelectors": ["**/*.svelte"],
 
           //! Svelte
+          "svelte.enable-ts-plugin": true,
           "svelte.plugin.svelte.format.enable": true,
           "svelte.plugin.svelte.format.config.svelteSortOrder": "options-markup-styles-scripts",
           "svelte.plugin.css.completions.enable": true,

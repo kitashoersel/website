@@ -3,7 +3,7 @@
 
   import HeroHeader from '$lib/components/header/HeroHeader.svelte';
   import Footer from '$lib/components/footer/Footer.svelte';
-  import Seo from '$lib/components/core/SEO.svelte';
+  import Seo from '$lib/components/common/SEO.svelte';
   import IntroductionSection from '$lib/pages/home/components/IntroductionSection.svelte';
   import ManagementSection from '$lib/pages/home/components/ManagementSection.svelte';
   import HousesSection from '$lib/pages/home/components/FacilitySection.svelte';

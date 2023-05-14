@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Seo from '$lib/components/core/SEO.svelte';
+  import Seo from '$lib/components/common/SEO.svelte';
   import type { PageData } from './$types';
 
   export let data: PageData;

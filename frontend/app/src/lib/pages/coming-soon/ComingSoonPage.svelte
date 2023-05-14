@@ -3,7 +3,7 @@
   import Confetti from '$lib/pages/coming-soon/components/Confetti.svelte';
   import Countdown from '$lib/pages/coming-soon/components/Countdown.svelte';
   import AnimatedTitle from '$lib/pages/coming-soon/components/AnimatedTitle.svelte';
-  import Seo from '$lib/components/core/SEO.svelte';
+  import Seo from '$lib/components/common/SEO.svelte';
   import { website } from '$lib/config';
   import { screenParallax } from '$lib/actions/screenParallax';
 

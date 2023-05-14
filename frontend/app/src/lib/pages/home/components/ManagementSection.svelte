@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Image } from '$lib/pages/models';
-  import Carousel from '$lib/components/core/carousel/Carousel.svelte';
+  import Carousel from '$lib/components/common/carousel/Carousel.svelte';
   import RemoteImage from '$lib/components/common/RemoteImage.svelte';
 
   let className = '';

@@ -22,7 +22,6 @@ const config = {
     },
     alias: {
       $i18n: 'src/lib/i18n',
-      $lib: 'src/lib',
       '~': 'src',
     },
     prerender: {

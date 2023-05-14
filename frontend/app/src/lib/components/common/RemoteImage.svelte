@@ -1,6 +1,6 @@
 <script lang="ts">
   import { website } from '$lib/config';
-  import Image from '$lib/components/core/Image.svelte';
+  import Image from '$lib/components/common/Image.svelte';
 
   type Formats = 'heic' | 'heif' | 'avif' | 'webp' | 'jpeg' | 'jpg' | 'png' | 'gif' | 'tiff';
 

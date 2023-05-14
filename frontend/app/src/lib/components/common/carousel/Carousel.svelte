@@ -4,9 +4,9 @@
 
   import { LL } from '$i18n/i18n-svelte';
   import { debounce } from '$lib/utils/common/debounce';
-  import Draggable from '$lib/components/core/carousel/Draggable.svelte';
+  import Draggable from '$lib/components/common/carousel/Draggable.svelte';
   import RoundedButton from '$lib/components/common/RoundedButton.svelte';
-  import Dots from '$lib/components/core/carousel/Dots.svelte';
+  import Dots from '$lib/components/common/carousel/Dots.svelte';
   import Icon from '$lib/components/common/Icon.svelte';
 
   export let classNames = '';

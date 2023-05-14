@@ -2,7 +2,7 @@
   import { LL } from '$i18n/i18n-svelte';
   import errorIllustration from '$lib/assets/error_illustration.svg';
   import Link from '$lib/components/common/Link.svelte';
-  import Seo from '$lib/components/core/SEO.svelte';
+  import Seo from '$lib/components/common/SEO.svelte';
   import Icon from '$lib/components/common/Icon.svelte';
 </script>
 
