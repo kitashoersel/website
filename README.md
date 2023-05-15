@@ -63,6 +63,10 @@ Noch zu schreiben:
 
 ## Todo
 
+**Future**
+
+- Exchange `~lib` with `$lib` alias after typescript 5.0 releases 
+
 **I18n**
 
 - clean configuration and seo from translated values

@@ -9,7 +9,8 @@
     "format": "prettier --ignore-path .gitignore --plugin-search-dir . --write . && eslint . --fix",
     "build": "svelte-kit sync && typesafe-i18n --no-watch && vite build && yarn build:minify",
     "build:minify": "esbuild build/*.js `find build/server  -name '*.js'` --minify --outdir=build --allow-overwrite",
-    "lint": "concurrently \"yarn lint:svelte\" \"yarn lint:prettier_eslint\"",
+    "lint": "concurrently \"yarn lint:svelte\" \"yarn lint:prettier_eslint\" \"yarn lint:typescript\"",
+    "lint:typescript": "tsc --noEmit",
     "lint:svelte": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "lint:prettier_eslint": "prettier --ignore-path .gitignore --plugin-search-dir . --check . && eslint .",
     "init": "svelte-kit sync && typesafe-i18n --no-watch"
