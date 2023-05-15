@@ -9,10 +9,11 @@
     "format": "prettier --ignore-path .gitignore --plugin-search-dir . --write . && eslint . --fix",
     "build": "svelte-kit sync && typesafe-i18n --no-watch && vite build && yarn build:minify",
     "build:minify": "esbuild build/*.js `find build/server  -name '*.js'` --minify --outdir=build --allow-overwrite",
-    "lint": "concurrently \"yarn lint:svelte\" \"yarn lint:prettier_eslint\" \"yarn lint:typescript\"",
+    "lint": "concurrently \"yarn lint:svelte\" \"yarn lint:prettier\" \"yarn lint:eslint\" \"yarn lint:typescript\"",
     "lint:typescript": "tsc --noEmit",
     "lint:svelte": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-    "lint:prettier_eslint": "prettier --ignore-path .gitignore --plugin-search-dir . --check . && eslint .",
+    "lint:prettier": "prettier --ignore-path .gitignore --plugin-search-dir . --check .",
+    "lint:eslint": "eslint .",
     "init": "svelte-kit sync && typesafe-i18n --no-watch"
   },
   "dependencies": {
@@ -24,10 +25,11 @@
   "devDependencies": {
     "@modules/eslint-config": "^1.0.0",
     "@modules/prettier-config": "^1.0.0",
-    "@modules/sveltekit-adapter-docker": "^1.0.0",
     "@modules/svelte-image": "^1.0.0",
+    "@modules/sveltekit-adapter-docker": "^1.0.0",
     "@sveltejs/adapter-node": "^1.2.4",
     "@sveltejs/kit": "^1.16.3",
+    "@total-typescript/ts-reset": "^0.4.2",
     "autoprefixer": "^10.4.14",
     "concurrently": "^8.0.1",
     "postcss": "^8.4.23",

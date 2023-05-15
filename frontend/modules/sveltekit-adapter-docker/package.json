@@ -37,10 +37,8 @@
     "@modules/prettier-config": "^1.0.0",
     "fastify": "^4.17.0",
     "globby": "^13.1.4",
-    "rimraf": "^5.0.0"
-  },
-  "peerDependencies": {
-    "@sveltejs/kit": "^1.8.4"
+    "rimraf": "^5.0.0",
+    "typescript": "*"
   },
   "prettier": "@modules/prettier-config/typescript",
   "eslintConfig": {

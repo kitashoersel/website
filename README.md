@@ -77,7 +77,6 @@ Noch zu schreiben:
 - Remove tailwindcss from project
   - translate theme to scss lib
   - create scss folder structure
-- eslint rules with documentation - clean relics
 
 **Misc**
 

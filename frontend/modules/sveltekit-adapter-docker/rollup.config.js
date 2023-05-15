@@ -6,63 +6,56 @@ import { builtinModules } from 'node:module';
 import dts from 'rollup-plugin-dts';
 import copy from 'rollup-plugin-copy';
 
+const silentCircularWarning = (warning, warn) => {
+  if (warning.code === 'CIRCULAR_DEPENDENCY') return;
+  warn(warning);
+};
+
 export default [
   {
     input: 'src/index.ts',
-    output: {
-      file: 'dist/files/index.js',
-      format: 'esm',
-    },
+    output: { file: 'dist/files/index.js', format: 'esm' },
+    onwarn: silentCircularWarning,
     plugins: [nodeResolve({ preferBuiltins: true }), commonjs(), json(), esbuild({ minify: true })],
     external: ['ENV', 'HANDLER', ...builtinModules],
   },
   {
     input: 'src/env.ts',
-    output: {
-      file: 'dist/files/env.js',
-      format: 'esm',
-    },
+    output: { file: 'dist/files/env.js', format: 'esm' },
+    onwarn: silentCircularWarning,
     plugins: [nodeResolve(), commonjs(), json(), esbuild({ minify: true })],
     external: ['HANDLER', ...builtinModules],
   },
   {
     input: 'src/handler.ts',
-    output: {
-      file: 'dist/files/handler.js',
-      format: 'esm',
-      inlineDynamicImports: true,
-    },
+    output: { file: 'dist/files/handler.js', format: 'esm', inlineDynamicImports: true },
+    onwarn: silentCircularWarning,
     plugins: [nodeResolve(), commonjs(), json(), esbuild({ minify: true })],
     external: ['ENV', 'MANIFEST', 'SERVER', 'SHIMS', ...builtinModules],
   },
   {
     input: 'src/shims.ts',
-    output: {
-      file: 'dist/files/shims.js',
-      format: 'esm',
-    },
+    output: { file: 'dist/files/shims.js', format: 'esm' },
+    onwarn: silentCircularWarning,
     plugins: [nodeResolve(), commonjs(), esbuild({ minify: true })],
     external: builtinModules,
   },
   {
     input: 'dist/types/index.d.ts',
     output: [{ file: 'dist/index.d.ts', format: 'es' }],
+    onwarn: silentCircularWarning,
     plugins: [dts()],
   },
   {
     input: 'index.ts',
-    output: {
-      file: 'dist/index.js',
-      format: 'esm',
-    },
+    output: { file: 'dist/index.js', format: 'esm' },
+    onwarn: silentCircularWarning,
     plugins: [
       nodeResolve(),
       commonjs(),
       json(),
       esbuild({ minify: true }),
-      copy({
-        targets: [{ src: ['src/templates/nginx', 'src/templates/sveltekit'], dest: 'dist/docker' }],
-      }),
+      copy({ targets: [{ src: ['src/templates/nginx', 'src/templates/sveltekit'], dest: 'dist/docker' }] }),
     ],
     external: [
       'rollup',

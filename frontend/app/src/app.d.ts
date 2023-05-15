@@ -9,7 +9,3 @@ declare namespace App {
     LL: TranslationFunctions;
   }
 }
-
-interface ReadonlyArray<T> {
-  includes(searchElement: any, fromIndex?: number): searchElement is T;
-}
