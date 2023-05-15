@@ -5,11 +5,7 @@ module.exports = {
   tabWidth: 2,
   trailingComma: "es5",
   useTabs: false,
-  plugins: [
-    require.resolve("prettier-plugin-svelte"),
-    require.resolve("prettier-plugin-tailwindcss"),
-  ],
-  tailwindConfig: "./tailwind.config.cjs",
+  plugins: [require.resolve("prettier-plugin-svelte")],
   pluginSearchDirs: ["."],
   overrides: [{ files: "*.svelte", options: { parser: "svelte" } }],
 };

@@ -1,8 +1,9 @@
 <script lang="ts">
+  import RemoteImage from '@modules/svelte-image/RemoteImage.svelte';
   import { tilt } from '$lib/actions/tilt';
   import type { Image } from '$lib/pages/models';
-  import RemoteImage from '$lib/components/common/RemoteImage.svelte';
   import Link from '$lib/components/common/Link.svelte';
+  import { directusImageUrl } from '$lib/utils/directus';
 
   export let title: string;
   export let image: Image;
@@ -15,6 +16,7 @@
       <div class="absolute z-10 h-full w-full rounded-md bg-primary-500 opacity-70" />
       <RemoteImage
         {...image}
+        generateImageUrl={directusImageUrl}
         sizes="(max-width: 1000px) 600px, 1200px"
         class="absolute h-full overflow-hidden rounded-md object-cover"
       />

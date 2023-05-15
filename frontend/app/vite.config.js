@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import { sveltekit } from '@sveltejs/kit/vite';
-import { imagetools } from '@modules/svelte-image';
+import { imagetools } from '@modules/svelte-image/vite';
 import tailwindcss from 'tailwindcss';
 import autoprefixer from 'autoprefixer';
 

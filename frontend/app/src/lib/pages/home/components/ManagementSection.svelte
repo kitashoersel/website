@@ -1,7 +1,8 @@
 <script lang="ts">
+  import RemoteImage from '@modules/svelte-image/RemoteImage.svelte';
   import type { Image } from '$lib/pages/models';
   import Carousel from '$lib/components/common/carousel/Carousel.svelte';
-  import RemoteImage from '$lib/components/common/RemoteImage.svelte';
+  import { directusImageUrl } from '$lib/utils/directus';
 
   let className = '';
   export { className as class };
@@ -13,7 +14,12 @@
   <div class={`${className} flex flex-col-reverse items-center gap-3 md:grid md:grid-cols-2 md:gap-12`}>
     <Carousel classNames="h-40 sm:h-72 w-full" imageClassNames="rounded-lg">
       {#each images as image}
-        <RemoteImage {...image} sizes="(max-width: 1000px) 600px, 1200px" class="h-40 object-cover sm:h-72" />
+        <RemoteImage
+          {...image}
+          generateImageUrl={directusImageUrl}
+          sizes="(max-width: 1000px) 600px, 1200px"
+          class="h-40 object-cover sm:h-72"
+        />
       {/each}
     </Carousel>
     <div class="remote-html space-y-6 pb-3 text-left">{@html content}</div>

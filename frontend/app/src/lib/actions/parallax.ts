@@ -1,4 +1,4 @@
-import type { Action } from 'svelte/types/runtime/action';
+import type { Action } from 'svelte/action';
 import { spring } from 'svelte/motion';
 import { beforeNavigate } from '$app/navigation';
 

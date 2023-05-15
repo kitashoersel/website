@@ -1,6 +1,6 @@
 module.exports = {
   env: { browser: true, es2020: true, node: true },
-  ignorePatterns: ["*.mjs", "*.cjs", "**/*.js"],
+  ignorePatterns: ["*.mjs", "*.cjs", "**/*.js", "**/dist/*", "**/build/*"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     sourceType: "module",

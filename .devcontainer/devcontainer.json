@@ -20,7 +20,7 @@
           "explorer.fileNesting.expand": false,
           "explorer.fileNesting.patterns": {
             "package.json": ".dockerignore,.gitignore,.env,turbo.json,tsconfig.json,http.json,rollup.config.js",
-            "svelte.config.js": "vite.config.js,.typesafe-i18n.json,tailwind.config.cjs",
+            "svelte.config.js": "vite.config.js,vite.config.ts,.typesafe-i18n.json,tailwind.config.cjs",
             "Taskfile.yml": ".gitignore,.editorconfig",
             "README.md": "LICENSE",
             "app.html": "app.d.ts,app.scss,reset.d.ts",
@@ -80,7 +80,9 @@
           "eslint.codeActionsOnSave.mode": "problems",
           "eslint.workingDirectories": [
               "frontend/app",
-              "frontend/modules/sveltekit-adapter-docker"
+              "frontend/modules/sveltekit-adapter-docker",
+              "frontend/modules/svelte-image"
+
           ],
           "prettier.documentSelectors": ["**/*.svelte"],
 

@@ -1,9 +1,10 @@
 <script lang="ts">
+  import RemoteImage from '@modules/svelte-image/RemoteImage.svelte';
   import type { Image } from '$lib/pages/models';
   import { shortDate } from '$lib/utils/common/date';
   import Link from '$lib/components/common/Link.svelte';
-  import RemoteImage from '$lib/components/common/RemoteImage.svelte';
   import { page } from '$app/stores';
+  import { directusImageUrl } from '~lib/utils/directus';
 
   export let title: string;
   export let description: string;
@@ -23,6 +24,7 @@
 >
   <RemoteImage
     {...thumbnail}
+    generateImageUrl={directusImageUrl}
     imageWidths={[150, 250]}
     sizes="(max-width: 200px) 200px, 150px"
     class="h-full w-32 rounded-lg object-cover shadow-lg  lg:w-48"

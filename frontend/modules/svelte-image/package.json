@@ -1,13 +1,58 @@
 {
   "name": "@modules/svelte-image",
   "version": "1.0.0",
+  "license": "MIT",
   "type": "module",
-  "main": "index.js",
-  "files": [
-    "index.js"
-  ],
+  "scripts": {
+    "dev": "vite dev --host",
+    "preview": "vite preview",
+    "build": "svelte-kit sync && vite build && npm run package",
+    "package": "svelte-kit sync && svelte-package && publint",
+    "lint": "concurrently \"yarn lint:svelte\" \"yarn lint:prettier\" \"yarn lint:eslint\" \"yarn lint:typescript\"",
+    "lint:typescript": "tsc --noEmit",
+    "lint:svelte": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "lint:prettier": "prettier --ignore-path .gitignore --plugin-search-dir . --check .",
+    "lint:eslint": "eslint .",
+    "init": "svelte-kit sync"
+  },
   "dependencies": {
     "imagetools-core": "^4.0.2",
     "vite-imagetools": "^5.0.3"
+  },
+  "peerDependencies": {
+    "svelte": "^3.59.1"
+  },
+  "devDependencies": {
+    "@modules/eslint-config": "^1.0.0",
+    "@modules/prettier-config": "^1.0.0",
+    "@sveltejs/adapter-static": "^2.0.2",
+    "@sveltejs/kit": "^1.16.3",
+    "@sveltejs/package": "^2.0.2",
+    "concurrently": "^8.0.1",
+    "publint": "^0.1.11",
+    "svelte": "^3.59.1",
+    "svelte-check": "^3.3.2",
+    "typescript": "^5.0.4",
+    "vite": "^4.3.5"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "./Image.svelte": {
+      "types": "./dist/Image.svelte.d.ts",
+      "svelte": "./dist/Image.svelte"
+    },
+    "./RemoteImage.svelte": {
+      "types": "./dist/RemoteImage.svelte.d.ts",
+      "svelte": "./dist/RemoteImage.svelte"
+    },
+    "./vite": "./dist/vite.js"
+  },
+  "prettier": "@modules/prettier-config",
+  "eslintConfig": {
+    "extends": [
+      "@modules/eslint-config"
+    ]
   }
 }

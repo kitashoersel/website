@@ -81,7 +81,6 @@ Noch zu schreiben:
 **Misc**
 
 - clean / sort `core` and `common` folders
-  - put image components in image module
   - carousel in own module
 - split footer in smaller components
 
