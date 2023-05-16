@@ -6,11 +6,7 @@ import autoprefixer from 'autoprefixer';
 
 export default defineConfig({
   plugins: [sveltekit(), imagetools()],
+  css: { postcss: { plugins: [tailwindcss(), autoprefixer()] } },
   server: { port: 3000 },
   preview: { port: 3000 },
-  css: {
-    postcss: {
-      plugins: [tailwindcss(), autoprefixer()],
-    },
-  },
 });

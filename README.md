@@ -80,8 +80,6 @@ Noch zu schreiben:
 
 **Misc**
 
-- clean / sort `core` and `common` folders
-  - carousel in own module
 - split footer in smaller components
 
 **Performance**

@@ -81,8 +81,8 @@
           "eslint.workingDirectories": [
               "frontend/app",
               "frontend/modules/sveltekit-adapter-docker",
-              "frontend/modules/svelte-image"
-
+              "frontend/modules/svelte-image",
+              "frontend/modules/svelte-carousel"
           ],
           "prettier.documentSelectors": ["**/*.svelte"],
 

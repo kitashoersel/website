@@ -1,5 +1,5 @@
 {
-  "name": "@modules/svelte-image",
+  "name": "@modules/svelte-carousel",
   "version": "1.0.0",
   "license": "MIT",
   "type": "module",
@@ -16,9 +16,7 @@
     "init": "svelte-kit sync"
   },
   "dependencies": {
-    "svelte": "*",
-    "imagetools-core": "^4.0.2",
-    "vite-imagetools": "^5.0.3"
+    "svelte": "*"
   },
   "devDependencies": {
     "@modules/eslint-config": "^1.0.0",
@@ -36,15 +34,14 @@
     "dist"
   ],
   "exports": {
-    "./Image.svelte": {
-      "types": "./dist/Image.svelte.d.ts",
-      "svelte": "./dist/Image.svelte"
+    "./Carousel.svelte": {
+      "types": "./dist/Carousel.svelte.d.ts",
+      "svelte": "./dist/Carousel.svelte"
     },
-    "./RemoteImage.svelte": {
-      "types": "./dist/RemoteImage.svelte.d.ts",
-      "svelte": "./dist/RemoteImage.svelte"
-    },
-    "./vite": "./dist/vite.js"
+    "./Draggable.svelte": {
+      "types": "./dist/Draggable.svelte.d.ts",
+      "svelte": "./dist/Draggable.svelte"
+    }
   },
   "prettier": "@modules/prettier-config",
   "eslintConfig": {

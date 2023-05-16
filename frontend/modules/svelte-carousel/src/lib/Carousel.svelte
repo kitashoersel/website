@@ -1,21 +1,40 @@
+<script context="module" lang="ts">
+  export type SwipeFunction = (dir: 'left' | 'right') => void;
+</script>
+
 <script lang="ts">
   import { onMount } from 'svelte';
   import { spring } from 'svelte/motion';
+  import { debounce } from '$lib/utils/debounce';
+  import Draggable from '$lib/Draggable.svelte';
+  import Dots from '$lib/Dots.svelte';
 
-  import { LL } from '$i18n/i18n-svelte';
-  import { debounce } from '$lib/utils/common/debounce';
-  import Draggable from '$lib/components/common/carousel/Draggable.svelte';
-  import RoundedButton from '$lib/components/common/RoundedButton.svelte';
-  import Dots from '$lib/components/common/carousel/Dots.svelte';
-  import Icon from '$lib/components/common/Icon.svelte';
+  /**
+   * The count of the children inside the carousel. This is optional. If not provided
+   * The children count is determined via javascript. If possible, please add this field
+   * because it prevents the dots flickering on page load.
+   */
+  export let count = 0;
 
-  export let classNames = '';
-  export let imageClassNames = '';
+  /** Enable or disable the prev and next element actions */
+  export let arrows = true;
+
+  /** Enable or disable the navigation dots */
+  export let dots = true;
+
+  /** Function to generate the aria label in case you want to translate it */
+  export let dotsLabel: ((i: number) => string) | null = null;
+
+  /** Duration for auto scroll */
+  export let duration = 3000;
+
+  /** Enable or disable the autoplay feature */
+  export let autoplay = true;
 
   let container: HTMLDivElement;
   let elementWidth: number;
 
-  $: elementCount = container?.childElementCount;
+  $: elementCount = container?.childElementCount ?? count + 2;
   $: scrollPosition = spring(-elementWidth ?? 0, { stiffness: 0.04, damping: 0.26 });
   $: rawScrollPosition = -elementWidth;
 
@@ -48,11 +67,15 @@
   $: if (scrollIndex === 0) handleLeftOverflow();
   $: if (scrollIndex === elementCount - 1) handleRightOverflow();
 
-  const scrollTo = (index: number) => {
-    if (scrollIndex === 0) return handleLeftOverflow();
-    if (scrollIndex === elementCount - 1) return handleRightOverflow();
+  const swipeTo = (index: number) => {
+    if (scrollIndex <= 0) return handleLeftOverflow();
+    if (scrollIndex >= elementCount - 1) return handleRightOverflow();
     rawScrollIndex = index;
     return setScrollPosition(-elementWidth * index, index);
+  };
+
+  export const swipe: SwipeFunction = (dir) => {
+    swipeTo(scrollIndex + (dir === 'left' ? -1 : 1));
   };
 
   const onDrag = async (movementX: number) => {
@@ -103,8 +126,10 @@
   });
 
   $: {
-    clearInterval(autoTimer);
-    autoTimer = setInterval(() => scrollTo(scrollIndex + 1), 3000) as unknown as string;
+    if (autoplay) {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => swipeTo(scrollIndex + 1), duration) as unknown as string;
+    }
   }
 
   $: {
@@ -117,10 +142,10 @@
   }
 </script>
 
-<div {...$$restProps} class={`${classNames} space-y-3`}>
-  <div class={`${imageClassNames} overflow-hidden`} bind:clientWidth={elementWidth}>
+<div {...$$restProps} class={`carousel ${$$restProps.class}`}>
+  <div class="elements" bind:clientWidth={elementWidth}>
     <Draggable
-      classNames="flex [&>*]:shrink-0"
+      class="draggable"
       style={`transform: translateX(${shouldAnimate ? $scrollPosition : rawScrollPosition}px);`}
       bind:element={container}
       {onDragEnd}
@@ -129,17 +154,66 @@
       <slot />
     </Draggable>
   </div>
-  <div class="relative">
-    <div class="absolute right-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 gap-2">
-      <Dots onclick={scrollTo} count={elementCount} active={rawScrollIndex} />
-    </div>
-    <div class="flex flex-row justify-end gap-2">
-      <RoundedButton onClick={() => scrollTo(scrollIndex - 1)} label={$LL.components.prev_image()}>
-        <Icon icon="arrow-left" />
-      </RoundedButton>
-      <RoundedButton onClick={() => scrollTo(scrollIndex + 1)} label={$LL.components.next_image()}>
-        <Icon icon="arrow-right" />
-      </RoundedButton>
-    </div>
+  <div class="controls">
+    {#if dots}
+      <div class="dots">
+        <Dots
+          onclick={(i) => swipeTo(i + 1)}
+          count={elementCount - 2}
+          active={rawScrollIndex - 1}
+          label={dotsLabel ?? undefined}
+        />
+      </div>
+    {/if}
+
+    {#if arrows}
+      <div class="buttons">
+        <slot name="button-left" />
+        <slot name="button-right" />
+      </div>
+    {/if}
   </div>
 </div>
+
+<style lang="scss">
+  .carousel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .elements {
+    overflow: hidden;
+    border-radius: 0.5rem;
+
+    :global(.draggable) {
+      display: flex;
+
+      :global(> *) {
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  .controls {
+    position: relative;
+    min-height: 25px;
+
+    .buttons,
+    .dots {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .buttons {
+      justify-content: flex-end;
+    }
+
+    .dots {
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, -50%);
+    }
+  }
+</style>

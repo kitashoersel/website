@@ -1,5 +1,4 @@
 <script lang="ts">
-  export let classNames = '';
   export let element: HTMLDivElement;
   export let onDrag: (movementX: number, movementY: number) => void = () => {};
   export let onDragEnd: () => void = () => {};
@@ -18,26 +17,36 @@
     prevTouch = undefined;
     onDragEnd();
   };
+
+  const mousemove = ({ movementX, movementY }: MouseEvent) => {
+    if (!moving) return;
+    onDrag(movementX, movementY);
+  };
+
+  const touchmove = ({ touches }: TouchEvent) => {
+    if (!moving) return;
+    if (prevTouch) onDrag((touches[0].pageX - prevTouch.pageX) * 1.25, (touches[0].pageY - prevTouch.pageY) * 1.25);
+    [prevTouch] = touches;
+  };
 </script>
 
 <svelte:window on:mouseup={dragEnd} on:touchend={dragEnd} />
 
 <div
   {...$$restProps}
-  class={`${classNames} select-none`}
+  class={`draggable ${$$restProps.class}`}
   bind:this={element}
   on:mousedown={dragStart}
   on:touchstart={dragStart}
   on:touchend={dragEnd}
-  on:mousemove={({ movementX, movementY }) => {
-    if (!moving) return;
-    onDrag(movementX, movementY);
-  }}
-  on:touchmove|passive={({ touches }) => {
-    if (!moving) return;
-    if (prevTouch) onDrag((touches[0].pageX - prevTouch.pageX) * 1.25, (touches[0].pageY - prevTouch.pageY) * 1.25);
-    [prevTouch] = touches;
-  }}
+  on:mousemove={mousemove}
+  on:touchmove|passive={touchmove}
 >
   <slot />
 </div>
+
+<style>
+  .draggable {
+    user-select: none;
+  }
+</style>

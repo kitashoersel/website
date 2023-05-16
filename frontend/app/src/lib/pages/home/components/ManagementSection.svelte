@@ -1,18 +1,29 @@
 <script lang="ts">
   import RemoteImage from '@modules/svelte-image/RemoteImage.svelte';
+  import Carousel, { type SwipeFunction } from '@modules/svelte-carousel/Carousel.svelte';
+
+  import { LL } from '$i18n/i18n-svelte';
   import type { Image } from '$lib/pages/models';
-  import Carousel from '$lib/components/common/carousel/Carousel.svelte';
   import { directusImageUrl } from '$lib/utils/directus';
+  import RoundedButton from '$lib/components/common/widgets/RoundedButton.svelte';
+  import Icon from '$lib/components/common/Icon.svelte';
 
   let className = '';
   export { className as class };
   export let content: string;
   export let images: Image[];
+
+  let swipe: SwipeFunction;
 </script>
 
 <section class="relative">
   <div class={`${className} flex flex-col-reverse items-center gap-3 md:grid md:grid-cols-2 md:gap-12`}>
-    <Carousel classNames="h-40 sm:h-72 w-full" imageClassNames="rounded-lg">
+    <Carousel
+      class="h-52 sm:h-80 w-full"
+      count={images.length}
+      dotsLabel={(i) => $LL.components.show_x_image({ index: i + 1 })}
+      bind:swipe
+    >
       {#each images as image}
         <RemoteImage
           {...image}
@@ -21,6 +32,14 @@
           class="h-40 object-cover sm:h-72"
         />
       {/each}
+
+      <RoundedButton slot="button-left" onClick={() => swipe('left')} label={$LL.components.prev_image()}>
+        <Icon icon="arrow-left" />
+      </RoundedButton>
+
+      <RoundedButton slot="button-right" onClick={() => swipe('right')} label={$LL.components.next_image()}>
+        <Icon icon="arrow-right" />
+      </RoundedButton>
     </Carousel>
     <div class="remote-html space-y-6 pb-3 text-left">{@html content}</div>
   </div>
