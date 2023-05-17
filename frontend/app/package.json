@@ -26,6 +26,7 @@
     "@modules/eslint-config": "^1.0.0",
     "@modules/prettier-config": "^1.0.0",
     "@modules/svelte-image": "^1.0.0",
+    "@modules/svelte-carousel": "^1.0.0",
     "@modules/sveltekit-adapter-docker": "^1.0.0",
     "@sveltejs/adapter-node": "^1.2.4",
     "@sveltejs/kit": "^1.17.0",

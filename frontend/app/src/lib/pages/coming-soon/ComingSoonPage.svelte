@@ -14,7 +14,7 @@
 
 <svelte:window bind:innerWidth />
 
-<Seo title={$LL.coming_soon.seo_sitle()} description={$LL.coming_soon.subtitle()} />
+<Seo title={$LL.coming_soon.seo_title()} description={$LL.coming_soon.subtitle()} />
 
 <div use:screenParallax={{ rate: 0.05 }} class="parallax fixed h-[100svh] w-full">
   <Confetti amount={innerWidth > 800 ? 20 : 15} />
