@@ -20,7 +20,7 @@
       <h3 class="text-body-no font-medium uppercase lg:text-body-md">
         {@html $LL.home_page.news()}
       </h3>
-      <Link i11n href="" class="text-body-sm text-primary-600 before:bg-secondary-100 lg:text-body-no">
+      <Link i11n href="" animate={false} class="text-body-sm text-primary-600 before:bg-secondary-100 lg:text-body-no">
         {@html $LL.show_more()}
       </Link>
     </div>

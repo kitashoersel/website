@@ -15,9 +15,9 @@
 <header class="flex-center rounded-b-2xl bg-primary-600 py-10 lg:py-24">
   <div class="article-container flex flex-col-reverse px-8 lg:w-3/4 lg:flex-col">
     <ul class="mb-10 flex gap-5 text-body-md lg:justify-end lg:text-body-lg">
-      <li><Link i11n href="/">{$LL.header.home()}</Link></li>
-      <li><Link i11n href={$LL.routes.mechterstaedt()}>{$LL.mechterstaedt()}</Link></li>
-      <li><Link i11n href={$LL.routes.teutleben()}>{$LL.teutleben()}</Link></li>
+      <li><Link i11n href="/" class="text-secondary-100">{$LL.header.home()}</Link></li>
+      <li><Link i11n href={$LL.routes.mechterstaedt()} class="text-secondary-100">{$LL.mechterstaedt()}</Link></li>
+      <li><Link i11n href={$LL.routes.teutleben()} class="text-secondary-100">{$LL.teutleben()}</Link></li>
     </ul>
     <div class="mb-10 text-primary-100 lg:mb-0">
       {#if publishDate && readingTime}

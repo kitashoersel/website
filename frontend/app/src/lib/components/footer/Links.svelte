@@ -5,8 +5,6 @@
   import { page } from '$app/stores';
 
   export let links: LinkProp[] | null = null;
-
-  const { pathname } = $page.url;
 </script>
 
 <div class="rounded-t-2xl bg-primary-600 p-10 text-white lg:px-20 lg:py-10">
@@ -17,18 +15,22 @@
         <li>{$LL.footer.contact()}</li>
         <li>
           <span>[</span>
-          <Link i11n href={`${$LL.routes.mechterstaedt()}#${$LL.routes.contact()}`}>{$LL.mechterstaedt()}</Link>
+          <Link i11n href={`${$LL.routes.mechterstaedt()}#${$LL.routes.contact()}`} class="text-secondary-100">
+            {$LL.mechterstaedt()}
+          </Link>
           <span> / </span>
-          <Link i11n href={`${$LL.routes.teutleben()}#${$LL.routes.contact()}`}>{$LL.teutleben()}</Link>
+          <Link i11n href={`${$LL.routes.teutleben()}#${$LL.routes.contact()}`} class="text-secondary-100">
+            {$LL.teutleben()}
+          </Link>
           <span>]</span>
         </li>
       </ul>
       <ul class="flex gap-5 lg:justify-end">
-        {#if !pathname.endsWith($LL.routes.privacy())}
-          <li><Link i11n href={$LL.routes.privacy()}>{$LL.footer.privacy()}</Link></li>
+        {#if $page.url.pathname.endsWith($LL.routes.imprint())}
+          <li><Link i11n href={$LL.routes.privacy()} class="text-secondary-100">{$LL.footer.privacy()}</Link></li>
         {/if}
-        {#if !pathname.endsWith($LL.routes.imprint())}
-          <li><Link i11n href={$LL.routes.imprint()}>{$LL.footer.imprint()}</Link></li>
+        {#if $page.url.pathname.endsWith($LL.routes.privacy())}
+          <li><Link i11n href={$LL.routes.imprint()} class="text-secondary-100">{$LL.footer.imprint()}</Link></li>
         {/if}
       </ul>
     </div>
@@ -40,7 +42,7 @@
     {#if links}
       <ul class="mb-10 flex flex-col gap-2 lg:mb-0 lg:flex-row lg:gap-5 lg:space-y-0">
         {#each links as { href, label }}
-          <li><Link i11n {href}>{label}</Link></li>
+          <li><Link i11n {href} class="text-secondary-100">{label}</Link></li>
         {/each}
       </ul>
     {/if}

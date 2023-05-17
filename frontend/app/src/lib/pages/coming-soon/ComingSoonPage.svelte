@@ -4,7 +4,6 @@
   import Countdown from '$lib/pages/coming-soon/components/Countdown.svelte';
   import AnimatedTitle from '$lib/pages/coming-soon/components/AnimatedTitle.svelte';
   import Seo from '$lib/components/common/SEO.svelte';
-  import { website } from '$lib/config';
   import { screenParallax } from '$lib/actions/screenParallax';
 
   export let release: Date;
@@ -15,7 +14,7 @@
 
 <svelte:window bind:innerWidth />
 
-<Seo title={website.siteShortTitle} description={website.siteDescription} />
+<Seo title={$LL.coming_soon.seo_sitle()} description={$LL.coming_soon.subtitle()} />
 
 <div use:screenParallax={{ rate: 0.05 }} class="parallax fixed h-[100svh] w-full">
   <Confetti amount={innerWidth > 800 ? 20 : 15} />

@@ -1,4 +1,4 @@
-import { website } from '$lib/config';
+import { config } from '$lib/config';
 
 export const gql = String.raw;
 
@@ -12,7 +12,7 @@ export type Fetcher = (input: RequestInfo | URL, init?: RequestInit | undefined)
 export const fetchGQL = async (query: string, params?: OptionalParams) => {
   const fetcher = params?.fetcher ?? fetch;
 
-  const res = await fetcher(`${website.cmsEndpoint}/graphql`, {
+  const res = await fetcher(`${config.cmsEndpoint}/graphql`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ query, variables: params?.variables || {} }),

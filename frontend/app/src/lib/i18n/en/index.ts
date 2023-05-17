@@ -7,11 +7,19 @@ const en: Translation = {
     mechterstaedt: '/mechterstaedt',
     teutleben: '/teutleben',
     contact: 'contact',
+    home: 'Home',
+  },
+
+  config: {
+    title: 'Kindergartens in the municipality of Hörsel',
+    shortTitle: 'Kindergartens Hörsel',
+    description:
+      'The kindergartens Dreikäsehoch Mechterstädt and Kleine Strolche Teutleben are the two municipal kindergartens in the municipality of Hörsel.',
+    siteKeywords: 'kindergarten,mechterstaedt,teutleben,hoersel',
   },
 
   mechterstaedt: 'Mechterstädt',
   teutleben: 'Teutleben',
-
   show_more: 'Show more',
 
   components: {
@@ -21,6 +29,7 @@ const en: Translation = {
   },
 
   coming_soon: {
+    seo_title: 'Coming soon',
     title: 'Coming <br /> soon',
     subtitle: 'For the 40th and 50th anniversary of the kindergartens we want to celebrate our new website soon!',
   },

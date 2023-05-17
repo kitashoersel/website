@@ -1,9 +1,6 @@
 <script lang="ts">
   import { page } from '$app/stores';
 
-  let className = '';
-  export { className as class };
-
   export let href: string;
   export let animate = true;
   export let i11n = false;
@@ -13,18 +10,17 @@
   const newTabAttributes = newTab ? { target: '_blank', rel: 'noopener noreferrer' } : {};
 </script>
 
-<a
-  href={newTab ? href : url}
-  class:on={animate}
-  class={`text-secondary-100 before:bg-secondary-100 ${className}`}
-  {...newTabAttributes}
->
+<a href={newTab ? href : url} class:on={animate} class={$$restProps.class} {...newTabAttributes}>
   <slot />
 </a>
 
-<style>
+<style lang="scss">
   a {
     position: relative;
+
+    &::before {
+      background-color: rgb(253 235 232);
+    }
   }
 
   .on::before {

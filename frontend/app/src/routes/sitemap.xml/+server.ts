@@ -1,4 +1,4 @@
-import { website } from '$lib/config';
+import { config } from '$lib/config';
 import { baseLocale, locales } from '$lib/i18n/i18n-util';
 
 interface Route {
@@ -18,8 +18,6 @@ const generateLocalizedUrls = (root: string, routes: Route[]) => {
 };
 
 export function GET() {
-  const root = website.siteUrl;
-
   const localizedRoutes = [
     { path: '', priority: 0.8 },
     { path: 'privacy', priority: 0.5 },
@@ -37,7 +35,7 @@ export function GET() {
       xmlns:image="https://www.google.com/schemas/sitemap-image/1.1"
       xmlns:video="https://www.google.com/schemas/sitemap-video/1.1"
     >
-      ${generateLocalizedUrls(root, localizedRoutes)}
+      ${generateLocalizedUrls(config.siteUrl, localizedRoutes)}
     </urlset>`.trim(),
     {
       headers: {

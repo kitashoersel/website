@@ -67,11 +67,6 @@ Noch zu schreiben:
 
 - Exchange `~lib` with `$lib` alias after typescript 5.0 releases 
 
-**I18n**
-
-- clean configuration and seo from translated values
-- translate all urls and seo configs in pages
-
 **Refactoring**
 
 - Remove tailwindcss from project

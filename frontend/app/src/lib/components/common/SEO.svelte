@@ -1,14 +1,16 @@
 <script lang="ts">
-  import { website } from '$lib/config';
+  import { get } from 'svelte/store';
+  import { LL } from '$i18n/i18n-svelte';
   import { locales, baseLocale } from '$i18n/i18n-util';
   import { page } from '$app/stores';
+  import { config } from '$lib/config';
 
-  export let title = website.siteTitle;
-  export let description = website.siteDescription;
+  export let title: string = get(LL).config.shortTitle();
+  export let description: string = get(LL).config.description();
   export let keywords: string | null = null;
-  export let applicationName = website.siteShortTitle;
-  export let themeColor = website.siteThemeColor;
-  export let base = website.siteUrl;
+  export let applicationName: string = get(LL).config.shortTitle();
+  export let themeColor = config.siteThemeColor;
+  export let base = config.siteUrl;
   export let canonical = `https://${$page.url.host}${$page.url.pathname}`;
   export let nofollow = false;
   export let noindex = false;
@@ -32,7 +34,7 @@
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />
-  <meta name="keywords" content={`${website.siteKeywords},${keywords ?? ''}`} />
+  <meta name="keywords" content={`${$LL.config.siteKeywords()}${`,${keywords}` ?? ''}`} />
   <link rel="manifest" href={manifest} />
   <meta name="application-name" content={applicationName} />
   <meta name="theme-color" content={themeColor} />

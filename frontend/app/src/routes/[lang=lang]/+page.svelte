@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { get } from 'svelte/store';
   import { LL } from '$i18n/i18n-svelte';
 
   import HeroHeader from '$lib/components/header/HeroHeader.svelte';
@@ -13,19 +14,15 @@
 
   export let data: PageData;
 
-  const headerLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/mechterstaedt', label: 'Mechterstädt' },
-    { href: '/teutleben', label: 'Teutleben' },
+  const links = [
+    { href: '/', label: get(LL).routes.home() },
+    { href: get(LL).routes.mechterstaedt(), label: get(LL).mechterstaedt() },
+    { href: get(LL).routes.teutleben(), label: get(LL).teutleben() },
   ];
 </script>
 
-<Seo
-  title="Kindergärten der Gemeinde Hörsel"
-  description="Die Kindergärten Dreikäsehoch Mechterstädt und Kleine Strolche Teutleben sind die zwei kommunalen Kindergarteneinrichtung der Gemeinde Hörsel."
-/>
-
-<HeroHeader links={headerLinks} preheader={$LL.header.pretitle()} header={$LL.header.title()} />
+<Seo />
+<HeroHeader {links} preheader={$LL.header.pretitle()} header={$LL.header.title()} />
 <main class="relative z-20 mb-10 space-y-20 py-10 lg:space-y-40 lg:py-20">
   <IntroductionSection {...data.introduction} class="page px-8 lg:w-3/4" />
   <ManagementSection {...data.management} class="page px-8 lg:w-3/4" />
