@@ -69,6 +69,17 @@
             traefik.http.routers.directus.tls: true
             traefik.http.routers.directus.tls.certresolver: zerossl
 
+        redis-cache:
+          container_name:  redis-cache
+          image: kitashoersel/cache:latest
+          restart: unless-stopped
+          privileged: true
+          command: sh init-redis.sh {{ redis_password }}
+          networks:
+            - internal-network
+          volumes:
+            - "/opt/docker/redis:/etc/redis"
+
         kite-webserver:
           container_name: kite-webserver
           image: kitashoersel/webserver:latest

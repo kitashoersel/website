@@ -15,6 +15,9 @@ all:
     zerossl_kid: "__________"
     zerossl_hmac: "__________"
 
+    # Cache environments
+    redis_password: "__________"
+
     #! Server environments
 
     # Ansible auth credentials
