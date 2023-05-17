@@ -17,20 +17,20 @@
   },
   "dependencies": {
     "svelte": "*",
-    "imagetools-core": "^4.0.2",
-    "vite-imagetools": "^5.0.3"
+    "imagetools-core": "^4.0.3",
+    "vite-imagetools": "^5.0.4"
   },
   "devDependencies": {
     "@modules/eslint-config": "^1.0.0",
     "@modules/prettier-config": "^1.0.0",
     "@sveltejs/adapter-static": "^2.0.2",
-    "@sveltejs/kit": "^1.16.3",
+    "@sveltejs/kit": "^1.17.0",
     "@sveltejs/package": "^2.0.2",
     "concurrently": "^8.0.1",
     "publint": "^0.1.11",
     "svelte-check": "^3.3.2",
     "typescript": "^5.0.4",
-    "vite": "^4.3.5"
+    "vite": "^4.3.7"
   },
   "files": [
     "dist"
