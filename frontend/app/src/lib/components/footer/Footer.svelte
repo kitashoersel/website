@@ -6,7 +6,7 @@
 </script>
 
 <script lang="ts">
-  import Links from './Links.svelte';
+  import Links from '~lib/components/footer/components/Links.svelte';
 
   export let links: LinkProp[] | null = null;
 </script>

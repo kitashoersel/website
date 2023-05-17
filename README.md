@@ -73,10 +73,6 @@ Noch zu schreiben:
   - translate theme to scss lib
   - create scss folder structure
 
-**Misc**
-
-- split footer in smaller components
-
 **Performance**
 
 - add cache control header to graphql requests https://kit.svelte.dev/docs/load#cookies-and-headers

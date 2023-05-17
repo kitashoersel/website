@@ -4,7 +4,7 @@
   import { shortDate } from '$lib/utils/common/date';
   import Link from '$lib/components/common/Link.svelte';
   import { page } from '$app/stores';
-  import { directusImageUrl } from '~lib/utils/directus';
+  import { directusImageUrl } from '$lib/utils/directus';
 
   export let title: string;
   export let description: string;
