@@ -14,6 +14,7 @@ jobs:
     name: deploy redis docker image
     timeout-minutes: 15
     runs-on: ubuntu-latest
+    environment: production
     steps:
       - name: Check out code
         uses: actions/checkout@v3

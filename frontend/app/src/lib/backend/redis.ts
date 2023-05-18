@@ -9,10 +9,12 @@ export const redis: { client: RedisClient; isConnected: () => boolean } = {
 };
 
 redis.client.on('ready', () => {
+  console.log('redis connected');
   redis.isConnected = () => true;
 });
 
 redis.client.on('error', () => {
+  console.log('redis disconnected');
   redis.isConnected = () => false;
 });
 
