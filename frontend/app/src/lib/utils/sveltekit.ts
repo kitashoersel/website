@@ -49,21 +49,27 @@ export const initializeI18n = (
 };
 
 export const cached = async (key: string, resolve: () => Promise<Response>): Promise<Response> => {
-  let cachedResponse = await redis.hGetAll(key);
+  if (!redis.isConnected()) return resolve();
 
-  if (!cachedResponse.body) {
-    const response = await resolve();
+  try {
+    let cachedResponse = await redis.client.hGetAll(key);
 
-    cachedResponse = {
-      ...Object.fromEntries(response.headers.entries()),
-      body: await response.text(),
-      status: response.status.toString(),
-      statusText: response.statusText,
-    };
+    if (!cachedResponse.body) {
+      const response = await resolve();
 
-    if (response.status === 200) redis.hSet(key, cachedResponse);
+      cachedResponse = {
+        ...Object.fromEntries(response.headers.entries()),
+        body: await response.text(),
+        status: response.status.toString(),
+        statusText: response.statusText,
+      };
+
+      if (response.status === 200) redis.client.hSet(key, cachedResponse);
+    }
+
+    const { body, status, statusText, ...headers } = cachedResponse;
+    return new Response(body, { headers: new Headers(headers), status: parseInt(status, 10), statusText });
+  } catch (_) {
+    return resolve();
   }
-
-  const { body, status, statusText, ...headers } = cachedResponse;
-  return new Response(body, { headers: new Headers(headers), status: parseInt(status, 10), statusText });
 };
