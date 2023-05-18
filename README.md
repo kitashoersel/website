@@ -58,6 +58,7 @@ Noch zu schreiben:
 - https://icomoon.io/app/#/select/image
 - https://svgomg.net/
 - https://icon-sets.iconify.design/
+- `docker exec -it <CONTAINER_ID> redis-cli -a <PASSWORD> FLUSHALL`
 
 <p align="right">(<a href="#top">Zurück nach Oben</a>)</p>
 
