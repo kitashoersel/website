@@ -1,14 +1,22 @@
-import type { Handle } from '@sveltejs/kit';
-import { initializeI18n } from '$lib/utils/sveltekit';
+import type { Handle, HandleFetch } from '@sveltejs/kit';
+import { cached, initializeI18n } from '$lib/utils/sveltekit';
+
+const cacheVersion = 'v7';
 
 export const handle: Handle = async ({ event, resolve }) => {
-  const i18nResponse = initializeI18n(event.url.pathname, event.request, (locale, LL) => {
-    event.locals = { locale, LL };
-  });
+  const { isDataRequest, url, request, locals } = event;
+  if (isDataRequest) return resolve(event);
 
-  const htmlResponse = resolve(event, {
-    transformPageChunk: ({ html }) => html.setLang(event.locals.locale).setFonts(event.url.origin),
-  });
+  return (
+    initializeI18n(url.pathname, request, (locale, LL) => (event.locals = { locale, LL })) ??
+    cached(`rendered:${cacheVersion}:${url.pathname}`, async () =>
+      resolve(event, { transformPageChunk: ({ html }) => html.setLang(locals.locale).setFonts(url.origin) })
+    )
+  );
+};
 
-  return i18nResponse ?? htmlResponse;
+export const handleFetch: HandleFetch = async ({ request, fetch }) => {
+  const id = new URL(request.url).searchParams.get('req');
+  if (!id) return fetch(request);
+  return cached(`fetch:${cacheVersion}:${id}`, () => fetch(request));
 };

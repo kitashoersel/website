@@ -1,4 +1,4 @@
-import { gql } from '$lib/utils/graphql-client';
+import { gql } from '$lib/utils/common/graphql-client';
 
 export const ImageFragment = gql`
   fragment Image on directus_files {

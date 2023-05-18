@@ -1,8 +1,7 @@
-/* eslint-disable no-extend-native */
-
 import { initAcceptLanguageHeaderDetector } from 'typesafe-i18n/detectors';
 import { detectLocale, i18n, isLocale } from '$i18n/i18n-util';
 import { loadAllLocales } from '$i18n/i18n-util.sync';
+import { redis } from '$lib/backend/redis';
 
 declare global {
   interface String {
@@ -47,4 +46,24 @@ export const initializeI18n = (
   const LL = L[locale];
   done(locale, LL);
   return undefined;
+};
+
+export const cached = async (key: string, resolve: () => Promise<Response>): Promise<Response> => {
+  let cachedResponse = await redis.hGetAll(key);
+
+  if (!cachedResponse.body) {
+    const response = await resolve();
+
+    cachedResponse = {
+      ...Object.fromEntries(response.headers.entries()),
+      body: await response.text(),
+      status: response.status.toString(),
+      statusText: response.statusText,
+    };
+
+    if (response.status === 200) redis.hSet(key, cachedResponse);
+  }
+
+  const { body, status, statusText, ...headers } = cachedResponse;
+  return new Response(body, { headers: new Headers(headers), status: parseInt(status, 10), statusText });
 };

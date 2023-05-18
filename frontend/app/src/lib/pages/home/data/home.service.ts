@@ -1,11 +1,12 @@
 import { assert } from 'superstruct';
-import { fetchGQL, type Fetcher } from '$lib/utils/graphql-client';
+import { fetchGQL, type Fetcher } from '$lib/utils/common/graphql-client';
 import { query } from '$lib/pages/home/data/home.queries';
 import type { HomePageData } from '$lib/pages/home/data/home.model';
 import { remoteImageParser } from '$lib/pages/parser';
+import { config } from '$lib/config';
 
 export const fetchHomePageData = async (fetch: Fetcher, locale: string): Promise<HomePageData> => {
-  const result = await fetchGQL(query.gql, { fetcher: fetch, variables: { locale } });
+  const result = await fetchGQL(query.gql, { fetch, variables: { locale }, endpoint: config.cmsEndpoint });
   assert(result, query.schema);
 
   const homePageData = result.data.home_page.translations[0];

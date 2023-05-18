@@ -1,5 +1,5 @@
 import { object, string, array } from 'superstruct';
-import { gql } from '$lib/utils/graphql-client';
+import { gql } from '$lib/utils/common/graphql-client';
 
 export const query = {
   gql: gql`

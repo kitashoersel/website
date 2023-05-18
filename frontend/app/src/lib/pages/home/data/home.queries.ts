@@ -1,5 +1,5 @@
 import { object, string, array, number } from 'superstruct';
-import { gql } from '$lib/utils/graphql-client';
+import { gql } from '$lib/utils/common/graphql-client';
 import { remoteImageSchema } from '$lib/pages/schemas';
 import { ImageFragment } from '$lib/pages/fragments';
 

@@ -5,10 +5,10 @@
 </script>
 
 <ul class="flex gap-5 lg:justify-end">
-  {#if $page.url.pathname.endsWith($LL.routes.imprint())}
+  {#if !$page.url.pathname.endsWith($LL.routes.privacy())}
     <li><Link i11n href={$LL.routes.privacy()} class="text-secondary-100">{$LL.footer.privacy()}</Link></li>
   {/if}
-  {#if $page.url.pathname.endsWith($LL.routes.privacy())}
+  {#if !$page.url.pathname.endsWith($LL.routes.imprint())}
     <li><Link i11n href={$LL.routes.imprint()} class="text-secondary-100">{$LL.footer.imprint()}</Link></li>
   {/if}
 </ul>

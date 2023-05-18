@@ -73,13 +73,6 @@ Noch zu schreiben:
   - translate theme to scss lib
   - create scss folder structure
 
-**Performance**
-
-- add cache control header to graphql requests https://kit.svelte.dev/docs/load#cookies-and-headers
-- refactor graphql client to be a common module
-- redis as top level cache for html output
-
-
 ## 🔓 Lizenz
 
 All meine Softwareprojekte werden unter der MIT Lizenz vertrieben. Für mehr Informationen kannst du in die [Lizenzdatei](./LICENSE) schauen.

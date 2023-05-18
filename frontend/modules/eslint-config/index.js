@@ -51,6 +51,17 @@ module.exports = {
     // These issues should get caught by typings. Also sometimes it allows to write shorter and more
     // readable code.
     "no-return-assign": "off",
+
+    // Service worker need access to the global self function. This should not be discouraged.
+    "no-restricted-globals": "off",
+
+    // This should only be discouraged when not typed correctly. Native extends can improve
+    // readability and developer experience when implemented correctly.
+    "no-extend-native": "off",
+
+    // Bitwise operations are disabled because they are rare in js. However sometimes they 
+    // are needed. Typescript should catch these typos pretty quickly.
+    "no-bitwise": "off",
   },
   overrides: [
     {
