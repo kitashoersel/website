@@ -1,3 +1,9 @@
+- name: "Set overcommit_memory in sysctl for redis"
+  ansible.posix.sysctl:
+    name: vm.overcommit_memory
+    value: '1'
+    state: present
+
 - name: Create the traefik directory
   file:
     path: "/etc/traefik"
@@ -70,20 +76,23 @@
             traefik.http.routers.directus.tls.certresolver: zerossl
 
         redis-cache:
-          container_name:  redis-cache
+          container_name: redis-cache
           image: kitashoersel/cache:latest
           restart: unless-stopped
-          privileged: true
-          command: sh init-redis.sh {{ redis_password }}
+          command: redis-server --requirepass {{ redis_password }}
           networks:
             - internal-network
-          volumes:
-            - "/opt/docker/redis:/etc/redis"
 
         kite-webserver:
           container_name: kite-webserver
           image: kitashoersel/webserver:latest
           restart: unless-stopped
+          environment:
+            "PUBLIC_CONTACT_EMAIL": "{{ contact_email }}"
+            "PUBLIC_SITE_URL": "{{ site_url }}"
+            "PUBLIC_CMS_ENDPOINT": "{{ cms_endpoint }}"
+            "PUBLIC_ASSET_ENDPOINT": "{{ asset_endpoint }}"
+            "REDIS_URL": "{{ redis_urL }}"
           networks:
             - internal-network
 

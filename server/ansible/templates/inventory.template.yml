@@ -18,6 +18,14 @@ all:
     # Cache environments
     redis_password: "__________"
 
+    # Backend environments
+    contact_email: "admin@kitashoersel.de"
+    site_url: "https://kitashoersel.de"
+    cms_endpoint: "https://admin.kitashoersel.de/graphql"
+    asset_endpoint: "https://admin.kitashoersel.de/assets"
+
+    redis_urL: "redis://:<PASSWORD>@localhost:6379"
+
     #! Server environments
 
     # Ansible auth credentials
