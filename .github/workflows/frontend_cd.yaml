@@ -47,6 +47,13 @@ jobs:
     defaults:
       run:
         working-directory: frontend
+    environment: production
+    env:
+      PUBLIC_CONTACT_EMAIL: ${{ vars.PUBLIC_CONTACT_EMAIL }}
+      PUBLIC_SITE_URL: ${{ vars.PUBLIC_SITE_URL }}
+      PUBLIC_CMS_ENDPOINT: ${{ vars.PUBLIC_CMS_ENDPOINT }}
+      PUBLIC_ASSET_ENDPOINT: ${{ vars.PUBLIC_ASSET_ENDPOINT }}
+      REDIS_URL: ${{ secrets.REDIS_URL }}
     steps:
       - name: Check out code
         uses: actions/checkout@v3
