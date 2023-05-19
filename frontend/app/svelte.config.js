@@ -17,7 +17,7 @@ const config = {
       languages: locales,
     }),
     csp: {
-      mode: 'hash',
+      mode: 'auto',
       directives: { 'style-src': ['self', 'unsafe-inline'], 'script-src': ['self', 'unsafe-inline'] },
     },
     alias: {
