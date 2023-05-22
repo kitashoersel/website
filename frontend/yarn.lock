@@ -3004,10 +3004,10 @@ proxy-addr@^2.0.7:
     forwarded "0.2.0"
     ipaddr.js "1.9.1"
 
-publint@^0.1.11:
-  version "0.1.11"
-  resolved "https://registry.yarnpkg.com/publint/-/publint-0.1.11.tgz#4c26c6b7d80e52802abe716cf6569dce2930966f"
-  integrity sha512-sD0rtIEadks83MkpomJswBO/YHExJLkta1TyqUhb0/aVV+o3ZlVnwsDPjCAow8tpfxmLGutCSLWq32yfhPB98w==
+publint@^0.1.12:
+  version "0.1.12"
+  resolved "https://registry.yarnpkg.com/publint/-/publint-0.1.12.tgz#96efddf32f6d05a07aabe600ad85540338a018a3"
+  integrity sha512-8LxkO430t/SOhUl0qXQWdXq34m6oyLcPhE4Kc8eXhOEnB82vCHcShPQ2kH53n/ksC7jWdRWDP7MPGxKJbntQfg==
   dependencies:
     npm-packlist "^5.1.3"
     picocolors "^1.0.0"
