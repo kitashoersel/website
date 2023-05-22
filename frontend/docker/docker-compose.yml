@@ -1,0 +1,57 @@
+version: '3'
+services:
+  traefik-router:
+    image: traefik:v2.10
+    restart: unless-stopped
+    ports:
+      - 80:80
+    volumes:
+      - ./traefik:/etc/traefik
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - internal-network
+
+  redis-cache:
+    build: redis
+    restart: unless-stopped
+    command: redis-server --requirepass root
+    ports:
+      - 6379:6379
+    networks:
+      - internal-network
+
+  webserver:
+    build:
+      context: ../app/build
+      dockerfile: ./docker/sveltekit/Dockerfile
+    restart: unless-stopped
+    environment:
+      "PUBLIC_CONTACT_EMAIL": "${PUBLIC_CONTACT_EMAIL}"
+      "PUBLIC_SITE_URL": "${PUBLIC_SITE_URL}"
+      "PUBLIC_CMS_ENDPOINT": "${PUBLIC_CMS_ENDPOINT}"
+      "PUBLIC_ASSET_ENDPOINT": "${PUBLIC_ASSET_ENDPOINT}"
+      "REDIS_URL": "${REDIS_URL}"
+    networks:
+      - internal-network
+    depends_on:
+      - redis-cache
+
+  proxy:
+    build:
+      context: ../app/build
+      dockerfile: ./docker/nginx/Dockerfile
+    restart: unless-stopped
+    networks:
+      - internal-network
+    depends_on:
+      - traefik-router
+    labels:
+      traefik.enable: true
+      traefik.http.routers.nginx.entrypoints: web
+      traefik.http.routers.nginx.rule: Host(`localhost`)
+      traefik.http.routers.nginx-router.service: nginx-service
+      traefik.http.services.nginx-service.loadbalancer.server.port: 3001
+
+networks:
+  internal-network:
+    driver: bridge

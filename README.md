@@ -74,6 +74,8 @@ Noch zu schreiben:
   - translate theme to scss lib
   - create scss folder structure
 
+- Manifest file inside i18n config
+
 ## 🔓 Lizenz
 
 All meine Softwareprojekte werden unter der MIT Lizenz vertrieben. Für mehr Informationen kannst du in die [Lizenzdatei](./LICENSE) schauen.

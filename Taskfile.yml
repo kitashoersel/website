@@ -12,6 +12,13 @@ tasks:
       - if [ {{.CLI_ARGS}} = up ]; then docker compose -f frontend/docker/docker-compose.dev.yml -p kite-dev {{.CLI_ARGS}} -d; fi
       - if [ {{.CLI_ARGS}} = down ]; then docker compose -f frontend/docker/docker-compose.dev.yml -p kite-dev {{.CLI_ARGS}}; fi
 
+  preview:
+    desc: Runs the docker compose command for the preview environment (up, down)
+    cmds:
+      - if [ {{.CLI_ARGS}} = build ]; then docker compose --env-file frontend/app/.env -f frontend/docker/docker-compose.yml -p kite-preview {{.CLI_ARGS}} --no-cache; fi
+      - if [ {{.CLI_ARGS}} = up ]; then docker compose --env-file frontend/app/.env -f frontend/docker/docker-compose.yml -p kite-preview {{.CLI_ARGS}} -d; fi
+      - if [ {{.CLI_ARGS}} = down ]; then docker compose --env-file frontend/app/.env -f frontend/docker/docker-compose.yml -p kite-preview {{.CLI_ARGS}}; fi
+
   run:
     desc: Runs the script with the provided name (clean, upgrade, install)
     cmds:

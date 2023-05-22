@@ -24,7 +24,6 @@
       version: "3"
       services:
         watchtower:
-          container_name: "kite-watchtower"
           image: "containrrr/watchtower:1.5.3"
           restart: unless-stopped
           command: --schedule "* */15 * * * *"
@@ -32,7 +31,6 @@
             - /var/run/docker.sock:/var/run/docker.sock
 
         traefik-router:
-          container_name: "kite-traefik"
           image: "traefik:v2.10"
           restart: unless-stopped
           ports:
@@ -46,7 +44,6 @@
             - internal-network
 
         directus-cms:
-          container_name: kite-directus
           image: directus/directus:9.23
           restart: unless-stopped
           volumes:
@@ -83,8 +80,7 @@
           networks:
             - internal-network
 
-        kite-webserver:
-          container_name: kite-webserver
+        webserver:
           image: kitashoersel/webserver:latest
           restart: unless-stopped
           environment:
@@ -96,8 +92,7 @@
           networks:
             - internal-network
 
-        kite-proxy:
-          container_name: kite-proxy
+        proxy:
           image: kitashoersel/proxy:latest
           restart: unless-stopped
           networks:

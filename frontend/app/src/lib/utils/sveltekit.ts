@@ -1,4 +1,5 @@
 import { initAcceptLanguageHeaderDetector } from 'typesafe-i18n/detectors';
+import { building } from '$app/environment';
 import { detectLocale, i18n, isLocale } from '$i18n/i18n-util';
 import { loadAllLocales } from '$i18n/i18n-util.sync';
 import { redis } from '$lib/backend/redis';
@@ -49,7 +50,7 @@ export const initializeI18n = (
 };
 
 export const cached = async (key: string, resolve: () => Promise<Response>): Promise<Response> => {
-  if (!redis.isConnected()) return resolve();
+  if (!redis.isConnected() || building) return resolve();
 
   try {
     let cachedResponse = await redis.client.hGetAll(key);
@@ -68,6 +69,7 @@ export const cached = async (key: string, resolve: () => Promise<Response>): Pro
     }
 
     const { body, status, statusText, ...headers } = cachedResponse;
+    console.log({ status, statusText, headers: new Headers(headers) });
     return new Response(body, { headers: new Headers(headers), status: parseInt(status, 10), statusText });
   } catch (_) {
     return resolve();

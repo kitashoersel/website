@@ -5,13 +5,13 @@ import { config } from '$lib/config';
 const cacheVersion = 'v7';
 
 export const handle: Handle = async ({ event, resolve }) => {
-  const { isDataRequest, url, request, locals } = event;
+  const { isDataRequest, url, request } = event;
   if (isDataRequest) return resolve(event);
 
   return (
     initializeI18n(url.pathname, request, (locale, LL) => (event.locals = { locale, LL })) ??
     cached(`rendered:${cacheVersion}:${url.pathname}`, async () =>
-      resolve(event, { transformPageChunk: ({ html }) => html.setLang(locals.locale).setFonts(config.siteUrl) })
+      resolve(event, { transformPageChunk: ({ html }) => html.setLang(event.locals.locale).setFonts(config.siteUrl) })
     )
   );
 };

@@ -13,7 +13,7 @@ const config = {
   kit: {
     adapter: adapter({
       immutables: { immutableFolders: ['fonts', 'icons'] },
-      hostName: 'kite-webserver',
+      hostName: 'webserver',
       languages: locales,
     }),
     csp: {
