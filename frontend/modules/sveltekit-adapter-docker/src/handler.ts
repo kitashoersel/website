@@ -45,33 +45,49 @@ export const handler: onRequestAsyncHookHandler = async (req, reply) => {
     throw new Error(`Address header was specified with ADDRESS_HEADER=${addressHeader} but is absent from request`);
   }
 
-  return setResponse(
-    reply.raw,
-    await server.respond(request, {
-      platform: { req },
-      getClientAddress: () => {
-        if (addressHeader) {
-          const value = (req.headers[addressHeader] as string) || '';
+  const res = await server.respond(request, {
+    platform: { req },
+    getClientAddress: () => {
+      if (addressHeader) {
+        const value = (req.headers[addressHeader] as string) || '';
 
-          if (addressHeader === 'x-forwarded-for') {
-            const addresses = value.split(',');
+        if (addressHeader === 'x-forwarded-for') {
+          const addresses = value.split(',');
 
-            if (xffDepth < 1) {
-              throw new Error(`XFF_DEPTH must be a positive integer`);
-            }
-
-            if (xffDepth > addresses.length) {
-              throw new Error(`XFF_DEPTH is ${xffDepth}, but only found ${addresses.length} addresses`);
-            }
-
-            return addresses[addresses.length - xffDepth].trim();
+          if (xffDepth < 1) {
+            throw new Error(`XFF_DEPTH must be a positive integer`);
           }
 
-          return value;
+          if (xffDepth > addresses.length) {
+            throw new Error(`XFF_DEPTH is ${xffDepth}, but only found ${addresses.length} addresses`);
+          }
+
+          return addresses[addresses.length - xffDepth].trim();
         }
 
-        return req.connection?.remoteAddress || req.socket?.remoteAddress;
+        return value;
+      }
+
+      return req.connection?.remoteAddress || req.socket?.remoteAddress;
+    },
+  });
+
+  if (res.status !== 304) {
+    reply.helmet({
+      contentSecurityPolicy: {
+        directives: {
+          'style-src': ['self', 'unsafe-inline'],
+          'script-src': ['self', 'unsafe-inline'],
+          'img-src': ["'self'", 'admin.kitashoersel.de', 'data:'],
+        },
       },
-    })
-  );
+    });
+  } else {
+    reply.raw.setHeader(
+      'content-security-policy',
+      "default-src 'self'; base-uri 'self'; img-src 'self' admin.kitashoersel.de data:; form-action 'self'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests"
+    );
+  }
+
+  return setResponse(reply.raw, res);
 };

@@ -15,19 +15,7 @@ const bootstrap = async () => {
   server.addContentTypeParser('*', (_, __, done) => done(null, null));
 
   await server.register(fastifyCors);
-  await server.register(fastifyHelmet, {
-    contentSecurityPolicy: {
-      directives: {
-        'style-src': ['self', 'unsafe-inline'],
-        'script-src': ['self', 'unsafe-inline'],
-        'img-src': ["'self'", 'admin.kitashoersel.de', 'data:'],
-      },
-    },
-  });
-
-  server.get('/check', async (_, res) => {
-    return res.status(200).send('Hello World');
-  });
+  await server.register(fastifyHelmet, { global: true });
 
   server.get('*', (req, res) => handler(req, res));
 

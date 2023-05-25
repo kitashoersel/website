@@ -69,7 +69,6 @@ export const cached = async (key: string, resolve: () => Promise<Response>): Pro
     }
 
     const { body, status, statusText, ...headers } = cachedResponse;
-    console.log({ status, statusText, headers: new Headers(headers) });
     return new Response(body, { headers: new Headers(headers), status: parseInt(status, 10), statusText });
   } catch (_) {
     return resolve();
