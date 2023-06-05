@@ -24,7 +24,7 @@
     "@modules/eslint-config": "^1.0.0",
     "@modules/prettier-config": "^1.0.0",
     "@sveltejs/adapter-static": "^2.0.2",
-    "@sveltejs/kit": "^1.18.0",
+    "@sveltejs/kit": "^1.20.1",
     "@sveltejs/package": "^2.0.2",
     "concurrently": "^8.0.1",
     "publint": "^0.1.12",
