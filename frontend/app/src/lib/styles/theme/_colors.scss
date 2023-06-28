@@ -1,0 +1,14 @@
+@forward "utils/colors" with (
+  $shades: (100: 55, 200: 45, 500: 30, 600: 0, 700: -5),
+  $colors: (
+    "primary": #25334f,
+    "secondary": #c1280d,
+    "success": #85d999,
+    "danger": #e63381,
+  ),
+  $extra: (
+    "neutral-0": #ffffff,
+    "neutral-100": #f6f6f6,
+    "transparent-0": #00000000
+  )
+);

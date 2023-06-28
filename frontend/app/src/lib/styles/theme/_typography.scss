@@ -1,0 +1,14 @@
+@forward "utils/typography" with (
+  $typography: (
+    "body-sm": 0.8125rem,
+    "body-no": 0.9375rem,
+    "body-md": 1.0625rem,
+    "body-lg": 1.25rem,
+    "body-xl": 1.5rem,
+    "header-sm": 1.5rem,
+    "header-no": 2.0625rem,
+    "header-md": 2.5rem,
+    "header-lg": 3.125rem,
+    "header-xl": 3.75rem,
+  )
+);

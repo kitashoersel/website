@@ -1,0 +1,13 @@
+.clamp-1, .clamp-2, .clamp-3, .clamp-4, .clamp-5 {
+  display: block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@for $i from 1 through 5 {
+  .clamp-#{$i} { -webkit-line-clamp: #{$i}; }
+}
+
+

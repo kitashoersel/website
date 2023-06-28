@@ -44,7 +44,8 @@
             "system": "config",
             "ssh": "connection",
             "vars": "verdaccio",
-            "actions": "hook"
+            "actions": "hook",
+            "mixins": "plugin"
           },
           "files.exclude": {
             "**/yarn.lock": true,
@@ -121,7 +122,8 @@
           "bradlc.vscode-tailwindcss",
           "ardenivanov.svelte-intellisense",
           "fivethree.vscode-svelte-snippets",
-          "ahmadalli.vscode-nginx-conf"
+          "ahmadalli.vscode-nginx-conf",
+          "mrmlnc.vscode-scss"
         ]
       }
     }

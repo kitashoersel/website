@@ -1,0 +1,10 @@
+$typography: () !default;
+
+@function fontSize($type) {
+  @if map-has-key($typography, $type){
+    @return map-get($typography, $type);
+  }
+
+  @warn "unknown font size `#{$key}` in typography";
+  @return null;
+}

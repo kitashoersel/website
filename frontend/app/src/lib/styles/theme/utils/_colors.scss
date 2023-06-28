@@ -1,0 +1,35 @@
+@use "sass:math";
+@use "sass:map";
+
+$shades: (100: 55, 200: 45, 500: 30, 600: 0, 700: -5) !default;
+$colors: () !default;
+$extra: () !default;
+
+@function _shade($color, $percent) {
+  @if $percent < 0 { @return darken($color, math.abs($percent)); }
+  @else { @return lighten($color, $percent); }
+}
+
+$_palette: ();
+
+@each $tone, $lighten in $shades {
+  @each $name, $value in $colors {
+    $tmp: map-merge($_palette, ("#{$name}-#{$tone}": _shade($value, $lighten)));
+    $_palette: map-merge($_palette, $tmp);
+  }
+}
+
+@function color($color, $tone) {
+  $key: "#{$color}-#{$tone}";
+
+  @if map-has-key($_palette, $key){
+    @return map-get($_palette, $key);
+  }
+
+  @if map-has-key($extra, $key){
+    @return map-get($_palette, $key);
+  }
+
+  @warn "unknown color `#{$key}` in palette";
+  @return null;
+}

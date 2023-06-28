@@ -9,7 +9,16 @@ const prerenderEntries = localizedSSGPaths.map((path) => localizedPath(path)).fl
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-  preprocess: preprocess(),
+  preprocess: preprocess({
+    scss: {
+      importer(url, prev) {
+        if (url === '$THEME') {
+          return { file: './src/lib/style/theme/_index.scss' };
+        }
+        return { file: prev };
+      },
+    },
+  }),
   kit: {
     adapter: adapter({
       immutables: { immutableFolders: ['fonts', 'icons'] },
@@ -22,6 +31,7 @@ const config = {
     },
     alias: {
       $i18n: 'src/lib/i18n',
+      $styles: 'src/lib/styles',
       '~lib': 'src/lib',
       '~': 'src',
     },
